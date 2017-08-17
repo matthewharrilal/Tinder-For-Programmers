@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C1F4AA11F4212A400E2C3F0 /* matchmakingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */; };
+		1C1F4AA31F43305F00E2C3F0 /* gifFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */; };
+		1C1F4AA61F43397E00E2C3F0 /* computer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA51F43397E00E2C3F0 /* computer.jpg */; };
+		1C1F4AA71F434C3B00E2C3F0 /* giphy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */; };
+		1C1F4AA91F434E4B00E2C3F0 /* used.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA81F434E3900E2C3F0 /* used.mp4 */; };
+		1C4D2CF91F310C3A00C6FC4B /* HardCodedUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2CF81F310C3A00C6FC4B /* HardCodedUsers.swift */; };
+		1C4D2CFB1F310C7200C6FC4B /* HardCodedUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2CFA1F310C7200C6FC4B /* HardCodedUserServices.swift */; };
+		1C4D2CFD1F310DE300C6FC4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2CFC1F310DE300C6FC4B /* GoogleService-Info.plist */; };
+		1C4D2CFF1F31189500C6FC4B /* laura-aziz-133168.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */; };
+		1C4D2D011F3118AD00C6FC4B /* mike-erskine-144525.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */; };
+		1C4D2D031F31FB7700C6FC4B /* ProfileThatUsersSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */; };
+		1C4D2D051F32352200C6FC4B /* redd-angelo-113258.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */; };
+		1C650F8F1F38E8EB005B398E /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C650F8E1F38E8EB005B398E /* Storyboard+Utility.swift */; };
+		1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */; };
+		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; };
+		1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */; };
+		1CCA45CE1F29858D005C062C /* ProfileVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA45CD1F29858D005C062C /* ProfileVewController.swift */; };
+		1CCA45D01F2A275A005C062C /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */; };
+		1CD226EB1F3A3C7000433883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD226EA1F3A3C7000433883 /* Main.storyboard */; };
+		1CD226ED1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD226EC1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg */; };
+		1CD226EF1F3AA7D900433883 /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD226EE1F3AA7D900433883 /* Logo.jpg */; };
+		1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F01F24067D0085E102 /* AppDelegate.swift */; };
+		1CD906F31F24067D0085E102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F21F24067D0085E102 /* ViewController.swift */; };
+		1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD906F71F24067D0085E102 /* Assets.xcassets */; };
+		1CEB0EA71F2B9F2C00386BD3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */; };
+		1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */; };
+		1CEB0EAF1F2BD95A00386BD3 /* CreateUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */; };
+		1CEB0EB31F2EC86800386BD3 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */; };
+		1CF5CE301F34ECAC00ECC085 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CF5CE2F1F34ECAC00ECC085 /* background.jpg */; };
+		1CF5CE321F35FA7A00ECC085 /* AuthenticationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF5CE311F35FA7A00ECC085 /* AuthenticationServices.swift */; };
+		843AD75B2EF3F78DF1055EC7 /* Pods_Granite__Better_Yelp_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchmakingMode.swift; sourceTree = "<group>"; };
+		1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFile.swift; sourceTree = "<group>"; };
+		1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = giphy.mp4; sourceTree = "<group>"; };
+		1C1F4AA51F43397E00E2C3F0 /* computer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = computer.jpg; sourceTree = "<group>"; };
+		1C1F4AA81F434E3900E2C3F0 /* used.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = used.mp4; sourceTree = "<group>"; };
+		1C4D2CF81F310C3A00C6FC4B /* HardCodedUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HardCodedUsers.swift; path = "Granite (Better Yelp)/HardCodedUsers.swift"; sourceTree = "<group>"; };
+		1C4D2CFA1F310C7200C6FC4B /* HardCodedUserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HardCodedUserServices.swift; path = "Granite (Better Yelp)/HardCodedUserServices.swift"; sourceTree = "<group>"; };
+		1C4D2CFC1F310DE300C6FC4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Granite (Better Yelp)/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "laura-aziz-133168.jpg"; sourceTree = "<group>"; };
+		1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mike-erskine-144525.jpg"; sourceTree = "<group>"; };
+		1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileThatUsersSee.swift; sourceTree = "<group>"; };
+		1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "redd-angelo-113258.jpg"; sourceTree = "<group>"; };
+		1C650F8E1F38E8EB005B398E /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
+		1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNearbyPeople.swift; sourceTree = "<group>"; };
+		1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1CCA45CD1F29858D005C062C /* ProfileVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVewController.swift; sourceTree = "<group>"; };
+		1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
+		1CD226EA1F3A3C7000433883 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1CD226EC1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = firstViewControllerBackgroundImage.jpg; sourceTree = "<group>"; };
+		1CD226EE1F3AA7D900433883 /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
+		1CD906ED1F24067D0085E102 /* Granite (Better Yelp).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Granite (Better Yelp).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CD906F01F24067D0085E102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CD906F21F24067D0085E102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CD906F71F24067D0085E102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CD906FC1F24067D0085E102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Granite (Better Yelp)/Info.plist"; sourceTree = "<group>"; };
+		1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LogInStoryBoard.storyboard; path = "Granite (Better Yelp)/LogInStoryBoard.storyboard"; sourceTree = "<group>"; };
+		1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsername.swift; sourceTree = "<group>"; };
+		1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		1CF5CE2F1F34ECAC00ECC085 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		1CF5CE311F35FA7A00ECC085 /* AuthenticationServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationServices.swift; sourceTree = "<group>"; };
+		2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).debug.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).debug.xcconfig"; sourceTree = "<group>"; };
+		36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Granite__Better_Yelp_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).release.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CD906EA1F24067D0085E102 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */,
+				843AD75B2EF3F78DF1055EC7 /* Pods_Granite__Better_Yelp_.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C650F8D1F38E8D0005B398E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1C650F8E1F38E8EB005B398E /* Storyboard+Utility.swift */,
+				1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		1C9CED2B1F2778BA002C4BCA /* Picture and Videos */ = {
+			isa = PBXGroup;
+			children = (
+				1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */,
+				1C1F4AA81F434E3900E2C3F0 /* used.mp4 */,
+				1C1F4AA51F43397E00E2C3F0 /* computer.jpg */,
+				1CD226EE1F3AA7D900433883 /* Logo.jpg */,
+				1CD226EC1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg */,
+				1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */,
+				1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */,
+				1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */,
+				1CF5CE2F1F34ECAC00ECC085 /* background.jpg */,
+			);
+			name = "Picture and Videos";
+			sourceTree = "<group>";
+		};
+		1C9CED311F27D375002C4BCA /* Hardcoded Model Users */ = {
+			isa = PBXGroup;
+			children = (
+				1C4D2CF81F310C3A00C6FC4B /* HardCodedUsers.swift */,
+			);
+			name = "Hardcoded Model Users";
+			sourceTree = "<group>";
+		};
+		1CCA45CA1F27DBDB005C062C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1C4D2CFA1F310C7200C6FC4B /* HardCodedUserServices.swift */,
+				1CF5CE311F35FA7A00ECC085 /* AuthenticationServices.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		1CD906E41F24067D0085E102 = {
+			isa = PBXGroup;
+			children = (
+				1C650F8D1F38E8D0005B398E /* Extensions */,
+				1CEB0EAB1F2BA1C700386BD3 /* Info files */,
+				1CEB0EAA1F2BA1A200386BD3 /* Storyboards */,
+				1CCA45CA1F27DBDB005C062C /* Service */,
+				1C9CED311F27D375002C4BCA /* Hardcoded Model Users */,
+				1C9CED2B1F2778BA002C4BCA /* Picture and Videos */,
+				1CD906EF1F24067D0085E102 /* View Controllers */,
+				1CD906EE1F24067D0085E102 /* Products */,
+				4925F09C19B95B2B87362CBC /* Pods */,
+				4DA83572763E5E5E2ABB5390 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1CD906EE1F24067D0085E102 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CD906ED1F24067D0085E102 /* Granite (Better Yelp).app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CD906EF1F24067D0085E102 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1CD906F01F24067D0085E102 /* AppDelegate.swift */,
+				1CD906F21F24067D0085E102 /* ViewController.swift */,
+				1CD906F71F24067D0085E102 /* Assets.xcassets */,
+				1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */,
+				1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */,
+				1CCA45CD1F29858D005C062C /* ProfileVewController.swift */,
+				1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */,
+				1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */,
+				1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */,
+				1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */,
+				1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */,
+				1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */,
+			);
+			name = "View Controllers";
+			path = "Granite (Better Yelp)";
+			sourceTree = "<group>";
+		};
+		1CEB0EAA1F2BA1A200386BD3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1CD226EA1F3A3C7000433883 /* Main.storyboard */,
+				1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		1CEB0EAB1F2BA1C700386BD3 /* Info files */ = {
+			isa = PBXGroup;
+			children = (
+				1C4D2CFC1F310DE300C6FC4B /* GoogleService-Info.plist */,
+				1CD906FC1F24067D0085E102 /* Info.plist */,
+			);
+			name = "Info files";
+			sourceTree = "<group>";
+		};
+		4925F09C19B95B2B87362CBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */,
+				3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4DA83572763E5E5E2ABB5390 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */,
+				36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CD906EC1F24067D0085E102 /* Granite (Better Yelp) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CD906FF1F24067D0085E102 /* Build configuration list for PBXNativeTarget "Granite (Better Yelp)" */;
+			buildPhases = (
+				598D73E33C18AF6A3EA89D3B /* [CP] Check Pods Manifest.lock */,
+				1CD906E91F24067D0085E102 /* Sources */,
+				1CD906EA1F24067D0085E102 /* Frameworks */,
+				1CD906EB1F24067D0085E102 /* Resources */,
+				523DCFE978C0AE3ACFE68CDB /* [CP] Embed Pods Frameworks */,
+				36DF8DFCA7D92B76D08204AC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Granite (Better Yelp)";
+			productName = "Granite (Better Yelp)";
+			productReference = 1CD906ED1F24067D0085E102 /* Granite (Better Yelp).app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CD906E51F24067D0085E102 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Matthew Harrilal";
+				TargetAttributes = {
+					1CD906EC1F24067D0085E102 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = R4WEEFNVWZ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1CD906E81F24067D0085E102 /* Build configuration list for PBXProject "Granite (Better Yelp)" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CD906E41F24067D0085E102;
+			productRefGroup = 1CD906EE1F24067D0085E102 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CD906EC1F24067D0085E102 /* Granite (Better Yelp) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CD906EB1F24067D0085E102 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1F4AA91F434E4B00E2C3F0 /* used.mp4 in Resources */,
+				1C1F4AA71F434C3B00E2C3F0 /* giphy.mp4 in Resources */,
+				1C1F4AA61F43397E00E2C3F0 /* computer.jpg in Resources */,
+				1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */,
+				1CD226EF1F3AA7D900433883 /* Logo.jpg in Resources */,
+				1CD226ED1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg in Resources */,
+				1C4D2CFD1F310DE300C6FC4B /* GoogleService-Info.plist in Resources */,
+				1C4D2D011F3118AD00C6FC4B /* mike-erskine-144525.jpg in Resources */,
+				1CD226EB1F3A3C7000433883 /* Main.storyboard in Resources */,
+				1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */,
+				1C4D2D051F32352200C6FC4B /* redd-angelo-113258.jpg in Resources */,
+				1CF5CE301F34ECAC00ECC085 /* background.jpg in Resources */,
+				1C4D2CFF1F31189500C6FC4B /* laura-aziz-133168.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36DF8DFCA7D92B76D08204AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp)-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		523DCFE978C0AE3ACFE68CDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		598D73E33C18AF6A3EA89D3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CD906E91F24067D0085E102 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CEB0EAF1F2BD95A00386BD3 /* CreateUsername.swift in Sources */,
+				1C4D2CF91F310C3A00C6FC4B /* HardCodedUsers.swift in Sources */,
+				1CD906F31F24067D0085E102 /* ViewController.swift in Sources */,
+				1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */,
+				1C1F4AA11F4212A400E2C3F0 /* matchmakingMode.swift in Sources */,
+				1CCA45CE1F29858D005C062C /* ProfileVewController.swift in Sources */,
+				1C650F8F1F38E8EB005B398E /* Storyboard+Utility.swift in Sources */,
+				1C4D2D031F31FB7700C6FC4B /* ProfileThatUsersSee.swift in Sources */,
+				1CF5CE321F35FA7A00ECC085 /* AuthenticationServices.swift in Sources */,
+				1CEB0EB31F2EC86800386BD3 /* MainNavigationController.swift in Sources */,
+				1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */,
+				1CCA45D01F2A275A005C062C /* DirectionsViewController.swift in Sources */,
+				1CEB0EA71F2B9F2C00386BD3 /* LogInViewController.swift in Sources */,
+				1C4D2CFB1F310C7200C6FC4B /* HardCodedUserServices.swift in Sources */,
+				1C1F4AA31F43305F00E2C3F0 /* gifFile.swift in Sources */,
+				1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1CD906FD1F24067D0085E102 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1CD906FE1F24067D0085E102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CD907001F24067D0085E102 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R4WEEFNVWZ;
+				INFOPLIST_FILE = "Granite (Better Yelp)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "M.Harrilal.Granite--Better-Yelp-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1CD907011F24067D0085E102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R4WEEFNVWZ;
+				INFOPLIST_FILE = "Granite (Better Yelp)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "M.Harrilal.Granite--Better-Yelp-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CD906E81F24067D0085E102 /* Build configuration list for PBXProject "Granite (Better Yelp)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD906FD1F24067D0085E102 /* Debug */,
+				1CD906FE1F24067D0085E102 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CD906FF1F24067D0085E102 /* Build configuration list for PBXNativeTarget "Granite (Better Yelp)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD907001F24067D0085E102 /* Debug */,
+				1CD907011F24067D0085E102 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CD906E51F24067D0085E102 /* Project object */;
+}

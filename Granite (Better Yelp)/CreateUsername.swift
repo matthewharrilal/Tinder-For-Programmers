@@ -65,7 +65,7 @@ class CreateUsername: UIViewController {
             if let error = error {
                   self.signUpErrors(error: error, controller: self)
                 print(error.localizedDescription)
-                //  AuthenticationUserServices.signUpErrors0(error: error, controller: self)
+               
               
                 
                 // So essentially what we are doing here is that we are saying if the error is existent then show us the signup error but the problem we were having was that when we were saying that if the error does not exist becuase that was the only time we can actually work but the user returns nil but therefore it hits both the if and else statement
@@ -73,7 +73,8 @@ class CreateUsername: UIViewController {
             } else {
                 
                 // This creates the user inside the database
-                UserService.create(self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!, self.githubName.text!, "", "", completion: { (user) in
+                UserService.create(self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!, self.githubName.text!, "", "", "", completion: { (user) in
+                    // The reason we are using empty strings to satisfy the following initalizers: githubLink as compLAnguage as well as userBio is because as we know since we are adding them to our initalizer to create user as well as access them from any file we would have to call them in this call of our userService struct but they do not need to add that when they create their account therefore to satisfy the empty strings then the user later updates them as they customize their profile
                     guard let user = user
                         else{
                             

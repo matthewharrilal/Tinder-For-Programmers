@@ -13,17 +13,11 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-// Before we stat our code whenever we are dealing with backend servers what we essentially want is a service layer to keep the stuff that is happening in the background from getting in our way and potentially confusing us
 
 struct UserService {
-//    static func create(user: HardCodedUsers) {
-//        
-//        create(user: HardCodedUsers)
-//        
-//    }
-//    
-    static func create(_ githubLink: String, _ computerLanguage: String, _ username: String, _ email: String, _ fullName: String, _ password: String, _ githubName: String,completion: @escaping(HardCodedUsers?) -> Void) {
-        let user = HardCodedUsers(username: username, email: email , fullName: fullName, password: password, githubName: githubName, computerLanguage: computerLanguage, githubLink: githubLink)
+    static func create(_ githubLink: String, _ computerLanguage: String, _ username: String, _ email: String, _ fullName: String, _ password: String, _ githubName: String,_ userBio: String,completion: @escaping(HardCodedUsers?) -> Void) {
+        let user = HardCodedUsers(username: username, email: email , fullName: fullName, password: password, githubName: githubName, computerLanguage: computerLanguage, githubLink: githubLink, userBio: userBio)
+        // We are making an object of our HardCodedUsersClass
         let dict = user.dictValue
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference().child("users").child(uid!)

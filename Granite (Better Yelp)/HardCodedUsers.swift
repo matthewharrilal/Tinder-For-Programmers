@@ -21,9 +21,10 @@ class HardCodedUsers: NSObject {
     var githubName: String
     var githubLink: String?
     var computerLanguage: String?
+    var userBio: String?
     // The reason we are making this optional is for the reason is because we know that the users dont need these values to make their account they add it later once they make it their account and the reason we can put this in a separate file is because it will be out of range because since we are passing the data from table view cell to the next view controller we would pass this in
     
-    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String) {
+    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String) {
         self.username = username
         self.email = email
         self.fullName = fullName
@@ -31,6 +32,7 @@ class HardCodedUsers: NSObject {
         self.githubName = githubName
         self.computerLanguage = computerLanguage
         self.githubLink = githubLink
+        self.userBio = userBio
         // THIS IS USED FOR CREATINGGGGGGGGGGGGGGGGG therefore we wouldnt add the github link and the computer language here because since it is used for creating we dont want the users creation of their account whether or not they have a github link they add that later therefore we wouldnt add it in creating so we can add that when we are actually fetching that from the database
         
         // So we already know that we use initializers as the blueprints for instances to come of the class so essentially what we are doing right now is that we have to set the argument label username equal to the property username we have created for the class so basically what we are doing is that every instance that comes as a result of this class is going tobe initalized with this username argument label that is of type string and we can pass in any string which will corespond to the users unique username not to be confused with their uid
@@ -48,7 +50,8 @@ class HardCodedUsers: NSObject {
             let password = dict["password"] as? String,
             let githubName = dict["githubName"] as? String,
             let githubLink = dict["githubLink"] as? String,
-            let compLanguage = dict["compLanguage"] as? String
+            let compLanguage = dict["compLanguage"] as? String,
+            let userBio = dict["userBio"] as? String
             // THIS IS FOR FETCHINGGGGGGGG
             else {
                 return nil
@@ -61,9 +64,9 @@ class HardCodedUsers: NSObject {
         self.githubName = githubName
         self.githubLink = githubLink
         self.computerLanguage = compLanguage
+        self.userBio = userBio
         
-        // What we are essentially doing here is that we are setting the original values of our initalizer equal to our value of these credentials that we are grabbing from firebase
-        // The reason for doing this is to basically connect these blue prints of theese instances that are occuring and as we know from past explaining that every new instance is essentially a new memeber joining the app therefore by setting these values equal to each other no only when they are signing up they not only are run through firebase where their data is being stored in a backend server but now their data is being stored locally as well
+        // The reason we do this is becuase we are essentially setting our properties of the users equal to the initalizers we are placing on the users who are coming into existence
         
     }
     

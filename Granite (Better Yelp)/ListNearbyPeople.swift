@@ -29,6 +29,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     var compLanguage: String?
     @IBOutlet weak var searchBar: UISearchBar!
     var isSearching = false
+    var userBio: String?
     
     //let database = Database.database().reference().dictionaryWithValues(forKeys: String([users]))
     
@@ -54,7 +55,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 let password = dictionary["password"] as? String,
                 let githubName = dictionary["githubName"] as? String,
                 let githubLink = dictionary["githubLink"] as? String,
-                let compLanguage = dictionary["compLanguage"] as? String
+                let compLanguage = dictionary["compLanguage"] as? String,
+                let userBio = dictionary["userBio"] as? String
                 else {
                     // So the reason i am thinking we are getting this bad instruction error is becauase the bio is something the user doesnt need to sign up therefore we dont need to initalize it and maybe we can go about it the same way we went about the profile pic, now the problem we are getting here is that it is finding nil in the database meaning theres no way to store that in firebase
                     
@@ -66,7 +68,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                     print("WHAT")
                     return
             }
-            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink)
+            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio)
+            // So essentially what we are doing here is that we are passing these new childs we are adding in our firebase database into out initalizers therefore it will satisfy the users creating of their account
             
             self.hardCodedUsers.append(user)
             
@@ -88,16 +91,13 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             username = hardCodedUsers[indexPath.row].username
             githubLink = hardCodedUsers[indexPath.row].githubLink
             compLanguage = hardCodedUsers[indexPath.row].computerLanguage
-            // githubLink = hardCodedUsers[indexPath.row].githubName
-            //            githubLink = hardCodedUsers[indexPath.row].githubName
-            //            // So the problem we are essentially facing is that we can  only access our model class properties and thats it therefore what that means is that we can not other properties that werent initalized
+            userBio = hardCodedUsers[indexPath.row].userBio
+            // So essentially what we are doing here is that we are creating a pathway to a specific node in our firebase database and we are doing that with the indexPath therefore what we are doing in this overwritten function is that we are taking our optinal variable and creating a pathway to our firebase database for the corresponding node when the user taps on the cell
         }
-        //   username = hardCodedUsers[indexPath.row].username
+        
         performSegue(withIdentifier: "toProfile", sender: self)
         
-        // So essentially what made our code work was that because as oppose to the cell for row at function we are essentially setting the data here as oppose to in the cell for row we are only displaying the username of the user in the corresponding cell in the row and in addtion to that in the prepare for segue as we know we use that function when we want to pass data from one view controller to another therefore in combination of those two previous functions the prepare for segue function and the cell for row at those two together essentially show us the username of the user in the cell and pass the data from one view controller to another but that does not neccesarily mean that they set the data therefore with this did select row is what it essentially does is when we tap on the cell that passes the data from one view controller to another we have to set the data in the next view controller so by this works in our benefit because we want to pass the usernames of the users and set them in the next view controller as their username in the username label
-        
-    }
+          }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -113,17 +113,12 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         } else {
             return hardCodedUsers.count
         }
-        // So essentially we have to figure out a way to return data from firebase dynmaically, now the problem with the way we were doing it earlier is because there was no way to do it straight from the same view controller because to make the reference we would have to use the current user who is logged in uid and therefore we would have to populate the label for each user with the current user who is logged in info, therefore the reason we would do it here is because we wanted to pass the data thaty we get from firebase
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        //        // let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyPeopleCell", for: indexPath)
-        //        cell.textLabel?.text = hardCodedUsers[indexPath.row].username        //   username = hardCodedUsers[indexPath.row].username
-        //
-        //        // So essentially what we are doing here is that we are is assigning the value of the cells that display the usernames of the other users to the variable username we declared at the top of the class and why we are doing this is becauase we want the username to be displaying the usernames of the users from firebase but still we have to pass that data over to the profile view controller and we know to do this we have to use the prepare for segue function
-        //        //        // Set cell contents
-        //        return cell
+        
         if isSearching  {
             print("The filtered search results are getting printed on the table view cells")
             cell.textLabel?.text = filteredSearchArray[indexPath.row].username
@@ -158,19 +153,17 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         if let identifier = segue.identifier {
             if identifier == "toProfile" {
                 let profileViewController = segue.destination as? ProfileThatUsersSee
-                //  So essentially we know that the username we gave declared earlier now contains the usernames of the users from firebase but yet we have to pass that on to the next view controller thats why we are in this function therefore we have to finda way to pass that data over
-                //   print(username)
+                
                 print(profileViewController?.username)
                 profileViewController?.username = self.username
                 profileViewController?.compLanguage = self.compLanguage
                 profileViewController?.githubLink = self.githubLink
-                // So when we print this we are getting nil meaning nothing was assigned to it yet therefore we want to assign the cells usernames which we are doing in the lines of codes below
-                // And why would weassign the label text to username that is essentially hard coding the label text for each cell that we tap on
+                profileViewController?.userBio = self.userBio
+                // So essentially what we are doing here is that we are taking the optional variables we have declared in the profile that users see view controller and what we are doing with it is that we are assigning these variables the data from the optional variables we have declared in this view controller file
                 
+                // And we know that over the course of this view controller we assigned the optional variables in this view contoller equal to the nodes in our firebase therefore what we are essentially doing here is that we are setting the nodes in firebase equal to the variables in our other view controller
                 
-                //profileViewController?.usernameLabel.text = username
-                // we can not do this line of code above because we know that if we store the usernames within this username label.text variable only one username will get stored and thats what causes it to appear on every username when each cell is tapped
-                
+                // And the reason we did this is as opposed to the other view controller is because in the other file we couldnt do it there therefore by  getting this data in a dynamic function which we want meaning that we are getting the users information from our firebase database depending on which cell the user taps on and this essentially gives us the option to get different users information as opposed to only the current users information
                 
             }
             

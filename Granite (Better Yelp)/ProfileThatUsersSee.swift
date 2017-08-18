@@ -29,7 +29,7 @@ class ProfileThatUsersSee: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //     updateChildValues()
+            
            }
     
     override func viewDidLoad() {

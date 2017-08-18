@@ -31,6 +31,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     var isSearching = false
     var userBio: String?
     
+    
+    
     //let database = Database.database().reference().dictionaryWithValues(forKeys: String([users]))
     
     override func viewDidLoad() {
@@ -56,7 +58,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 let githubName = dictionary["githubName"] as? String,
                 let githubLink = dictionary["githubLink"] as? String,
                 let compLanguage = dictionary["compLanguage"] as? String,
-                let userBio = dictionary["userBio"] as? String
+                let userBio = dictionary["userBio"] as? String,
+                let profileImageURL = dictionary["pic"] as? String
                 else {
                     // So the reason i am thinking we are getting this bad instruction error is becauase the bio is something the user doesnt need to sign up therefore we dont need to initalize it and maybe we can go about it the same way we went about the profile pic, now the problem we are getting here is that it is finding nil in the database meaning theres no way to store that in firebase
                     
@@ -70,7 +73,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             }
             let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio)
             // So essentially what we are doing here is that we are passing these new childs we are adding in our firebase database into out initalizers therefore it will satisfy the users creating of their account
-            
+            // And this is what we call an object and we know that an object is of a type class that has been declared and we create these objects so we can pass around data from that class much faster and efficiently
             self.hardCodedUsers.append(user)
             
             DispatchQueue.main.async {
@@ -92,6 +95,9 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             githubLink = hardCodedUsers[indexPath.row].githubLink
             compLanguage = hardCodedUsers[indexPath.row].computerLanguage
             userBio = hardCodedUsers[indexPath.row].userBio
+           
+            
+            
             // So essentially what we are doing here is that we are creating a pathway to a specific node in our firebase database and we are doing that with the indexPath therefore what we are doing in this overwritten function is that we are taking our optinal variable and creating a pathway to our firebase database for the corresponding node when the user taps on the cell
         }
         
@@ -159,6 +165,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 profileViewController?.compLanguage = self.compLanguage
                 profileViewController?.githubLink = self.githubLink
                 profileViewController?.userBio = self.userBio
+              
+              
                 // So essentially what we are doing here is that we are taking the optional variables we have declared in the profile that users see view controller and what we are doing with it is that we are assigning these variables the data from the optional variables we have declared in this view controller file
                 
                 // And we know that over the course of this view controller we assigned the optional variables in this view contoller equal to the nodes in our firebase therefore what we are essentially doing here is that we are setting the nodes in firebase equal to the variables in our other view controller

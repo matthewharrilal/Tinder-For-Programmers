@@ -21,6 +21,12 @@ class ProfileThatUsersSee: UIViewController {
     var userBio: String?
     var hardCodedUsers: HardCodedUsers?
     var refHandle: UInt!
+    var profileImageURL:String?
+    @IBOutlet weak var profilePic: UIImageView!
+    
+    // Let us create an object for our class
+    
+    
     // When it says that your class needs initalizers you can just make the property optional therefore you dont have to initalize the property for future references to come
     var databaseRef = Database.database().reference()
     var storageRef = Storage.storage().reference()
@@ -34,13 +40,20 @@ class ProfileThatUsersSee: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+   
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameLabel.text = self.username
         computerLanguageLabel.text = compLanguage
         githubLinkLabel.text = githubLink
         userBioLabel.text = userBio
-            // So esssentially what we are doing here is that we are setting the text of each of these labels in our view controller equal to the optional variables of this view controller
+                    // So esssentially what we are doing here is that we are setting the text of each of these labels in our view controller equal to the optional variables of this view controller
             
         // As we know the optional variables hold the data of our nodes from our fireabase database therefore we are succesfully populating these lables text dynamically
     }

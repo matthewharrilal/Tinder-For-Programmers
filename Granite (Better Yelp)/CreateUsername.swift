@@ -29,52 +29,25 @@ class CreateUsername: UIViewController {
     @IBOutlet weak var githubName: UITextField!
     
     
-    
-    
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
-        // signUp()
-        //
-        //        if fullName.text != "" {
-        //
-        //
-        //        } else{
-        //            textFieldIsEmpty()
-        //        }
-        //
-        //        if emailTextField.text != "" {
-        //
-        //        }
-        //        else{
-        //            textFieldIsEmpty()
-        //        }
-        //        if usernameTextField.text != "" {
-        //
-        //        }else {
-        //            textFieldIsEmpty()
-        //        }
-        //        if passwordTextField.text != "" {
-        //
-        //        }
-        //        else{
-        //            textFieldIsEmpty()
-        //
-        //        }
         // This creates creates the user in the firebase authentication
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
-                  self.signUpErrors(error: error, controller: self)
+                self.signUpErrors(error: error, controller: self)
                 print(error.localizedDescription)
-               
-              
+                
+                
                 
                 // So essentially what we are doing here is that we are saying if the error is existent then show us the signup error but the problem we were having was that when we were saying that if the error does not exist becuase that was the only time we can actually work but the user returns nil but therefore it hits both the if and else statement
                 return
             } else {
                 
                 // This creates the user inside the database
-                UserService.create(self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!, self.githubName.text!, "", "", "", completion: { (user) in
+                UserService.create("", "", self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!,self.githubName.text!, "",completion: { (user) in
                     // The reason we are using empty strings to satisfy the following initalizers: githubLink as compLAnguage as well as userBio is because as we know since we are adding them to our initalizer to create user as well as access them from any file we would have to call them in this call of our userService struct but they do not need to add that when they create their account therefore to satisfy the empty strings then the user later updates them as they customize their profile
+                    print(self.passwordTextField.text)
+                    print(self.githubName.text)
                     guard let user = user
                         else{
                             
@@ -152,56 +125,5 @@ class CreateUsername: UIViewController {
         }
         
     }
-    
-    //    func signUp() {
-    //        guard let fullName = fullName.text
-    //            else {
-    //                print("full name errror")
-    //                return
-    //        }
-    //        guard let email = emailTextField.text
-    //            else {
-    //                print("email issue")
-    //                return
-    //        }
-    //        guard let username = usernameTextField.text
-    //            else{
-    //                print("username issue")
-    //                return
-    //        }
-    //        guard let password = passwordTextField.text
-    //            else{
-    //                print("password issue")
-    //                return
-    //        }
-    //        // The verifcation of new users
-    //        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-    //            if error != nil {
-    //                print(error)
-    //                return
-    //            }
-    //            // We have to give each new user that is being made a specific user identification and why we dont put this code in the log in function is because if they are able to log in that means they already have a unique user identification
-    //            // and of course we know  uid is for firebase
-    //            guard let uid = user?.uid // Here we are essentially casting their user uid as a string
-    //                else {
-    //                    print("user uid issue")
-    //                    return
-    //            }
-    //            let userReference = self.databaseRef.child("users").child(uid)
-    //            // We are essentailly holding the users user identification here
-    //            let values = ["username": username, "email": email, "password": password, "fullName": fullName]
-    //            // What we are essentially doing here is that we are creating these keys to hold these specific users information so for example we are creating a key to contain all our
-    //            userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
-    //                if error != nil {
-    //                    print("error updating child values")
-    //                    print(error)
-    //                    return
-    //                }
-    //                self.dismiss(animated: true, completion: nil)
-    //            })
-    //        }
-    //        
-    //    }
-    
     
 }

@@ -131,14 +131,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func saveChanges(_ sender: UIButton) {
         saveChanges()
         saveUserBioChanges()
-        //setupProfile()
+         saveGithubLink()
         if compLanguageTextField.text != "" {
             saveCompLanguage()
             print("These are our glory days and you cant stop us")
         } else {
+            compLanguageIsEmpty()
             return
         }
-        saveGithubLink()
+      
         
     }
     
@@ -335,7 +336,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    
+    func compLanguageIsEmpty() {
+        let emptyText = UIAlertController(title: "Please specify a language ", message: "Select one of the computer languages from the choices provided, in doing so you are easier to match up with other users", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+        emptyText.addAction(cancelAction)
+        self.present(emptyText, animated: true, completion: nil)
+    }
     
 }
 

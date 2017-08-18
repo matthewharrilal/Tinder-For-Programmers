@@ -426,6 +426,7 @@
                     <connections>
                         <outlet property="computerLanguageLabel" destination="oIf-JY-RkZ" id="Gek-iP-pfl"/>
                         <outlet property="githubLinkLabel" destination="ZF5-vg-EFT" id="mFH-Bk-URd"/>
+                        <outlet property="profilePic" destination="0ss-1w-Mgs" id="JEm-dN-Gxh"/>
                         <outlet property="userBioLabel" destination="i2D-aI-c3X" id="sq1-Jb-KoN"/>
                         <outlet property="usernameLabel" destination="ePV-QF-Lnr" id="Rmz-kj-9IP"/>
                     </connections>

@@ -14,6 +14,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 import Alamofire
+import Kingfisher
 
 
 class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
@@ -30,7 +31,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     var isSearching = false
     var userBio: String?
-    
+    var x: HardCodedUsers?
+    var profileImageURL: String?
     
     
     //let database = Database.database().reference().dictionaryWithValues(forKeys: String([users]))
@@ -44,7 +46,6 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         searchBar.delegate = self
         //        searchBar.returnKeyType = UIReturnKeyType.done
         searchBar.returnKeyType = UIReturnKeyType.done
-        
     }
     
     func fetchUsers() {
@@ -59,19 +60,16 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 let githubLink = dictionary["githubLink"] as? String,
                 let compLanguage = dictionary["compLanguage"] as? String,
                 let userBio = dictionary["userBio"] as? String,
-                let profileImageURL = dictionary["pic"] as? String
+                let profilePic = dictionary["pic"] as? String
                 else {
-                    // So the reason i am thinking we are getting this bad instruction error is becauase the bio is something the user doesnt need to sign up therefore we dont need to initalize it and maybe we can go about it the same way we went about the profile pic, now the problem we are getting here is that it is finding nil in the database meaning theres no way to store that in firebase
+                    // So what is essentially happening here is that we should not get confused between adding a node to our firebase database location as well and initalizing a new user
                     
-                    //let user = HardCodedUsers(username: String(describing: DataSnapshot()) )
-                    
-                    // What shpuld we pass in this username
-                    
-                    //user.setValuesForKeys(dictionary)
+                    // The difference between the two is that when we initalize a user it means we are creating the user with the properties they must have to be created such as a username and password where this fetch users function stores them and and nodes in our firebase database in the form of a dictionary holding values within the keys
                     print("WHAT")
                     return
             }
-            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio)
+            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio, profilePic: profilePic)
+            self.x = user
             // So essentially what we are doing here is that we are passing these new childs we are adding in our firebase database into out initalizers therefore it will satisfy the users creating of their account
             // And this is what we call an object and we know that an object is of a type class that has been declared and we create these objects so we can pass around data from that class much faster and efficiently
             self.hardCodedUsers.append(user)
@@ -83,6 +81,14 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         
         
     }
+    //    func childChanged() {
+    //    refHandle = databaseRef.child("users").observe(.childChanged, with: { (snapshot) in
+    //        guard let key = snapshot.key as? String,
+    //        guard let value = snapshot.value as? String else{return}
+    //
+    //        if key ==
+    //    })
+    //    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow!
@@ -95,7 +101,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             githubLink = hardCodedUsers[indexPath.row].githubLink
             compLanguage = hardCodedUsers[indexPath.row].computerLanguage
             userBio = hardCodedUsers[indexPath.row].userBio
-           
+            profileImageURL = hardCodedUsers[indexPath.row].profilePic
             
             
             // So essentially what we are doing here is that we are creating a pathway to a specific node in our firebase database and we are doing that with the indexPath therefore what we are doing in this overwritten function is that we are taking our optinal variable and creating a pathway to our firebase database for the corresponding node when the user taps on the cell
@@ -103,7 +109,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         
         performSegue(withIdentifier: "toProfile", sender: self)
         
-          }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -124,14 +130,26 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        //        // let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyPeopleCell", for: indexPath)
-        
         if isSearching  {
             print("The filtered search results are getting printed on the table view cells")
             cell.textLabel?.text = filteredSearchArray[indexPath.row].username
         } else {
             print("The filtered search results are not getting printed on the table view cells")
             cell.textLabel?.text = hardCodedUsers[indexPath.row].username
-            // This is what is getting hit this else statement
+            //                if let profileImageURl = x?.profilePic {
+            //                let url = URL(string: profileImageURl)
+            //                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            //                        if error != nil {
+            //                            //If this is getting hit that means that the download isnt downloading succesfully so lets return out of this
+            //                        print(error?.localizedDescription)
+            //                            return
+            //                        }
+            //                        DispatchQueue.main.async {
+            //                            cell.imageView?.image = UIImage(data: data!)
+            //                        }
+            //                                            }).resume()
+            //                    // So what we are essentially doing here is that we are declaring this let constant called profileImageURL and we are setting it equal to the our profilePic property in our hard coded users class and then we are saying from there that if they are equal to each other then we want this let constant called url and then set that equal t the location of our server to firebase therefore the image downloads when the application wants to display the profile picture of the user
+            //                }
         }
         
         
@@ -165,8 +183,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 profileViewController?.compLanguage = self.compLanguage
                 profileViewController?.githubLink = self.githubLink
                 profileViewController?.userBio = self.userBio
-              
-              
+                profileViewController?.profileImageURL = self.profileImageURL
+                
                 // So essentially what we are doing here is that we are taking the optional variables we have declared in the profile that users see view controller and what we are doing with it is that we are assigning these variables the data from the optional variables we have declared in this view controller file
                 
                 // And we know that over the course of this view controller we assigned the optional variables in this view contoller equal to the nodes in our firebase therefore what we are essentially doing here is that we are setting the nodes in firebase equal to the variables in our other view controller

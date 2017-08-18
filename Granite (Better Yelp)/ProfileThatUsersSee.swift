@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
-
+import Kingfisher
 class ProfileThatUsersSee: UIViewController {
     var username: String?
     var githubLink: String?
@@ -22,6 +22,7 @@ class ProfileThatUsersSee: UIViewController {
     var hardCodedUsers: HardCodedUsers?
     var refHandle: UInt!
     var profileImageURL:String?
+    var objectUser: HardCodedUsers?
     @IBOutlet weak var profilePic: UIImageView!
     
     // Let us create an object for our class
@@ -53,6 +54,21 @@ class ProfileThatUsersSee: UIViewController {
         computerLanguageLabel.text = compLanguage
         githubLinkLabel.text = githubLink
         userBioLabel.text = userBio
+       let user = HardCodedUsers(username: "", email: "", fullName: "", password: "", githubName: "", computerLanguage: self.computerLanguageLabel.text!, githubLink: self.githubLinkLabel.text!, userBio: self.userBioLabel.text!, profilePic: profileImageURL!)
+        self.objectUser = user
+        if let profileImage = objectUser?.profilePic {
+            let url = URL(string: profileImageURL!)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                print(error?.localizedDescription)
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.profilePic.image = UIImage(data: data!)
+                }
+            }).resume()
+        }
+        
                     // So esssentially what we are doing here is that we are setting the text of each of these labels in our view controller equal to the optional variables of this view controller
             
         // As we know the optional variables hold the data of our nodes from our fireabase database therefore we are succesfully populating these lables text dynamically

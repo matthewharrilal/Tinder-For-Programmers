@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0619331F4756CC00113EEA /* nearbyPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */; };
 		1C1F4AA11F4212A400E2C3F0 /* matchmakingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */; };
 		1C1F4AA31F43305F00E2C3F0 /* gifFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */; };
 		1C1F4AA61F43397E00E2C3F0 /* computer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA51F43397E00E2C3F0 /* computer.jpg */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyPeopleCell.swift; sourceTree = "<group>"; };
 		1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchmakingMode.swift; sourceTree = "<group>"; };
 		1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFile.swift; sourceTree = "<group>"; };
 		1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = giphy.mp4; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */,
 				1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */,
 				1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */,
+				1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */,
 			);
 			name = "View Controllers";
 			path = "Granite (Better Yelp)";
@@ -354,6 +357,7 @@
 				1C1F4AA11F4212A400E2C3F0 /* matchmakingMode.swift in Sources */,
 				1CCA45CE1F29858D005C062C /* ProfileVewController.swift in Sources */,
 				1C650F8F1F38E8EB005B398E /* Storyboard+Utility.swift in Sources */,
+				1C0619331F4756CC00113EEA /* nearbyPeopleCell.swift in Sources */,
 				1C4D2D031F31FB7700C6FC4B /* ProfileThatUsersSee.swift in Sources */,
 				1CF5CE321F35FA7A00ECC085 /* AuthenticationServices.swift in Sources */,
 				1CEB0EB31F2EC86800386BD3 /* MainNavigationController.swift in Sources */,

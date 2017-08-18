@@ -69,7 +69,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // In the nex line of code what we are essentially doing is that we are saying that our 2d location eaning the zooming ability is that we want it to reference the latitude and longitude spans that we declared in he previous line of code and we set that equal to 0.01 thefore that makes sense we only want to be able to zoom in at a span of 0.01 north east south and west
         
         // So basically what is happening is that we are combining the to let constants previously declare din this third line of code and essentially what is happening is the we are combining the data that covers the span of the users locations as well as the ability to zoom in the users locations span and therefore making it the region
-        print(error.localizedDescription)
+       
        map.setRegion(region, animated: true)
         // So basically in this line of code we are setting the region where as we declared it in the line previous to this code
         

@@ -58,8 +58,14 @@ class CreateUsername: UIViewController {
                 
             }
         }
-        
-        
+        var passwordCount = passwordTextField.text?.characters.count
+        if passwordCount! < 6 {
+            let passwordShort = UIAlertController(title: "Password too short", message: "Please enter a longer password", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+            passwordShort.addAction(cancelAction)
+            self.present(passwordShort, animated: true,completion: nil)
+            
+        }
         
         if agreementTextField.text == "Yes" || agreementTextField.text == "yes"   {
             

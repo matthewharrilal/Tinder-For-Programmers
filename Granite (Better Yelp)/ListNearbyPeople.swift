@@ -70,7 +70,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             }
             
             let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio)
-            self.x = user
+            
             // So essentially what we are doing here is that we are passing these new childs we are adding in our firebase database into out initalizers therefore it will satisfy the users creating of their account
             // And this is what we call an object and we know that an object is of a type class that has been declared and we create these objects so we can pass around data from that class much faster and efficiently
             self.hardCodedUsers.append(user)
@@ -137,20 +137,20 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         } else {
             print("The filtered search results are not getting printed on the table view cells")
             cell.textLabel?.text = hardCodedUsers[indexPath.row].username
-            //                if let profileImageURl = x?.profilePic {
-            //                let url = URL(string: profileImageURl)
-            //                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-            //                        if error != nil {
-            //                            //If this is getting hit that means that the download isnt downloading succesfully so lets return out of this
-            //                        print(error?.localizedDescription)
-            //                            return
-            //                        }
-            //                        DispatchQueue.main.async {
-            //                            cell.imageView?.image = UIImage(data: data!)
-            //                        }
-            //                                            }).resume()
-            //                    // So what we are essentially doing here is that we are declaring this let constant called profileImageURL and we are setting it equal to the our profilePic property in our hard coded users class and then we are saying from there that if they are equal to each other then we want this let constant called url and then set that equal t the location of our server to firebase therefore the image downloads when the application wants to display the profile picture of the user
-            //                }
+                            if let profileImageURl = x?.profilePic {
+                            let url = URL(string: profileImageURl)
+                                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                                    if error != nil {
+                                        //If this is getting hit that means that the download isnt downloading succesfully so lets return out of this
+                                    print(error?.localizedDescription)
+                                        return
+                                    }
+                                    DispatchQueue.main.async {
+                                        cell.imageView?.image = UIImage(data: data!)
+                                    }
+                                                        }).resume()
+                                // So what we are essentially doing here is that we are declaring this let constant called profileImageURL and we are setting it equal to the our profilePic property in our hard coded users class and then we are saying from there that if they are equal to each other then we want this let constant called url and then set that equal t the location of our server to firebase therefore the image downloads when the application wants to display the profile picture of the user
+                       }
         }
         
         

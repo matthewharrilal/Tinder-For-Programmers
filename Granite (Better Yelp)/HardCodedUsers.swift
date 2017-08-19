@@ -104,7 +104,7 @@ class HardCodedUsers: NSObject {
     // now lets not forget to implement data in a database we have to make a dictionary where the key would be what we type to retireve the data for that key
     // We are constructing a dictionary right now
     var dictValue: [String: Any] {
-        return["username": username, "email": email, "fullName": fullName, "password": password, "githubName": githubName, "githubLink": githubLink, "compLanguage": computerLanguage, "userBio": userBio]
+        return["username": username, "email": email, "fullName": fullName, "password": password, "githubName": githubName, "githubLink": githubLink, "compLanguage": computerLanguage, "userBio": userBio, "pic": profilePic]
         // So what is essentially happening here is that we are passing in the string username into the class poroperty called username and what this essentially does is that like we said earlier that every instance is initialized with the propery username meaning that every user has a username so basically what we are doing right now is that for every username value or the string they chsoose to be their username we are assigning it to the key "username"
         
         // Juat a side noe the reason we dont need a failable initializer is because we have no use for user anonymous functionality

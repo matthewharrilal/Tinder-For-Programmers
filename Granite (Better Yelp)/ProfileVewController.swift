@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-        setupProfile()
+  setupProfile()
     }
     
     func dismissKeyboard() {

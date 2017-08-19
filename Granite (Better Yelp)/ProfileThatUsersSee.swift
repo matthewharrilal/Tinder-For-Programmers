@@ -37,9 +37,22 @@ class ProfileThatUsersSee: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+//        super.viewWillAppear(animated)
+//        if let profileImageURL = objectUser?.profilePic {
+//            let url = URL(string: profileImageURL)
+//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//                if error != nil {
+//                    print(error)
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    self.profilePic.image = UIImage(data: data!)
+//                }
+//            }).resume()
+//        }
         
-        
+
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,6 +60,7 @@ class ProfileThatUsersSee: UIViewController {
         
     }
    
+
    
     
    
@@ -56,26 +70,27 @@ class ProfileThatUsersSee: UIViewController {
         computerLanguageLabel.text = compLanguage
         githubLinkLabel.text = githubLink
         userBioLabel.text = userBio
-        
-       let user = HardCodedUsers(username: "", email: "", fullName: "", password: "", githubName: "", computerLanguage: self.computerLanguageLabel.text!, githubLink: self.githubLinkLabel.text!, userBio: self.userBioLabel.text!)
-        self.objectUser = user
-        if let profileImage = objectUser?.profilePic {
-            let url = URL(string: profileImageURL!)
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                if error != nil {
-                print(error?.localizedDescription)
-                    return
+        databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                if let profileImageURL = dict["pic"] as? String {
+                let url = URL(string: profileImageURL)
+                    URLSession.shared
+                    .dataTask(with: url!, completionHandler: { (data, response, error) in
+                        if error != nil {
+                            print("The agent has reached the destination")
+                        print(error?.localizedDescription)
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            self.profilePic.image = UIImage(data: data!)
+                        }
+                    }).resume()
                 }
-                DispatchQueue.main.async {
-                    self.profilePic.image = UIImage(data: data!)
-                }
-            }).resume()
-        }
+            }
+        })
+
         
-                    // So esssentially what we are doing here is that we are setting the text of each of these labels in our view controller equal to the optional variables of this view controller
-            
-        // As we know the optional variables hold the data of our nodes from our fireabase database therefore we are succesfully populating these lables text dynamically
-    }
+           }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

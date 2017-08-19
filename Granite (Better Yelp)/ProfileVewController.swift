@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var usernameLabel: UILabel!
     var hello = 3
     
-    let computerLanguages = ["Java", "JavaScript", "Swift", "C", "C++", "PHP", "Python", "Objective C", "Ruby", "R", "Perl", "NET", "SQL", "C#", "Visual Basic"]
+    let computerLanguages = ["Java", "JavaScript", "Swift", "C", "C++", "PHP", "Python", "Objective C", "Ruby", "R", "Perl", "NET", "SQL", "C#", "Visual Basic", "Ruby on Rails"," Delphi/Object Pascal", " Assembly language", "Go", " MATLAB", " Scratch","PL/SQL"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

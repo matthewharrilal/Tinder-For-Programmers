@@ -37,7 +37,7 @@ class CreateUsername: UIViewController {
                 self.signUpErrors(error: error, controller: self)
                 print(error.localizedDescription)
                 
-                
+                print("The user is not being created their is clearly an error please try again")
                 
                 // So essentially what we are doing here is that we are saying if the error is existent then show us the signup error but the problem we were having was that when we were saying that if the error does not exist becuase that was the only time we can actually work but the user returns nil but therefore it hits both the if and else statement
                 return

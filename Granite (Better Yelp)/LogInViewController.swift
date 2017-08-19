@@ -67,13 +67,11 @@ class LogInViewController: UIViewController {
             // if there is an error meaning that it will be the opposite of nil
             if error != nil {
                 self.logInCredentialsIsEmpty(error: error!)
-                print("There is obviously a login flow issue")
-                print(user)
                 print(error?.localizedDescription)
-                print("It is taking me back for a reason")
-                // return
-                // This get hits when you are signing in with a user that doesnt exist and the opposite for the else statement
                 
+                 return
+                // This get hits when you are signing in with a user that doesnt exist and the opposite for the else statement
+                // The reason we werent having the user saving to user defualts is becuase we had the return command line commented out therefore when it was checking if the if condition was true it never left therefore getting confused thonking it was an error
             } else {
                 print("User is just signed in and their user defaults has not been set yet")
                 UserService.show(forUID: (user?.uid)!, completion: { (user) in

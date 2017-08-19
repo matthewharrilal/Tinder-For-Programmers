@@ -56,7 +56,7 @@ class HardCodedUsers: NSObject {
             let githubLink = dict["githubLink"] as? String,
             let compLanguage = dict["compLanguage"] as? String,
             let userBio = dict["userBio"] as? String,
-            let profilePic = dict["profilePic"] as? String
+            let profilePic = dict["pic"] as? String
         
             // THIS IS FOR FETCHINGGGGGGGG
             else {
@@ -85,8 +85,7 @@ class HardCodedUsers: NSObject {
             let password = aDecoder.decodeObject(forKey: "password") as? String,
             let fullName = aDecoder.decodeObject(forKey: "fullName") as? String,
             let githubName = aDecoder.decodeObject(forKey: "githubName") as? String
-       
-        else{return nil}
+               else{return nil}
         // So essentially what is happening here is that we are now decoding the data we are getting from firebase and you are probably wondering why we are doing this when we just observed the data snapshot and are returning that data as well as casting it as a string and what is essentially happening here is as we know initializers are blueprints that are setup for future instances and what we are doing here is that we are decoding this data from firebase for each instance that is made and we know that each instance that is made is a new user therefore we have to decode the data that we are going to be saving locally
         self.username  = username
         self.email = email
@@ -146,8 +145,7 @@ extension HardCodedUsers: NSCoding {
         aCoder.encode(email, forKey: "email")
         aCoder.encode(fullName, forKey: "fullName")
         aCoder.encode(githubName, forKey: "githubName")
-      
-    }
+          }
     // So let us talk about what is happening here and lets differentiate the difference between nscoder and nscoding so first off nscoder and what it essentially does  is that it lets us transfer objects made in our code through memory and through differrent subclasses whiles NSCoding what that essentially does is that it implements two methods that your class must use which is to encode and decode meaning we can encode the data we get from firebase  as well as decode it locally basically giving as an entry as well as a secure departure
     // this part of the code what we are essentially doing is that we are encoding the data we have for each of the properties of the users and we encode it locally
 }

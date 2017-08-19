@@ -26,7 +26,7 @@ class HardCodedUsers: NSObject {
     
     // The reason we are making this optional is for the reason is because we know that the users dont need these values to make their account they add it later once they make it their account and the reason we can put this in a separate file is because it will be out of range because since we are passing the data from table view cell to the next view controller we would pass this in
     
-    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String,profilePic: String) {
+    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String) {
         self.username = username
         self.email = email
         self.fullName = fullName
@@ -35,7 +35,7 @@ class HardCodedUsers: NSObject {
         self.computerLanguage = computerLanguage
         self.githubLink = githubLink
         self.userBio = userBio
-        self.profilePic = profilePic
+        
         
         // THIS IS USED FOR CREATINGGGGGGGGGGGGGGGGG therefore we wouldnt add the github link and the computer language here because since it is used for creating we dont want the users creation of their account whether or not they have a github link they add that later therefore we wouldnt add it in creating so we can add that when we are actually fetching that from the database
         

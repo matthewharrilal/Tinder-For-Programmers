@@ -56,7 +56,8 @@ class ProfileThatUsersSee: UIViewController {
         computerLanguageLabel.text = compLanguage
         githubLinkLabel.text = githubLink
         userBioLabel.text = userBio
-       let user = HardCodedUsers(username: "", email: "", fullName: "", password: "", githubName: "", computerLanguage: self.computerLanguageLabel.text!, githubLink: self.githubLinkLabel.text!, userBio: self.userBioLabel.text!, profilePic: profileImageURL!)
+        
+       let user = HardCodedUsers(username: "", email: "", fullName: "", password: "", githubName: "", computerLanguage: self.computerLanguageLabel.text!, githubLink: self.githubLinkLabel.text!, userBio: self.userBioLabel.text!)
         self.objectUser = user
         if let profileImage = objectUser?.profilePic {
             let url = URL(string: profileImageURL!)

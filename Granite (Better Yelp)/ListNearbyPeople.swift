@@ -59,8 +59,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 let githubName = dictionary["githubName"] as? String,
                 let githubLink = dictionary["githubLink"] as? String,
                 let compLanguage = dictionary["compLanguage"] as? String,
-                let userBio = dictionary["userBio"] as? String
-               // let profilePic = dictionary["pic"] as? String
+                let userBio = dictionary["userBio"] as? String,
+                let profilePic = dictionary["pic"] as? String
                 else {
                     // So what is essentially happening here is that we should not get confused between adding a node to our firebase database location as well and initalizing a new user
                     
@@ -68,7 +68,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                     print("WHAT")
                     return
             }
-            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio)
+            
+            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio, profilePic: profilePic)
             self.x = user
             // So essentially what we are doing here is that we are passing these new childs we are adding in our firebase database into out initalizers therefore it will satisfy the users creating of their account
             // And this is what we call an object and we know that an object is of a type class that has been declared and we create these objects so we can pass around data from that class much faster and efficiently

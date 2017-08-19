@@ -92,7 +92,7 @@ class HardCodedUsers: NSObject {
         self.fullName = fullName
         self.password = password
         self.githubName = githubName
-        
+               
         super.init()
         
         
@@ -145,7 +145,11 @@ extension HardCodedUsers: NSCoding {
         aCoder.encode(email, forKey: "email")
         aCoder.encode(fullName, forKey: "fullName")
         aCoder.encode(githubName, forKey: "githubName")
-          }
+        aCoder.encode(githubLink, forKey: "githubLink")
+        aCoder.encode(computerLanguage, forKey: "compLanguage")
+        aCoder.encode(userBio, forKey: "userBio")
+        
+    }
     // So let us talk about what is happening here and lets differentiate the difference between nscoder and nscoding so first off nscoder and what it essentially does  is that it lets us transfer objects made in our code through memory and through differrent subclasses whiles NSCoding what that essentially does is that it implements two methods that your class must use which is to encode and decode meaning we can encode the data we get from firebase  as well as decode it locally basically giving as an entry as well as a secure departure
     // this part of the code what we are essentially doing is that we are encoding the data we have for each of the properties of the users and we encode it locally
 }

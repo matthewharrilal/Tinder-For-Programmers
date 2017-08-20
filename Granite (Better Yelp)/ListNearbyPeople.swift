@@ -70,7 +70,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             }
             
             let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio)
-            
+            self.x = user
             // So essentially what we are doing here is that we are passing these new childs we are adding in our firebase database into out initalizers therefore it will satisfy the users creating of their account
             // And this is what we call an object and we know that an object is of a type class that has been declared and we create these objects so we can pass around data from that class much faster and efficiently
             self.hardCodedUsers.append(user)
@@ -134,16 +134,23 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             return hardCodedUsers.count
         }
     }
+
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        //        // let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyPeopleCell", for: indexPath)
-        if isSearching  {
+                if isSearching  {
             print("The filtered search results are getting printed on the table view cells")
+            //let cell = UITableViewCell(style: .subtitle, reuseIdentifier:"nearbyPeopleCell")
+            //let user = hardCodedUsers[indexPath.row]
             cell.textLabel?.text = filteredSearchArray[indexPath.row].username
+            
+            
         } else {
             print("The filtered search results are not getting printed on the table view cells")
+           
             cell.textLabel?.text = hardCodedUsers[indexPath.row].username
+           cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
                             if let profileImageURl = x?.profilePic {
                             let url = URL(string: profileImageURl)
                                 URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
@@ -173,7 +180,13 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             isSearching = true
             filteredSearchArray = hardCodedUsers.filter{
                 //$0.username == searchBar.text!
+//                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
                 $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+//                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+               // return true
+               
+                
+                
             }
             tableView.reloadData()
         }

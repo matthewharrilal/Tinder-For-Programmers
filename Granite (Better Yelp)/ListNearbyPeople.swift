@@ -144,6 +144,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             //let cell = UITableViewCell(style: .subtitle, reuseIdentifier:"nearbyPeopleCell")
             //let user = hardCodedUsers[indexPath.row]
             cell.textLabel?.text = filteredSearchArray[indexPath.row].username
+            cell.detailTextLabel?.text = filteredSearchArray[indexPath.row].computerLanguage
             
             
         } else {
@@ -186,7 +187,9 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                // return true
                
                 
-                
+            }
+            filteredSearchArray = hardCodedUsers.filter{
+            $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
             }
             tableView.reloadData()
         }

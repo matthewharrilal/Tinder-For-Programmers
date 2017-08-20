@@ -97,6 +97,13 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         username = currentCell.textLabel?.text
         if isSearching {
             username = filteredSearchArray[indexPath.row].username
+//            username = hardCodedUsers[indexPath.row].username
+            githubLink = filteredSearchArray[indexPath.row].githubLink
+            compLanguage = filteredSearchArray[indexPath.row].computerLanguage
+            userBio = filteredSearchArray[indexPath.row].userBio
+            profileImageURL = filteredSearchArray[indexPath.row].profilePic
+            
+
         } else {
             username = hardCodedUsers[indexPath.row].username
             githubLink = hardCodedUsers[indexPath.row].githubLink

@@ -60,7 +60,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 let githubLink = dictionary["githubLink"] as? String,
                 let compLanguage = dictionary["compLanguage"] as? String,
                 let userBio = dictionary["userBio"] as? String
-            
+                
                 else {
                     // So what is essentially happening here is that we should not get confused between adding a node to our firebase database location as well and initalizing a new user
                     
@@ -97,13 +97,13 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         username = currentCell.textLabel?.text
         if isSearching {
             username = filteredSearchArray[indexPath.row].username
-//            username = hardCodedUsers[indexPath.row].username
+            //            username = hardCodedUsers[indexPath.row].username
             githubLink = filteredSearchArray[indexPath.row].githubLink
             compLanguage = filteredSearchArray[indexPath.row].computerLanguage
             userBio = filteredSearchArray[indexPath.row].userBio
             profileImageURL = filteredSearchArray[indexPath.row].profilePic
             
-
+            
         } else {
             username = hardCodedUsers[indexPath.row].username
             githubLink = hardCodedUsers[indexPath.row].githubLink
@@ -134,12 +134,12 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             return hardCodedUsers.count
         }
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        //        // let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyPeopleCell", for: indexPath)
-                if isSearching  {
+        if isSearching  {
             print("The filtered search results are getting printed on the table view cells")
             //let cell = UITableViewCell(style: .subtitle, reuseIdentifier:"nearbyPeopleCell")
             //let user = hardCodedUsers[indexPath.row]
@@ -149,23 +149,23 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
         } else {
             print("The filtered search results are not getting printed on the table view cells")
-           
+            
             cell.textLabel?.text = hardCodedUsers[indexPath.row].username
-           cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
-                            if let profileImageURl = x?.profilePic {
-                            let url = URL(string: profileImageURl)
-                                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                                    if error != nil {
-                                        //If this is getting hit that means that the download isnt downloading succesfully so lets return out of this
-                                    print(error?.localizedDescription)
-                                        return
-                                    }
-                                    DispatchQueue.main.async {
-                                        cell.imageView?.image = UIImage(data: data!)
-                                    }
-                                                        }).resume()
-                                // So what we are essentially doing here is that we are declaring this let constant called profileImageURL and we are setting it equal to the our profilePic property in our hard coded users class and then we are saying from there that if they are equal to each other then we want this let constant called url and then set that equal t the location of our server to firebase therefore the image downloads when the application wants to display the profile picture of the user
-                       }
+            cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
+            if let profileImageURl = x?.profilePic {
+                let url = URL(string: profileImageURl)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if error != nil {
+                        //If this is getting hit that means that the download isnt downloading succesfully so lets return out of this
+                        print(error?.localizedDescription)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        cell.imageView?.image = UIImage(data: data!)
+                    }
+                }).resume()
+                // So what we are essentially doing here is that we are declaring this let constant called profileImageURL and we are setting it equal to the our profilePic property in our hard coded users class and then we are saying from there that if they are equal to each other then we want this let constant called url and then set that equal t the location of our server to firebase therefore the image downloads when the application wants to display the profile picture of the user
+            }
         }
         
         
@@ -181,15 +181,16 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             isSearching = true
             filteredSearchArray = hardCodedUsers.filter{
                 //$0.username == searchBar.text!
-//                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+                //                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
                 $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-//                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-               // return true
-               
+                //                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+                // return true
+                
                 
             }
+            
             filteredSearchArray = hardCodedUsers.filter{
-            $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
             }
             tableView.reloadData()
         }

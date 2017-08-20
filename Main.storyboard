@@ -76,19 +76,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Increase range in Settings for better search results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8S-9i-duA">
-                                <rect key="frame" x="95" y="376" width="225" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DzI-pJ-MDp">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="368"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cze-pf-wsJ">
-                                <rect key="frame" x="103" y="437" width="209" height="33"/>
+                                <rect key="frame" x="103" y="594" width="209" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29803921568627451" green="0.37254901960784315" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -121,6 +114,13 @@
                                     <segue destination="ANz-VA-xNC" kind="show" identifier="toProfile" id="5zI-gd-xCR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Increase range in Settings for better search results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8S-9i-duA">
+                                <rect key="frame" x="95" y="533" width="225" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921568627451" green="0.37254901960784315" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -239,7 +239,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MainStoryBoard" title="&quot;Interests&quot;" automaticallyAdjustsScrollViewInsets="NO" id="g0A-fI-H7I" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sJX-DX-6Ul">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sJX-DX-6Ul">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -374,6 +374,31 @@
             </objects>
             <point key="canvasLocation" x="3652.1739130434785" y="-669.29347826086962"/>
         </scene>
+        <!--Web Browser-->
+        <scene sceneID="gsi-LH-OvU">
+            <objects>
+                <viewController id="edR-im-cEp" customClass="WebBrowser" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GD1-kh-jPW"/>
+                        <viewControllerLayoutGuide type="bottom" id="6zy-fF-vEr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TcA-OC-9dN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bzt-rh-2lD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7eZ-aj-wsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4721.739130434783" y="-620.38043478260875"/>
+        </scene>
         <!--Profile That Users See-->
         <scene sceneID="SoC-f1-ACv">
             <objects>
@@ -406,14 +431,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Computer Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtg-EC-hDi">
-                                <rect key="frame" x="0.0" y="527" width="173" height="20"/>
+                                <rect key="frame" x="0.0" y="571" width="173" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZF5-vg-EFT">
-                                <rect key="frame" x="100" y="460" width="218" height="21"/>
+                                <rect key="frame" x="100" y="460" width="294" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -421,7 +446,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIf-JY-RkZ">
-                                <rect key="frame" x="168" y="527" width="150" height="21"/>
+                                <rect key="frame" x="193" y="571" width="189" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -429,13 +454,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2D-aI-c3X">
-                                <rect key="frame" x="2" y="294" width="414" height="61"/>
+                                <rect key="frame" x="2" y="294" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezP-kH-cNZ">
+                                <rect key="frame" x="174" y="489" width="147" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                <state key="normal" title="Take me there"/>
+                                <connections>
+                                    <action selector="toWebBrowser:" destination="JXb-0e-zqX" eventType="touchUpInside" id="rmg-Ed-dRk"/>
+                                    <segue destination="edR-im-cEp" kind="show" identifier="goToBrowser" id="gc8-dX-eXn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921568627451" green="0.37254901960784315" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

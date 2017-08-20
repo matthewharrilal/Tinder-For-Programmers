@@ -55,6 +55,16 @@ class ProfileThatUsersSee: UIViewController {
 
     }
     
+    @IBAction func toWebBrowser(_ sender: UIButton) {
+        openURL(url: githubLink)
+    }
+    func openURL(url: String!) {
+        if let url = URL(string: url!) {
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

@@ -33,6 +33,7 @@
 		1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F01F24067D0085E102 /* AppDelegate.swift */; };
 		1CD906F31F24067D0085E102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F21F24067D0085E102 /* ViewController.swift */; };
 		1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD906F71F24067D0085E102 /* Assets.xcassets */; };
+		1CE07EF71F4981B800C8BD73 /* WebBroswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE07EF61F4981B800C8BD73 /* WebBroswer.swift */; };
 		1CEB0EA71F2B9F2C00386BD3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */; };
 		1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */; };
 		1CEB0EAF1F2BD95A00386BD3 /* CreateUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */; };
@@ -71,6 +72,7 @@
 		1CD906F21F24067D0085E102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1CD906F71F24067D0085E102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD906FC1F24067D0085E102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Granite (Better Yelp)/Info.plist"; sourceTree = "<group>"; };
+		1CE07EF61F4981B800C8BD73 /* WebBroswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebBroswer.swift; sourceTree = "<group>"; };
 		1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LogInStoryBoard.storyboard; path = "Granite (Better Yelp)/LogInStoryBoard.storyboard"; sourceTree = "<group>"; };
 		1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsername.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */,
 				1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */,
 				1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */,
+				1CE07EF61F4981B800C8BD73 /* WebBroswer.swift */,
 			);
 			name = "View Controllers";
 			path = "Granite (Better Yelp)";
@@ -378,6 +381,7 @@
 				1CCA45CE1F29858D005C062C /* ProfileVewController.swift in Sources */,
 				1C650F8F1F38E8EB005B398E /* Storyboard+Utility.swift in Sources */,
 				1C0619331F4756CC00113EEA /* nearbyPeopleCell.swift in Sources */,
+				1CE07EF71F4981B800C8BD73 /* WebBroswer.swift in Sources */,
 				1C4D2D031F31FB7700C6FC4B /* ProfileThatUsersSee.swift in Sources */,
 				1CF5CE321F35FA7A00ECC085 /* AuthenticationServices.swift in Sources */,
 				1CEB0EB31F2EC86800386BD3 /* MainNavigationController.swift in Sources */,

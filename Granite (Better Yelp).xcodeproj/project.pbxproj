@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C0619331F4756CC00113EEA /* nearbyPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */; };
+		1C0619381F4904B500113EEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0619371F4904B500113EEA /* Extensions.swift */; };
 		1C1F4AA11F4212A400E2C3F0 /* matchmakingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */; };
 		1C1F4AA31F43305F00E2C3F0 /* gifFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */; };
 		1C1F4AA61F43397E00E2C3F0 /* computer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA51F43397E00E2C3F0 /* computer.jpg */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyPeopleCell.swift; sourceTree = "<group>"; };
+		1C0619371F4904B500113EEA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchmakingMode.swift; sourceTree = "<group>"; };
 		1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFile.swift; sourceTree = "<group>"; };
 		1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = giphy.mp4; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 			name = "Indicatior Files";
 			sourceTree = "<group>";
 		};
+		1C0619361F49049A00113EEA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1C0619371F4904B500113EEA /* Extensions.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		1C650F8D1F38E8D0005B398E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		1CD906E41F24067D0085E102 = {
 			isa = PBXGroup;
 			children = (
+				1C0619361F49049A00113EEA /* Helpers */,
 				1C0619341F476ADC00113EEA /* Indicatior Files */,
 				1C650F8D1F38E8D0005B398E /* Extensions */,
 				1CEB0EAB1F2BA1C700386BD3 /* Info files */,
@@ -359,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CEB0EAF1F2BD95A00386BD3 /* CreateUsername.swift in Sources */,
+				1C0619381F4904B500113EEA /* Extensions.swift in Sources */,
 				1C4D2CF91F310C3A00C6FC4B /* HardCodedUsers.swift in Sources */,
 				1CD906F31F24067D0085E102 /* ViewController.swift in Sources */,
 				1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */,

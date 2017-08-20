@@ -129,7 +129,9 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return hardCodedUsers.count
         if isSearching {
+            
             return filteredSearchArray.count
+            
         } else {
             return hardCodedUsers.count
         }

@@ -42,10 +42,28 @@ class ProfileThatUsersSee: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
+<<<<<<< HEAD
      super.viewWillAppear(animated)
         // The reason code can not occur dowm here is because we want the profile to correspond to the profile tapped on by the user where as if we put the code in here we are faced with the sitaution that the profile gets updated with unaccurate dpinpointed information from firebase therefore we have to pass the data in our cell for row function in our table view file
         
+=======
+//        super.viewWillAppear(animated)
+//        if let profileImageURL = objectUser?.profilePic {
+//            let url = URL(string: profileImageURL)
+//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//                if error != nil {
+//                    print(error)
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    self.profilePic.image = UIImage(data: data!)
+//                }
+//            }).resume()
+//        }
+>>>>>>> parent of b26ed46... FIxed my location bug
         
+
+
     }
     
     @IBAction func toWebBrowser(_ sender: UIButton) {
@@ -53,7 +71,7 @@ class ProfileThatUsersSee: UIViewController {
     }
     func openURL(url: String!) {
         if let url = URL(string: url!) {
-            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
         
     }
@@ -62,17 +80,18 @@ class ProfileThatUsersSee: UIViewController {
         super.viewDidAppear(animated)
         
     }
+   
+
+   
     
-    
-    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameLabel.text = self.username
         computerLanguageLabel.text = compLanguage
         githubLinkLabel.text = githubLink
         userBioLabel.text = userBio
+<<<<<<< HEAD
         databaseRef.child("users").observe(.childAdded, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 if let profileImageURL = dict["pic"] as? String {
@@ -83,11 +102,29 @@ class ProfileThatUsersSee: UIViewController {
                             return
                         }
                         self.profilePic.image = UIImage(data: data!)
+=======
+        databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                if let profileImageURL = dict["pic"] as? String {
+                let url = URL(string: profileImageURL)
+                    URLSession.shared
+                    .dataTask(with: url!, completionHandler: { (data, response, error) in
+                        if error != nil {
+                            print("The agent has reached the destination")
+                        print(error?.localizedDescription)
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            self.profilePic.image = UIImage(data: data!)
+                        }
+>>>>>>> parent of b26ed46... FIxed my location bug
                     }).resume()
                 }
             }
         })
+       
         
+<<<<<<< HEAD
        
         }
     //
@@ -101,6 +138,11 @@ class ProfileThatUsersSee: UIViewController {
         // So as we know what is happening is that what a handler does is that creates and returns an action with the specified behavior so what this does is almost like a setting function because what we are essentially doing is that we are changing the code within firebase to say change the listener block to a block that essentailly tells us that the user has signed out
     }
     
+=======
+
+        
+           }
+>>>>>>> parent of b26ed46... FIxed my location bug
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

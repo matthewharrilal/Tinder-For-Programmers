@@ -161,6 +161,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
             cell.textLabel?.text = hardCodedUsers[indexPath.row].username
             cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
+<<<<<<< HEAD
             if let profileImageURL = x?.profilePic {
             let url = URL(string: profileImageURL)
                 URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
@@ -177,6 +178,23 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 }).resume()
             }
                    }
+=======
+            if let profileImageURl = x?.profilePic {
+                let url = URL(string: profileImageURl)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if error != nil {
+                        //If this is getting hit that means that the download isnt downloading succesfully so lets return out of this
+                        print(error?.localizedDescription)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        cell.imageView?.image = UIImage(data: data!)
+                    }
+                }).resume()
+                // So what we are essentially doing here is that we are declaring this let constant called profileImageURL and we are setting it equal to the our profilePic property in our hard coded users class and then we are saying from there that if they are equal to each other then we want this let constant called url and then set that equal t the location of our server to firebase therefore the image downloads when the application wants to display the profile picture of the user
+            }
+        }
+>>>>>>> parent of b26ed46... FIxed my location bug
         
         
         return cell
@@ -199,28 +217,13 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 
             }
             
-//            filteredSearchArray = hardCodedUsers.filter{
-//                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-//            }
-            tableView.reloadData()
-        }
-    }
-    
-    func compLanguageSearchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == nil || searchBar.text == "" {
-            isSearching = false
-            view.endEditing(true)
-            tableView.reloadData()
-        } else {
-        
-        isSearching = true
-            
             filteredSearchArray = hardCodedUsers.filter{
                 $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
             }
             tableView.reloadData()
         }
     }
+    
     // So the problem we are essentially having is that we are stacking the views on the one profile view controller but when we get the second one that is the correct one so there is an error somewhere in the transition
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -239,6 +242,5 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
         }
     }
-    
     
 }

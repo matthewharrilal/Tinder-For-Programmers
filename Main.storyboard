@@ -176,7 +176,7 @@
         <scene sceneID="LLJ-U2-5EV">
             <objects>
                 <tableViewController id="yeZ-fa-3u8" customClass="ListNearbyPeople" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="bcI-fe-Fel">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="bcI-fe-Fel">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -186,22 +186,22 @@
                             <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nearbyPeopleCell" textLabel="wJs-gY-kOr" detailTextLabel="cIR-aZ-XVG" rowHeight="108" style="IBUITableViewCellStyleSubtitle" id="5cR-xh-mJ0" customClass="NearbyPeopleCell" customModule="Granite__Better_Yelp_" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="108"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nearbyPeopleCell" textLabel="wJs-gY-kOr" detailTextLabel="cIR-aZ-XVG" rowHeight="57" style="IBUITableViewCellStyleSubtitle" id="5cR-xh-mJ0" customClass="NearbyPeopleCell" customModule="Granite__Better_Yelp_" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5cR-xh-mJ0" id="boW-3u-4Td">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107.66666666666667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wJs-gY-kOr">
-                                            <rect key="frame" x="15" y="37" width="33.333333333333336" height="20.333333333333332"/>
+                                            <rect key="frame" x="15" y="10.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cIR-aZ-XVG">
-                                            <rect key="frame" x="14.999999999999996" y="57.333333333333336" width="43.666666666666664" height="14.333333333333334"/>
+                                            <rect key="frame" x="14.999999999999996" y="31.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -224,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2G1-Gy-IyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2962.3188405797105" y="104.34782608695653"/>
+            <point key="canvasLocation" x="2965" y="105"/>
         </scene>
         <!--LogInStoryBoard-->
         <scene sceneID="ihL-AT-hcg">

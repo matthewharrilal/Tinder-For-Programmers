@@ -161,24 +161,6 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
             cell.textLabel?.text = hardCodedUsers[indexPath.row].username
             cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
-<<<<<<< HEAD
-            if let profileImageURL = x?.profilePic {
-            let url = URL(string: profileImageURL)
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                    if error != nil {
-                    print(error)
-                        print("Something wrong is clearly happening")
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.profileController[indexPath.row].profilePic.image = UIImage(data: data!)
-                    }
-                    
-                
-                }).resume()
-            }
-                   }
-=======
             if let profileImageURl = x?.profilePic {
                 let url = URL(string: profileImageURl)
                 URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
@@ -193,9 +175,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 }).resume()
                 // So what we are essentially doing here is that we are declaring this let constant called profileImageURL and we are setting it equal to the our profilePic property in our hard coded users class and then we are saying from there that if they are equal to each other then we want this let constant called url and then set that equal t the location of our server to firebase therefore the image downloads when the application wants to display the profile picture of the user
             }
-        }
->>>>>>> parent of b26ed46... FIxed my location bug
-        
+        }        
         
         return cell
     }

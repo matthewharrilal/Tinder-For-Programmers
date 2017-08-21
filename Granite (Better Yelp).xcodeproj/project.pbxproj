@@ -34,6 +34,7 @@
 		1CD906F31F24067D0085E102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F21F24067D0085E102 /* ViewController.swift */; };
 		1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD906F71F24067D0085E102 /* Assets.xcassets */; };
 		1CE07EF71F4981B800C8BD73 /* WebBroswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE07EF61F4981B800C8BD73 /* WebBroswer.swift */; };
+		1CE07EF91F4989EA00C8BD73 /* ethan-sykes-222962.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CE07EF81F4989EA00C8BD73 /* ethan-sykes-222962.jpg */; };
 		1CEB0EA71F2B9F2C00386BD3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */; };
 		1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */; };
 		1CEB0EAF1F2BD95A00386BD3 /* CreateUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */; };
@@ -73,6 +74,7 @@
 		1CD906F71F24067D0085E102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD906FC1F24067D0085E102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Granite (Better Yelp)/Info.plist"; sourceTree = "<group>"; };
 		1CE07EF61F4981B800C8BD73 /* WebBroswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebBroswer.swift; sourceTree = "<group>"; };
+		1CE07EF81F4989EA00C8BD73 /* ethan-sykes-222962.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ethan-sykes-222962.jpg"; sourceTree = "<group>"; };
 		1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LogInStoryBoard.storyboard; path = "Granite (Better Yelp)/LogInStoryBoard.storyboard"; sourceTree = "<group>"; };
 		1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsername.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		1C9CED2B1F2778BA002C4BCA /* Picture and Videos */ = {
 			isa = PBXGroup;
 			children = (
+				1CE07EF81F4989EA00C8BD73 /* ethan-sykes-222962.jpg */,
 				1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */,
 				1C1F4AA81F434E3900E2C3F0 /* used.mp4 */,
 				1C1F4AA51F43397E00E2C3F0 /* computer.jpg */,
@@ -308,6 +311,7 @@
 				1CD226EF1F3AA7D900433883 /* Logo.jpg in Resources */,
 				1CD226ED1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg in Resources */,
 				1C4D2CFD1F310DE300C6FC4B /* GoogleService-Info.plist in Resources */,
+				1CE07EF91F4989EA00C8BD73 /* ethan-sykes-222962.jpg in Resources */,
 				1C4D2D011F3118AD00C6FC4B /* mike-erskine-144525.jpg in Resources */,
 				1CD226EB1F3A3C7000433883 /* Main.storyboard in Resources */,
 				1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */,

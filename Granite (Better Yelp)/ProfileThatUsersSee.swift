@@ -37,22 +37,22 @@ class ProfileThatUsersSee: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        if let profileImageURL = objectUser?.profilePic {
-//            let url = URL(string: profileImageURL)
-//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-//                if error != nil {
-//                    print(error)
-//                    return
-//                }
-//                DispatchQueue.main.async {
-//                    self.profilePic.image = UIImage(data: data!)
-//                }
-//            }).resume()
-//        }
+        //        super.viewWillAppear(animated)
+        //        if let profileImageURL = objectUser?.profilePic {
+        //            let url = URL(string: profileImageURL)
+        //            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+        //                if error != nil {
+        //                    print(error)
+        //                    return
+        //                }
+        //                DispatchQueue.main.async {
+        //                    self.profilePic.image = UIImage(data: data!)
+        //                }
+        //            }).resume()
+        //        }
         
-
-
+        
+        
     }
     
     @IBAction func toWebBrowser(_ sender: UIButton) {
@@ -60,7 +60,7 @@ class ProfileThatUsersSee: UIViewController {
     }
     func openURL(url: String!) {
         if let url = URL(string: url!) {
-        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
         
     }
@@ -69,40 +69,73 @@ class ProfileThatUsersSee: UIViewController {
         super.viewDidAppear(animated)
         
     }
-   
-
-   
     
-   
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameLabel.text = self.username
         computerLanguageLabel.text = compLanguage
         githubLinkLabel.text = githubLink
         userBioLabel.text = userBio
-        databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                if let profileImageURL = dict["pic"] as? String {
-                let url = URL(string: profileImageURL)
-                    URLSession.shared
-                    .dataTask(with: url!, completionHandler: { (data, response, error) in
-                        if error != nil {
-                            print("The agent has reached the destination")
-                        print(error?.localizedDescription)
-                            return
-                        }
-                        DispatchQueue.main.async {
-                            self.profilePic.image = UIImage(data: data!)
-                        }
-                    }).resume()
-                }
-            }
-        })
-       
+//                databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
+//                    if let dict = snapshot.value as? [String: AnyObject] {
+//                        if let profileImageURL = dict["pic"] as? String {
+//                        let url = URL(string: profileImageURL)
+//                            URLSession.shared
+//                            .dataTask(with: url!, completionHandler: { (data, response, error) in
+//                                if error != nil {
+//                                    print("The agent has reached the destination")
+//                                print("This has been a nil attempt")
+//                                    return
+//                                }
+//                                DispatchQueue.main.async {
+//                                    self.profilePic.image = UIImage(data: data!)
+//                                }
+//                            }).resume()
+//                        }
+//                    }
+//                })
+//        
+        // This one grabs it once but doesnt even grab the right image and sets if for all the other users as the same wrong image
         
 
         
-           }
+        databaseRef.child("users").observe(.childAdded, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                if let profileImageURL = dict["pic"] as? String {
+                    let url = URL(string: profileImageURL)
+                    URLSession.shared
+                        .dataTask(with: url!, completionHandler: { (data, response, error) in
+                            if error != nil {
+                                print("The agent has reached the destination")
+                                print(error?.localizedDescription)
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                self.profilePic.image = UIImage(data: data!)
+                            }
+                        }).resume()
+                }
+            }
+            
+        })
+        
+        // So essentially what is happening here is that we are getting the picture but it changes from an outdated one and then takes us to the correct one but on the other hand it sets it the same for all users which is the problem we are trying to fix
+    }
+    
+    func removeAuthListener (authHandle: AuthStateDidChangeListenerHandle?)
+    {
+        if let authHandle = authHandle{
+            
+            Auth.auth().removeStateDidChangeListener(authHandle)
+            
+        }
+        // So as we know what is happening is that what a handler does is that creates and returns an action with the specified behavior so what this does is almost like a setting function because what we are essentially doing is that we are changing the code within firebase to say change the listener block to a block that essentailly tells us that the user has signed out
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

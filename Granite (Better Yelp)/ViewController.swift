@@ -10,7 +10,9 @@ import UIKit
 import MapKit
 import CoreLocation
 import VideoBackground
-
+import Firebase
+import FirebaseAuthUI
+import FirebaseDatabase
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var postalCode: String?
@@ -85,8 +87,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
-        
+        if let userID = Auth.auth().currentUser?.uid {
+        Database.database().reference().child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["currentLocation" : currentLocation])
+        })
+        }
     }
+    
     
     func dismissKeyboard() {
         view.endEditing(true)

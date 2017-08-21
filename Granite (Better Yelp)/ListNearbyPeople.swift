@@ -199,14 +199,29 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 
             }
             
-            filteredSearchArray += hardCodedUsers.filter{
+//            filteredSearchArray = hardCodedUsers.filter{
+//                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+//            }
+            tableView.reloadData()
+        }
+    }
+    
+    func compLanguageSearchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            isSearching = false
+            view.endEditing(true)
+            tableView.reloadData()
+        } else {
+        
+        isSearching = true
+            
+            filteredSearchArray = hardCodedUsers.filter{
                 $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
             }
             tableView.reloadData()
         }
     }
-    
-       // So the problem we are essentially having is that we are stacking the views on the one profile view controller but when we get the second one that is the correct one so there is an error somewhere in the transition
+    // So the problem we are essentially having is that we are stacking the views on the one profile view controller but when we get the second one that is the correct one so there is an error somewhere in the transition
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let identifier = segue.identifier {

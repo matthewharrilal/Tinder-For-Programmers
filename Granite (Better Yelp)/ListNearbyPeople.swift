@@ -22,7 +22,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     //var userUsernames: [HardCodedUsers] = []
     var profileController = [ProfileThatUsersSee]()
     var filteredSearchArray = [HardCodedUsers]()
-    var databaseRef = Database.database().reference().child("users")
+    var databaseRef = Database.database().reference()
+    var storageRef = Storage.storage()
     let cellID = "nearbyPeopleCell"
     var refHandle: UInt!
     var username: String?
@@ -68,8 +69,14 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                     print("WHAT")
                     return
             }
+//            if let picURL = dictionary["pic"] as? String {
+//                
+//            } else {
+//                //no image case
+//                print("The image could not be retrieved")
+//            }
             
-            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio)
+            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio )
             self.x = user
             // So essentially what we are doing here is that we are passing these new childs we are adding in our firebase database into out initalizers therefore it will satisfy the users creating of their account
             // And this is what we call an object and we know that an object is of a type class that has been declared and we create these objects so we can pass around data from that class much faster and efficiently
@@ -154,6 +161,21 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
             cell.textLabel?.text = hardCodedUsers[indexPath.row].username
             cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
+            if let profileImageURL = x?.profilePic {
+            let url = URL(string: profileImageURL)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if error != nil {
+                    print(error)
+                        print("Something wrong is clearly happening")
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.profileController[indexPath.row].profilePic.image = UIImage(data: data!)
+                    }
+                    
+                
+                }).resume()
+            }
                    }
         
         
@@ -191,20 +213,14 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             if identifier == "toProfile" {
                 let profileViewController = segue.destination as? ProfileThatUsersSee
                 
-                print(profileViewController?.username)
+        
                 profileViewController?.username = self.username
                 profileViewController?.compLanguage = self.compLanguage
                 profileViewController?.githubLink = self.githubLink
                 profileViewController?.userBio = self.userBio
                 profileViewController?.profileImageURL = self.profileImageURL
                 
-                // So essentially what we are doing here is that we are taking the optional variables we have declared in the profile that users see view controller and what we are doing with it is that we are assigning these variables the data from the optional variables we have declared in this view controller file
-                
-                // And we know that over the course of this view controller we assigned the optional variables in this view contoller equal to the nodes in our firebase therefore what we are essentially doing here is that we are setting the nodes in firebase equal to the variables in our other view controller
-                
-                // And the reason we did this is as opposed to the other view controller is because in the other file we couldnt do it there therefore by  getting this data in a dynamic function which we want meaning that we are getting the users information from our firebase database depending on which cell the user taps on and this essentially gives us the option to get different users information as opposed to only the current users information
-                
-            }
+                            }
             
         }
     }

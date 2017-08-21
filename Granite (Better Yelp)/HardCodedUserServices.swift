@@ -36,7 +36,7 @@ struct UserService {
     // So essentially what is happening in our code here is that we need this to be used to set the data for users in  our firebase database and what that means is when are creating the user in our database by using the code in our model class that is creating it yes, but it is not setting the values and the reason we want to set the values is for a multitude of reasons such as what if the user logs out and wants to log back in they have no credentials to log back in with therefore they will have to create a new account and then the same error will continue to occur 
     }
     
-    
+       
     static func createUser(controller: UIViewController, email: String, password: String, completion: @escaping (FIRUser)-> Void) {
     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
         if let error = error {
@@ -120,4 +120,5 @@ struct UserService {
         
     }
     
+      
 }

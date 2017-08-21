@@ -13,6 +13,7 @@ import FirebaseAuthUI
 import FirebaseDatabase
 import FirebaseAuth
 import Kingfisher
+
 class HardCodedUsers: NSObject {
     var username: String
     var email: String

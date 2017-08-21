@@ -13,13 +13,11 @@ import VideoBackground
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    
+    var postalCode: String?
     // Map
     @IBOutlet weak var map: MKMapView!
     
     @IBOutlet weak var interestsTextField: UITextField!
-    
-    
     
     var hardCodedUsers: HardCodedUsers?
     
@@ -55,13 +53,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         
-        
         // So essentially what we are doing is that we are creating a new let constant called location and setting that equl to the locations array and the very first element by setting the index value we want equal to 0 the reason we want the very first element is becuase we want the users most recent position, and the reason it is the first one rather than the last one because the array can also be populated with elements that we do not care about therefore we only care about the users most updated location therefore it would be the very first element of the array
         
         let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
         let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         map.setRegion(region, animated: true)
+        
+        
         // So basically in this line of code we are setting the region where as we declared it in the line previous to this code
         
         self.map.showsUserLocation = true

@@ -60,7 +60,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 let githubName = dictionary["githubName"] as? String,
                 let githubLink = dictionary["githubLink"] as? String,
                 let compLanguage = dictionary["compLanguage"] as? String,
-                let userBio = dictionary["userBio"] as? String
+                let userBio = dictionary["userBio"] as? String,
+                let currentLocation = dictionary["currentLocation"] as? String
                 
                 else {
                     // So what is essentially happening here is that we should not get confused between adding a node to our firebase database location as well and initalizing a new user

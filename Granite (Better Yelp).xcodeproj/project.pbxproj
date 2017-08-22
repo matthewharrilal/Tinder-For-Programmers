@@ -16,7 +16,6 @@
 		1C1F4AA91F434E4B00E2C3F0 /* used.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA81F434E3900E2C3F0 /* used.mp4 */; };
 		1C4D2CF91F310C3A00C6FC4B /* HardCodedUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2CF81F310C3A00C6FC4B /* HardCodedUsers.swift */; };
 		1C4D2CFB1F310C7200C6FC4B /* HardCodedUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2CFA1F310C7200C6FC4B /* HardCodedUserServices.swift */; };
-		1C4D2CFD1F310DE300C6FC4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2CFC1F310DE300C6FC4B /* GoogleService-Info.plist */; };
 		1C4D2CFF1F31189500C6FC4B /* laura-aziz-133168.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */; };
 		1C4D2D011F3118AD00C6FC4B /* mike-erskine-144525.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */; };
 		1C4D2D031F31FB7700C6FC4B /* ProfileThatUsersSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */; };
@@ -40,6 +39,7 @@
 		1CEB0EB31F2EC86800386BD3 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */; };
 		1CF5CE301F34ECAC00ECC085 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CF5CE2F1F34ECAC00ECC085 /* background.jpg */; };
 		1CF5CE321F35FA7A00ECC085 /* AuthenticationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF5CE311F35FA7A00ECC085 /* AuthenticationServices.swift */; };
+		1CF70D321F4B77D2009951A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CF70D311F4B77D2009951A1 /* GoogleService-Info.plist */; };
 		843AD75B2EF3F78DF1055EC7 /* Pods_Granite__Better_Yelp_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,6 @@
 		1C1F4AA81F434E3900E2C3F0 /* used.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = used.mp4; sourceTree = "<group>"; };
 		1C4D2CF81F310C3A00C6FC4B /* HardCodedUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HardCodedUsers.swift; path = "Granite (Better Yelp)/HardCodedUsers.swift"; sourceTree = "<group>"; };
 		1C4D2CFA1F310C7200C6FC4B /* HardCodedUserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HardCodedUserServices.swift; path = "Granite (Better Yelp)/HardCodedUserServices.swift"; sourceTree = "<group>"; };
-		1C4D2CFC1F310DE300C6FC4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Granite (Better Yelp)/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "laura-aziz-133168.jpg"; sourceTree = "<group>"; };
 		1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mike-erskine-144525.jpg"; sourceTree = "<group>"; };
 		1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileThatUsersSee.swift; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		1CF5CE2F1F34ECAC00ECC085 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		1CF5CE311F35FA7A00ECC085 /* AuthenticationServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationServices.swift; sourceTree = "<group>"; };
+		1CF70D311F4B77D2009951A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).debug.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).debug.xcconfig"; sourceTree = "<group>"; };
 		36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Granite__Better_Yelp_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).release.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).release.xcconfig"; sourceTree = "<group>"; };
@@ -189,8 +189,8 @@
 				1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */,
 				1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */,
 				1CCA45CD1F29858D005C062C /* ProfileVewController.swift */,
-				1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */,
 				1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */,
+				1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */,
 				1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */,
 				1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */,
 				1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */,
@@ -214,7 +214,7 @@
 		1CEB0EAB1F2BA1C700386BD3 /* Info files */ = {
 			isa = PBXGroup;
 			children = (
-				1C4D2CFC1F310DE300C6FC4B /* GoogleService-Info.plist */,
+				1CF70D311F4B77D2009951A1 /* GoogleService-Info.plist */,
 				1CD906FC1F24067D0085E102 /* Info.plist */,
 			);
 			name = "Info files";
@@ -301,13 +301,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF70D321F4B77D2009951A1 /* GoogleService-Info.plist in Resources */,
 				1C1F4AA91F434E4B00E2C3F0 /* used.mp4 in Resources */,
 				1C1F4AA71F434C3B00E2C3F0 /* giphy.mp4 in Resources */,
 				1C1F4AA61F43397E00E2C3F0 /* computer.jpg in Resources */,
 				1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */,
 				1CD226EF1F3AA7D900433883 /* Logo.jpg in Resources */,
 				1CD226ED1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg in Resources */,
-				1C4D2CFD1F310DE300C6FC4B /* GoogleService-Info.plist in Resources */,
 				1C4D2D011F3118AD00C6FC4B /* mike-erskine-144525.jpg in Resources */,
 				1CD226EB1F3A3C7000433883 /* Main.storyboard in Resources */,
 				1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */,
@@ -327,7 +327,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp)-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
 			);

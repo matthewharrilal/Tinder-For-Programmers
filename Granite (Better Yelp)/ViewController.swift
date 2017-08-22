@@ -23,7 +23,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var hardCodedUsers: HardCodedUsers?
     
-    
+    var zipCodeChecker: String?
+    var zipCodeKeys = [String]()
     func logout() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let logInViewController = storyboard.instantiateViewController(withIdentifier: "Home")
@@ -55,8 +56,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation], error: Error) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
+        
+        let roughLocationKey = String(format: "%.1f,%.1f", location.coordinate.latitude, location.coordinate.longitude).replacingOccurrences(of: ".", with: "%2e")
+        
+        print(roughLocationKey)
+        
+        guard let currentUser = HardCodedUsers.current else {
+            return
+        }
+        
+        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("roughLocation").setValue(roughLocationKey)
+        Database.database().reference().child("usersByLocation").child(roughLocationKey).child((Auth.auth().currentUser?.uid)!).setValue(["blah":"blah"])
+        
         
         // So essentially what we are doing is that we are creating a new let constant called location and setting that equl to the locations array and the very first element by setting the index value we want equal to 0 the reason we want the very first element is becuase we want the users most recent position, and the reason it is the first one rather than the last one because the array can also be populated with elements that we do not care about therefore we only care about the users most updated location therefore it would be the very first element of the array
         
@@ -74,7 +87,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         self.map.showsUserLocation = true
         //   print(location.altitude) // This is optional if you want to know the users current altitude
-    }
+       
+        if Auth.auth().currentUser?.uid == nil {
+        print("The user can not be tracked yet")
+            return
+        }
+        else {
+         Database.database().reference().child("users").child("currentLocation").child((Auth.auth().currentUser?.uid)!).setValue(["Latitude": location.coordinate.latitude, "Longitude": location.coordinate.longitude, "altitude": location.altitude])
+            
+            manager.stopUpdatingLocation()
+            return
+        }
+  
+        // The reason it is breaking is because the we are getting the location of the current user who is logged in however if the user just creates an account they will not have a uid by the time the app charts their location
+         }
     // But essentially this function will b
     
     let manager = CLLocationManager()
@@ -101,6 +127,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
+        let currentLocation = manager.location
+        
     }
     
     
@@ -130,6 +158,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if status == CLAuthorizationStatus.denied {
             showLocationDisabledPopUp()
         }
+        
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

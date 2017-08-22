@@ -15,7 +15,7 @@ import FirebaseAuth
 
 
 struct UserService {
-    static func create(_ githubLink: String, _ computerLanguage: String, _ username: String, _ email: String, _ fullName: String, _ password: String, _ githubName: String,_ userBio: String,completion: @escaping(HardCodedUsers?) -> Void) {
+    static func create(_ githubLink: String, _ computerLanguage: String, _ username: String, _ email: String, _ fullName: String, _ password: String, _ githubName: String,_ userBio: String, _ currentLocation: String,completion: @escaping(HardCodedUsers?) -> Void) {
         let user = HardCodedUsers(username: username, email: email , fullName: fullName, password: password, githubName: githubName, computerLanguage: computerLanguage, githubLink: githubLink, userBio: userBio)
         // We are making an object of our HardCodedUsersClass
         let dict = user.dictValue

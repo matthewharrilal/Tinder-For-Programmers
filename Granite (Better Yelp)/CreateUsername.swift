@@ -31,6 +31,30 @@ class CreateUsername: UIViewController {
     
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
+
+        let passwordCount = passwordTextField.text?.characters.count
+        if passwordCount! < 6 {
+            let passwordShort = UIAlertController(title: "Password too short", message: "Please enter a longer password", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+            passwordShort.addAction(cancelAction)
+            self.present(passwordShort, animated: true,completion: nil)
+            
+        }
+        
+        
+        
+        if agreementTextField.text?.lowercased() != "yes"   {
+            print("This statement is being printed because the user did not subjugate to the agreement of consent correctly")
+            textFieldIsEmpty()
+        }
+        
+        // Why is this function being called even if the text matches the exact same syntax as the one we want we have to research how to dismiss these notifications later
+        
+        // The reason their is only one alert kind for both actions is becuase i dont think you can asssign two alerts to one button
+        
+        // If they say no to the consent agreement they can not have access to the application
+        
+        
         // This creates creates the user in the firebase authentication
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
@@ -44,44 +68,20 @@ class CreateUsername: UIViewController {
             } else {
                 
                 // This creates the user inside the database
-                UserService.create("", "", self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!,self.githubName.text!, "",completion: { (user) in
+                UserService.create("", "", self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!,self.githubName.text!, "", "",completion: { (user) in
                     // The reason we are using empty strings to satisfy the following initalizers: githubLink as compLAnguage as well as userBio is because as we know since we are adding them to our initalizer to create user as well as access them from any file we would have to call them in this call of our userService struct but they do not need to add that when they create their account therefore to satisfy the empty strings then the user later updates them as they customize their profile
-                    print(self.passwordTextField.text)
-                    print(self.githubName.text)
                     guard let user = user
                         else{
                             
                             return
                             // But if the error is non existent we are going to create the user in the database
                     }
+                    HardCodedUsers.setCurrent(user)
                 })
                 
             }
         }
-        var passwordCount = passwordTextField.text?.characters.count
-        if passwordCount! < 6 {
-            let passwordShort = UIAlertController(title: "Password too short", message: "Please enter a longer password", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-            passwordShort.addAction(cancelAction)
-            self.present(passwordShort, animated: true,completion: nil)
-            
-        }
         
-        if agreementTextField.text == "Yes" || agreementTextField.text == "yes"   {
-            
-            
-        }
-        else{
-            print("This statement is being printed because the user did not subjugate to the agreement of consent correctly")
-            textFieldIsEmpty()
-            
-        }
-        
-        // Why is this function being called even if the text matches the exact same syntax as the one we want we have to research how to dismiss these notifications later
-        
-        // The reason their is only one alert kind for both actions is becuase i dont think you can asssign two alerts to one button
-        
-        // If they say no to the consent agreement they can not have access to the application
         
     }
     override func didReceiveMemoryWarning() {

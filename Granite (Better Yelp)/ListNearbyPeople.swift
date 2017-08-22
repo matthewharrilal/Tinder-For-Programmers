@@ -27,6 +27,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     let cellID = "nearbyPeopleCell"
     var refHandle: UInt!
     var username: String?
+    var selectedUser: HardCodedUsers?
     var githubLink: String?
     var compLanguage: String?
     @IBOutlet weak var searchBar: UISearchBar!
@@ -60,9 +61,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 let githubName = dictionary["githubName"] as? String,
                 let githubLink = dictionary["githubLink"] as? String,
                 let compLanguage = dictionary["compLanguage"] as? String,
-                let userBio = dictionary["userBio"] as? String,
-                let currentLocation = dictionary["currentLocation"] as? String
-                
+                let userBio = dictionary["userBio"] as? String
+            
                 else {
                     // So what is essentially happening here is that we should not get confused between adding a node to our firebase database location as well and initalizing a new user
                     
@@ -104,21 +104,9 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         let currentCell = tableView.cellForRow(at: indexPath)! as! UITableViewCell
         username = currentCell.textLabel?.text
         if isSearching {
-            username = filteredSearchArray[indexPath.row].username
-            //            username = hardCodedUsers[indexPath.row].username
-            githubLink = filteredSearchArray[indexPath.row].githubLink
-            compLanguage = filteredSearchArray[indexPath.row].computerLanguage
-            userBio = filteredSearchArray[indexPath.row].userBio
-            profileImageURL = filteredSearchArray[indexPath.row].profilePic
-            
-            
+            self.selectedUser = filteredSearchArray[indexPath.row]
         } else {
-            username = hardCodedUsers[indexPath.row].username
-            githubLink = hardCodedUsers[indexPath.row].githubLink
-            compLanguage = hardCodedUsers[indexPath.row].computerLanguage
-            userBio = hardCodedUsers[indexPath.row].userBio
-            profileImageURL = hardCodedUsers[indexPath.row].profilePic
-            
+            self.selectedUser = hardCodedUsers[indexPath.row]
             
             // So essentially what we are doing here is that we are creating a pathway to a specific node in our firebase database and we are doing that with the indexPath therefore what we are doing in this overwritten function is that we are taking our optinal variable and creating a pathway to our firebase database for the corresponding node when the user taps on the cell
         }
@@ -142,6 +130,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
         } else {
             return hardCodedUsers.count
+            // Somehow we havw to figure out a way to display the users that are in the rought location
+            
         }
     }
     
@@ -162,21 +152,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
             cell.textLabel?.text = hardCodedUsers[indexPath.row].username
             cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
-            if let profileImageURl = x?.profilePic {
-                let url = URL(string: profileImageURl)
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                    if error != nil {
-                        //If this is getting hit that means that the download isnt downloading succesfully so lets return out of this
-                        print(error?.localizedDescription)
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        cell.imageView?.image = UIImage(data: data!)
-                    }
-                }).resume()
-                // So what we are essentially doing here is that we are declaring this let constant called profileImageURL and we are setting it equal to the our profilePic property in our hard coded users class and then we are saying from there that if they are equal to each other then we want this let constant called url and then set that equal t the location of our server to firebase therefore the image downloads when the application wants to display the profile picture of the user
-            }
-        }        
+                   }        
         
         return cell
     }
@@ -212,14 +188,9 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             if identifier == "toProfile" {
                 let profileViewController = segue.destination as? ProfileThatUsersSee
                 
-        
-                profileViewController?.username = self.username
-                profileViewController?.compLanguage = self.compLanguage
-                profileViewController?.githubLink = self.githubLink
-                profileViewController?.userBio = self.userBio
-                profileViewController?.profileImageURL = self.profileImageURL
-                
-                            }
+                profileViewController?.objectUser = self.selectedUser
+                self.selectedUser = nil
+                                            }
             
         }
     }

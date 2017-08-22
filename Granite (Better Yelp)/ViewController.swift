@@ -61,15 +61,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         let roughLocationKey = String(format: "%.1f,%.1f", location.coordinate.latitude, location.coordinate.longitude).replacingOccurrences(of: ".", with: "%2e")
         
-        print(roughLocationKey)
+       
         
         guard let currentUser = HardCodedUsers.current else {
             return
         }
-        
+        if Auth.auth().currentUser?.uid != nil {
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("roughLocation").setValue(roughLocationKey)
-        Database.database().reference().child("usersByLocation").child(roughLocationKey).child((Auth.auth().currentUser?.uid)!).setValue(["blah":"blah"])
-        
+        Database.database().reference().child("usersByLocation").child(roughLocationKey).child((Auth.auth().currentUser?.uid)!).setValue(["roughLocation": "roughLocation"])
+        }
         
         // So essentially what we are doing is that we are creating a new let constant called location and setting that equl to the locations array and the very first element by setting the index value we want equal to 0 the reason we want the very first element is becuase we want the users most recent position, and the reason it is the first one rather than the last one because the array can also be populated with elements that we do not care about therefore we only care about the users most updated location therefore it would be the very first element of the array
         
@@ -109,7 +109,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.desiredAccuracy = kCLLocationAccuracyKilometer
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         // So essentially what is happening in the first4 lines of these manager methods is that we are letting this class receive update eventes by using the proper method and then setting it equal to self

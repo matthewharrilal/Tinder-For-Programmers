@@ -43,20 +43,8 @@ class ProfileThatUsersSee: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // The reason code can not occur dowm here is because we want the profile to correspond to the profile tapped on by the user where as if we put the code in here we are faced with the sitaution that the profile gets updated with unaccurate dpinpointed information from firebase therefore we have to pass the data in our cell for row function in our table view file
-//        super.viewWillAppear(animated)
-//        if let profileImageURL = objectUser?.profilePic {
-//            let url = URL(string: profileImageURL)
-//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-//                if error != nil {
-//                    print(error)
-//                    return
-//                }
-//                DispatchQueue.main.async {
-//                    self.profilePic.image = UIImage(data: data!)
-//                }
-//            }).resume()
-//        }
+        
+    
     }
     
     @IBAction func toWebBrowser(_ sender: UIButton) {
@@ -75,23 +63,22 @@ class ProfileThatUsersSee: UIViewController {
     }
    
 
-   
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameLabel.text = self.username
-        computerLanguageLabel.text = compLanguage
-        githubLinkLabel.text = githubLink
-        userBioLabel.text = userBio
+        
+let user = self.objectUser
+        usernameLabel.text = user?.username
+        userBioLabel.text = user?.userBio
+        githubLinkLabel.text = user?.githubLink
+        computerLanguageLabel.text = user?.computerLanguage
         databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                if let profileImageURL = dict["pic"] as? String {
+                if let profileImageURL = user?.profilePic {
                 let url = URL(string: profileImageURL)
-                    URLSession.shared
-                    .dataTask(with: url!, completionHandler: { (data, response, error) in
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                         if error != nil {
-                            print("The agent has reached the destination")
                         print(error?.localizedDescription)
                             return
                         }
@@ -102,6 +89,8 @@ class ProfileThatUsersSee: UIViewController {
                 }
             }
         })
+        
+     
     }
     //
     func removeAuthListener (authHandle: AuthStateDidChangeListenerHandle?)

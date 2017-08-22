@@ -55,12 +55,19 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         
         let roughLocation = HardCodedUsers.current?.roughLocation
         var truncatedLocationHolder = databaseRef.child("usersByLocation").child(roughLocation!).observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
+   
+            else { return }
             
             self.hardCodedUsers = [HardCodedUsers]()
+            let dispatchGroup = DispatchGroup()
             
             for userByLocation in snapshot {
-                print(userByLocation.value)
+            
+                print(userByLocation.key)
+                
+
+                
                 
                 //retrieve the user data
                 // it comes back as a snapshot
@@ -68,7 +75,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 // add to the array
                 // ???
                 // success!!!!!
-                let user = HardCodedUsers(username: userByLocation.key, email: "", fullName: "", password: "", githubName: "", computerLanguage: "", githubLink: "", userBio: "", roughLocation: "")
+                let user = HardCodedUsers(username: "", email: "", fullName: "", password: "", githubName: "", computerLanguage: "", githubLink: "", userBio: "", roughLocation: "")
                 user.pic = "https://firebasestorage.googleapis.com/v0/b/granite3-dbd3a.appspot.com/o/profileImage%2F76129601-0D2E-48CF-B758-4890C11F7A72?alt=media&token=fce19b8b-5259-48ce-b1a2-8bf629b4da8c"
                 self.hardCodedUsers.append(user)
                 // So essentially what we are doing here is that we are iterating over the items in the snapshot that grabs all the objects in the under the roughLocation which represent the inialized property we give each user therefore we are returning the key therefore we have to return the value
@@ -186,7 +193,20 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         } else {
             print("The filtered search results are not getting printed on the table view cells")
             
-            cell.textLabel?.text = hardCodedUsers[indexPath.row].username
+            UserService.show(forUID: hardCodedUsers[indexPath.row].username, completion: { (user) in
+                guard let user = user else {
+                    return
+                }
+                
+                cell.textLabel?.text = user.username
+                
+                
+                
+            })
+            
+            
+            
+            //cell.textLabel?.text = hardCodedUsers[indexPath.row].username
             cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
                    }        
         

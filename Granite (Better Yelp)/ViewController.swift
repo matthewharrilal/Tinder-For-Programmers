@@ -66,6 +66,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         guard let currentUser = HardCodedUsers.current else {
             return
         }
+        
+        currentUser.roughLocation = roughLocationKey
         if Auth.auth().currentUser?.uid != nil {
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("roughLocation").setValue(roughLocationKey)
         Database.database().reference().child("usersByLocation").child(roughLocationKey).child((Auth.auth().currentUser?.uid)!).setValue(["roughLocation": "roughLocation"])

@@ -23,11 +23,12 @@ class HardCodedUsers: NSObject {
     var githubLink: String?
     var computerLanguage: String?
     var userBio: String?
-    var profilePic: String?
+    var pic: String?
+    var roughLocation: String?
     
     // The reason we are making this optional is for the reason is because we know that the users dont need these values to make their account they add it later once they make it their account and the reason we can put this in a separate file is because it will be out of range because since we are passing the data from table view cell to the next view controller we would pass this in
     
-    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String) {
+    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String, roughLocation: String) {
         self.username = username
         self.email = email
         self.fullName = fullName
@@ -36,6 +37,7 @@ class HardCodedUsers: NSObject {
         self.computerLanguage = computerLanguage
         self.githubLink = githubLink
         self.userBio = userBio
+        self.roughLocation = roughLocation
        
         
         // THIS IS USED FOR CREATINGGGGGGGGGGGGGGGGG therefore we wouldnt add the github link and the computer language here because since it is used for creating we dont want the users creation of their account whether or not they have a github link they add that later therefore we wouldnt add it in creating so we can add that when we are actually fetching that from the database
@@ -57,7 +59,8 @@ class HardCodedUsers: NSObject {
             let githubLink = dict["githubLink"] as? String,
             let compLanguage = dict["compLanguage"] as? String,
             let userBio = dict["userBio"] as? String,
-            let profilePic = dict["pic"] as? String
+            let pic = dict["pic"] as? String,
+            let roughLocation = dict["roughLocation"] as? String
         
         
             // THIS IS FOR FETCHINGGGGGGGG
@@ -73,7 +76,8 @@ class HardCodedUsers: NSObject {
         self.githubLink = githubLink
         self.computerLanguage = compLanguage
         self.userBio = userBio
-        self.profilePic = profilePic
+        self.pic = pic
+        self.roughLocation = roughLocation
        
         // The reason we do this is becuase we are essentially setting our properties of the users equal to the initalizers we are placing on the users who are coming into existence
         
@@ -106,7 +110,7 @@ class HardCodedUsers: NSObject {
     // now lets not forget to implement data in a database we have to make a dictionary where the key would be what we type to retireve the data for that key
     // We are constructing a dictionary right now
     var dictValue: [String: Any] {
-        return["username": username, "email": email, "fullName": fullName, "password": password, "githubName": githubName, "githubLink": githubLink, "compLanguage": computerLanguage, "userBio": userBio, "pic": profilePic]
+        return["username": username, "email": email, "fullName": fullName, "password": password, "githubName": githubName, "githubLink": githubLink, "compLanguage": computerLanguage, "userBio": userBio, "pic": pic]
         // So what is essentially happening here is that we are passing in the string username into the class poroperty called username and what this essentially does is that like we said earlier that every instance is initialized with the propery username meaning that every user has a username so basically what we are doing right now is that for every username value or the string they chsoose to be their username we are assigning it to the key "username"
         
         // Juat a side noe the reason we dont need a failable initializer is because we have no use for user anonymous functionality

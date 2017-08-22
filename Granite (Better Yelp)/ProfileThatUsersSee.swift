@@ -75,7 +75,7 @@ let user = self.objectUser
         computerLanguageLabel.text = user?.computerLanguage
         databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                if let profileImageURL = user?.profilePic {
+                if let profileImageURL = user?.pic {
                 let url = URL(string: profileImageURL)
                     URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                         if error != nil {

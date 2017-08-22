@@ -42,13 +42,49 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         databaseRef = Database.database().reference()
-        fetchUsers()
+        //fetchUsers()
+        fetchUsersLocation()
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
         //        searchBar.returnKeyType = UIReturnKeyType.done
         searchBar.returnKeyType = UIReturnKeyType.done
     }
+    
+    func fetchUsersLocation() {
+        
+        let roughLocation = HardCodedUsers.current?.roughLocation
+        var truncatedLocationHolder = databaseRef.child("usersByLocation").child(roughLocation!).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            self.hardCodedUsers = [HardCodedUsers]()
+            
+            for userByLocation in snapshot {
+                print(userByLocation.value)
+                
+                //retrieve the user data
+                // it comes back as a snapshot
+                // initialize the user with the snapshot (instead of all of the values)
+                // add to the array
+                // ???
+                // success!!!!!
+                let user = HardCodedUsers(username: userByLocation.key, email: "", fullName: "", password: "", githubName: "", computerLanguage: "", githubLink: "", userBio: "", roughLocation: "")
+                user.pic = "https://firebasestorage.googleapis.com/v0/b/granite3-dbd3a.appspot.com/o/profileImage%2F76129601-0D2E-48CF-B758-4890C11F7A72?alt=media&token=fce19b8b-5259-48ce-b1a2-8bf629b4da8c"
+                self.hardCodedUsers.append(user)
+                // So essentially what we are doing here is that we are iterating over the items in the snapshot that grabs all the objects in the under the roughLocation which represent the inialized property we give each user therefore we are returning the key therefore we have to return the value
+                
+                // Now notice that when we print the value we get the pseudocode we used to display the key mainly for organizational purposes therefore we have to print the key and use that to retrieve the users info
+            }
+        
+
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+            
+        })
+               }
     
     func fetchUsers() {
         // Fetches users from database
@@ -77,11 +113,11 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
 //                print("The image could not be retrieved")
 //            }
             
-            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio )
-            self.x = user
+//            let user =  HardCodedUsers(username: username, email: email, fullName: fullName, password: password, githubName: githubName, computerLanguage: compLanguage, githubLink: githubLink, userBio: userBio )
+//            self.x = user
             // So essentially what we are doing here is that we are passing these new childs we are adding in our firebase database into out initalizers therefore it will satisfy the users creating of their account
             // And this is what we call an object and we know that an object is of a type class that has been declared and we create these objects so we can pass around data from that class much faster and efficiently
-            self.hardCodedUsers.append(user)
+//            self.hardCodedUsers.append(user)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -130,8 +166,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
         } else {
             return hardCodedUsers.count
-            // Somehow we havw to figure out a way to display the users that are in the rought location
-            
+            // Somehow we have to figure out a way to display the users that are in the rough location
+          
         }
     }
     

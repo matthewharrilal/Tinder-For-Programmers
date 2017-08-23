@@ -69,27 +69,39 @@ class ProfileThatUsersSee: UIViewController {
         super.viewDidLoad()
         
 let user = self.objectUser
-        usernameLabel.text = user?.username
-        userBioLabel.text = user?.userBio
-        githubLinkLabel.text = user?.githubLink
-        computerLanguageLabel.text = user?.computerLanguage
-        databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                if let profileImageURL = user?.pic {
-                let url = URL(string: profileImageURL)
-                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                        if error != nil {
-                        print(error?.localizedDescription)
-                            return
-                        }
-                        DispatchQueue.main.async {
-                            self.profilePic.image = UIImage(data: data!)
-                        }
-                    }).resume()
-                }
+        UserService.show(forUID: (user?.username)!, completion: {(user) in
+            guard let user = user else {
+            return
             }
+            self.usernameLabel.text = user.username
+            self.githubLinkLabel.text = user.githubLink
+            self.computerLanguageLabel.text = user.computerLanguage
+            self.userBioLabel.text = user.userBio
+            // So essentially what this user service .show function does is that is displays the data for the authenticated user and we have to decide what part of that data we actually want
+            
         })
         
+//        usernameLabel.text = user?.username
+//        userBioLabel.text = user?.userBio
+//        githubLinkLabel.text = user?.githubLink
+//        computerLanguageLabel.text = user?.computerLanguage
+//        databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
+//            if let dict = snapshot.value as? [String: Any] {
+//                if let profileImageURL = user?.pic {
+//                let url = URL(string: profileImageURL)
+//                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//                        if error != nil {
+//                        print(error?.localizedDescription)
+//                            return
+//                        }
+//                        DispatchQueue.main.async {
+//                            self.profilePic.image = UIImage(data: data!)
+//                        }
+//                    }).resume()
+//                }
+//            }
+//        })
+//        
      
     }
     //

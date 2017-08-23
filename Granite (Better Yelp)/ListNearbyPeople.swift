@@ -75,7 +75,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 // add to the array
                 // ???
                 // success!!!!!
-                let user = HardCodedUsers(username: "", email: "", fullName: "", password: "", githubName: "", computerLanguage: "", githubLink: "", userBio: "", roughLocation: "")
+                let user = HardCodedUsers(username: userByLocation.key, email: "", fullName: "", password: "", githubName: "", computerLanguage: "", githubLink: "", userBio: "", roughLocation: "")
                 user.pic = "https://firebasestorage.googleapis.com/v0/b/granite3-dbd3a.appspot.com/o/profileImage%2F76129601-0D2E-48CF-B758-4890C11F7A72?alt=media&token=fce19b8b-5259-48ce-b1a2-8bf629b4da8c"
                 self.hardCodedUsers.append(user)
                 // So essentially what we are doing here is that we are iterating over the items in the snapshot that grabs all the objects in the under the roughLocation which represent the inialized property we give each user therefore we are returning the key therefore we have to return the value
@@ -199,7 +199,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 }
                 
                 cell.textLabel?.text = user.username
-                
+                // So essentially what this static func show does is that it showsj the data for the desired uid therefore we have to specify which data we actuallu want to show
                 
                 
             })

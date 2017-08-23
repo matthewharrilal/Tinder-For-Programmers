@@ -78,7 +78,22 @@ let user = self.objectUser
             self.computerLanguageLabel.text = user.computerLanguage
             self.userBioLabel.text = user.userBio
             // So essentially what this user service .show function does is that is displays the data for the authenticated user and we have to decide what part of that data we actually want
-            
+            // And the reason we want to show for uid the user.username because in the objectUser the username is where we are storing the keys for the uids therefore this show function is grabbing all the user data from that uid and we akre specifing which data we want and where we want it
+                   self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let pictureURL = user.pic {
+                    let url = URL(string: pictureURL)
+                        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                            if error != nil {
+                            print(error?.localizedDescription)
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                self.profilePic.image = UIImage(data: data!)
+                            }
+                        }).resume()
+                    }
+                   })
+        
         })
         
 //        usernameLabel.text = user?.username

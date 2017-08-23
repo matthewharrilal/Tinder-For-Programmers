@@ -93,6 +93,8 @@ let user = self.objectUser
                         }).resume()
                     }
                    })
+            
+            // So essentially what we are doing here is similar to what we are doing to get the rest of the results displayed on the proifle that users see view controller therefore let me talk about it we are first breaking in to all the uids of the users and observing the values of all the childs within those uids then we are essentially assigning that data to the image view the value for the child pic at least 
         
         })
         

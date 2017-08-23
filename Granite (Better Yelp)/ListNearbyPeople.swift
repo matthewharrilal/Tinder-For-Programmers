@@ -81,6 +81,8 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 // So essentially what we are doing here is that we are iterating over the items in the snapshot that grabs all the objects in the under the roughLocation which represent the inialized property we give each user therefore we are returning the key therefore we have to return the value
                 
                 // Now notice that when we print the value we get the pseudocode we used to display the key mainly for organizational purposes therefore we have to print the key and use that to retrieve the users info
+                
+                // THE WAY WE ARE GETTING ONLY THE USERS IN THE SAME LOCATION TO SHOW UP IS BY INITALIZING THE USER WITH A SNAPSHOT OF THE ROUGHLOCATION and anyone who has the same value for the rough location child value will be displayed becuase we are watching the values for these childs
             }
             
             
@@ -197,14 +199,14 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 
                 cell.textLabel?.text = user.username
                 // What is happening here is really a work of art therefore let me explain what is happening here so what this userService.show function does is that it contains a daatabase reference to the uids of the users 
-                
+                  cell.detailTextLabel?.text = user.computerLanguage
                 
             })
             
             
             
             //cell.textLabel?.text = hardCodedUsers[indexPath.row].username
-            cell.detailTextLabel?.text = hardCodedUsers[indexPath.row].computerLanguage
+          
         }
         
         return cell

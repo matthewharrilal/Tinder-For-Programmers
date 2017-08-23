@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var usernameLabel: UILabel!
     var hello = 3
     
-    let computerLanguages = ["Java", "JavaScript", "Swift", "C", "C++", "PHP", "Python", "Objective C", "Ruby", "R", "Perl", "NET", "SQL", "C#", "Visual Basic", "Ruby on Rails"," Delphi/Object Pascal", " Assembly language", "Go", " MATLAB", " Scratch","PL/SQL"]
+    let computerLanguages = ["Java", "JavaScript", "Swift", "C", "C++", "PHP", "Python", "Objective C", "Ruby", "R", "Perl", "NET", "SQL", "C#", "Visual Basic", "Ruby on Rails"," Delphi/Object Pascal", "Assembly language", "Go", " MATLAB", " Scratch","PL/SQL"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -75,7 +75,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let cancelAction = UIAlertAction(title:"Log Out", style: .default, handler: { _ in
             self.logUserOut()
         })
+        let cancelAction2 = UIAlertAction(title: "Nevermind", style: .cancel, handler: nil)
         logOutAlert.addAction(cancelAction)
+        logOutAlert.addAction(cancelAction2)
         self.present(logOutAlert, animated: true, completion: nil)
         
         // So let us tackle this code line by line and see the previous issue we were having was, so the original issue we were having was that whenever the user pressed the log out button they would just be presented with a log out alert and when they pressed the cancel action nothing would actually happen and the reason for that happening was becauase their was actually no functionality within that cancel action

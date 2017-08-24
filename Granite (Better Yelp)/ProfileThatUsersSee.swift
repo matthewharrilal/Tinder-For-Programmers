@@ -39,7 +39,8 @@ class ProfileThatUsersSee: UIViewController {
     
     @IBOutlet weak var computerLanguageLabel: UILabel!
     @IBOutlet weak var githubLinkLabel: UILabel!
-    @IBOutlet weak var userBioLabel: UILabel!
+    
+    @IBOutlet weak var userBioTextView: UITextView!
     
     @IBOutlet weak var usernameLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +92,8 @@ class ProfileThatUsersSee: UIViewController {
             self.usernameLabel.text = user.username
             self.githubLinkLabel.text = user.githubLink
             self.computerLanguageLabel.text = user.computerLanguage
-            self.userBioLabel.text = user.userBio
+            self.userBioTextView.text = user.userBio
+            self.userBioTextView.isEditable = false
             // So essentially what this user service .show function does is that is displays the data for the authenticated user and we have to decide what part of that data we actually want
             // And the reason we want to show for uid the user.username because in the objectUser the username is where we are storing the keys for the uids therefore this show function is grabbing all the user data from that uid and we akre specifing which data we want and where we want it
             self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in

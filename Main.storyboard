@@ -440,14 +440,13 @@
                                     <segue destination="edR-im-cEp" kind="show" identifier="goToBrowser" id="gc8-dX-eXn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2D-aI-c3X">
-                                <rect key="frame" x="9" y="274" width="405" height="92"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9ix-fP-261">
+                                <rect key="frame" x="20" y="274" width="374" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -455,7 +454,7 @@
                         <outlet property="computerLanguageLabel" destination="oIf-JY-RkZ" id="Gek-iP-pfl"/>
                         <outlet property="githubLinkLabel" destination="ZF5-vg-EFT" id="mFH-Bk-URd"/>
                         <outlet property="profilePic" destination="0ss-1w-Mgs" id="JEm-dN-Gxh"/>
-                        <outlet property="userBioLabel" destination="i2D-aI-c3X" id="sq1-Jb-KoN"/>
+                        <outlet property="userBioTextView" destination="9ix-fP-261" id="vgR-Jd-rGv"/>
                         <outlet property="usernameLabel" destination="ePV-QF-Lnr" id="Rmz-kj-9IP"/>
                     </connections>
                 </viewController>

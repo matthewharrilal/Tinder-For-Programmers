@@ -18,8 +18,8 @@ import QuartzCore
 import SystemConfiguration
 
 protocol LogInViewControllerDelegate: class {
-func finishLoggingIn()
-
+    func finishLoggingIn()
+    
 }
 
 
@@ -46,25 +46,14 @@ class LogInViewController: UIViewController {
         activityIndicatior.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
         activityIndicatior.stopAnimating()
-    UIApplication.shared.endIgnoringInteractionEvents()
-        if emailTextField.text != "" {
-        }
-        else {
-            // logInCredentialsIsEmpty()
-        }
-        
-        if passwordTextField.text != "" {
-        }
-            
-        else {
-        }
+        UIApplication.shared.endIgnoringInteractionEvents()
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             // if there is an error meaning that it will be the opposite of nil
             if let error = error {
                 self.logInCredentialsIsEmpty(error: error)
                 print(error.localizedDescription)
                 
-                 return
+                return
                 // This get hits when you are signing in with a user that doesnt exist and the opposite for the else statement
                 // The reason we werent having the user saving to user defualts is becuase we had the return command line commented out therefore when it was checking if the if condition was true it never left therefore getting confused thonking it was an error
             } else {
@@ -78,17 +67,13 @@ class LogInViewController: UIViewController {
                     else {
                         print("Error: User does not exist")
                         return
-                    
+                        
                     }
                 })
                 self.performSegue(withIdentifier: "toHome", sender: nil)
                 
             }
         }
-       // So essentially what we are doing here is that we are doing here is that if the error is not equal to nil meaning that there is an error they will be me with the proper log in alert based on the localized description error and where as in the else statement if everything basically checks out and everything is verified they can be on their merry way
-        
-        // The reason we changed the segue from the button to the next view controller to the home to the next view controller is  becuase if we left it that way we would have been stuck with a button that just segues even if the alerts are present and we see that we do not want that if their is an error we want our users to be presented with an error 
-    
     }
     func finishLoggingIn() {
         print("User is done logging in from the log in view controller")
@@ -123,12 +108,12 @@ class LogInViewController: UIViewController {
                 self.present(invalidPassword, animated: true, completion:  nil)
                 break;
                 
-                case "Error: User does not exist":
-                    let invalidAccount = UIAlertController(title: "This User Does Not Exist", message: "Please try logging in with a different account", preferredStyle: .alert)
-                    let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+            case "Error: User does not exist":
+                let invalidAccount = UIAlertController(title: "This User Does Not Exist", message: "Please try logging in with a different account", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
                 invalidAccount.addAction(cancelAction)
                 self.present(invalidAccount, animated: true, completion:  nil)
-                    break;
+                break;
                 
             default:
                 let logInFailedAlert = UIAlertController(title: "Trouble Logging In", message: "We are having trouble logging you in", preferredStyle: .alert)
@@ -159,7 +144,7 @@ class LogInViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
     
@@ -213,7 +198,7 @@ class LogInViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
     }
-
+    
     func dismissKeyboard() {
         view.endEditing(true)
     }

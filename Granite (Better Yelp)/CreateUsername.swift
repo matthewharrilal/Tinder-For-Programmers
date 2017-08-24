@@ -1,4 +1,4 @@
-//
+ //
 //  CreateUsername.swift
 //  Granite (Better Yelp)
 //
@@ -44,12 +44,12 @@ class CreateUsername: UIViewController {
         }
         
         
-        
-        if agreementTextField.text?.lowercased() != "yes"   {
-            print("This statement is being printed because the user did not subjugate to the agreement of consent correctly")
-            textFieldIsEmpty()
-        }
-        
+//        
+//        if agreementTextField.text?.lowercased() != "yes"   {
+//            print("This statement is being printed because the user did not subjugate to the agreement of consent correctly")
+//            textFieldIsEmpty()
+//        }
+//        
         // Why is this function being called even if the text matches the exact same syntax as the one we want we have to research how to dismiss these notifications later
         
         // The reason their is only one alert kind for both actions is becuase i dont think you can asssign two alerts to one button
@@ -59,14 +59,13 @@ class CreateUsername: UIViewController {
         
         // This creates creates the user in the firebase authentication
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if error != nil {
-                self.signUpErrors(error: error!)
+            if let error = error {
+                self.signUpErrors(error: error)
+                print(error.localizedDescription)
                 
-                
-                print("The user is not being created their is clearly an error please try again")
-                
+                                
                 // So essentially what we are doing here is that we are saying if the error is existent then show us the signup error but the problem we were having was that when we were saying that if the error does not exist becuase that was the only time we can actually work but the user returns nil but therefore it hits both the if and else statement
-                return
+               return
             } else {
                 
                 // This creates the user inside the database
@@ -80,7 +79,7 @@ class CreateUsername: UIViewController {
                     }
                     HardCodedUsers.setCurrent(user)
                 })
-                
+                self.performSegue(withIdentifier: "toViewController", sender: self)
             }
         }
     }
@@ -142,11 +141,12 @@ class CreateUsername: UIViewController {
     }
     
     func signUpErrors(error: Error) {
-        if emailTextField.text == "" || passwordTextField.text == "" || fullName.text == "" || usernameTextField.text == "" || agreementTextField.text != "yes" || agreementTextField.text != "Yes"{
+        if emailTextField.text == "" || passwordTextField.text == "" || fullName.text == "" || usernameTextField.text == "" || agreementTextField.text != "yes" {
             let wrongMove = UIAlertController(title: "Missing Input", message: "Please check the required text fields to make sure everything is satisfied", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
             wrongMove.addAction(cancelAction)
             self.present(wrongMove, animated: true, completion: nil)
+            return
         } else {
             switch(error.localizedDescription) {
             case "The email address is badly formatted.":

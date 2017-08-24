@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,56 +22,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="firstViewControllerBackgroundImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IAm-Es-8vQ">
-                                <rect key="frame" x="0.0" y="0.0" width="423" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstViewControllerBackgroundImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IAm-Es-8vQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tex-Jl-gII" customClass="AkiraTextField">
-                                <rect key="frame" x="36" y="150" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lz8-K5-6G1">
-                                <rect key="frame" x="40" y="222" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49h-XR-gJ4">
-                                <rect key="frame" x="142" y="301" width="130" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="logInButton:" destination="tD3-Wo-HQQ" eventType="touchUpInside" id="TVo-3A-k3z"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ch-LB-dVy">
-                                <rect key="frame" x="16" y="610" width="108" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Learn More">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu0-vM-vvM">
-                                <rect key="frame" x="147" y="380" width="120" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="New User">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ijx-IL-w2l" kind="show" id="8Gg-qF-9AX"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RCI-nd-UvO">
+                                <rect key="frame" x="35" y="144" width="344" height="300"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tex-Jl-gII" customClass="AkiraTextField">
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lz8-K5-6G1">
+                                        <rect key="frame" x="0.0" y="80" width="344" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49h-XR-gJ4">
+                                        <rect key="frame" x="0.0" y="160" width="344" height="45"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logInButton:" destination="tD3-Wo-HQQ" eventType="touchUpInside" id="TVo-3A-k3z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu0-vM-vvM">
+                                        <rect key="frame" x="0.0" y="255" width="344" height="45"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
+                                        <state key="normal" title="New User">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ijx-IL-w2l" kind="show" id="8Gg-qF-9AX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="49h-XR-gJ4" secondAttribute="trailing" id="6D5-mc-wkW"/>
+                                    <constraint firstItem="lz8-K5-6G1" firstAttribute="leading" secondItem="RCI-nd-UvO" secondAttribute="leading" id="JaV-Vz-rtK"/>
+                                    <constraint firstAttribute="bottom" secondItem="gu0-vM-vvM" secondAttribute="bottom" id="K7r-dF-XhH"/>
+                                    <constraint firstAttribute="trailing" secondItem="gu0-vM-vvM" secondAttribute="trailing" id="Tyo-9B-n86"/>
+                                    <constraint firstItem="Tex-Jl-gII" firstAttribute="leading" secondItem="RCI-nd-UvO" secondAttribute="leading" id="Y3c-wG-Mit"/>
+                                    <constraint firstItem="gu0-vM-vvM" firstAttribute="leading" secondItem="RCI-nd-UvO" secondAttribute="leading" id="bhX-8i-UY0"/>
+                                    <constraint firstItem="Tex-Jl-gII" firstAttribute="top" secondItem="RCI-nd-UvO" secondAttribute="top" id="cdd-uy-COS"/>
+                                    <constraint firstItem="49h-XR-gJ4" firstAttribute="leading" secondItem="RCI-nd-UvO" secondAttribute="leading" id="g3F-Zb-ZEW"/>
+                                    <constraint firstAttribute="trailing" secondItem="lz8-K5-6G1" secondAttribute="trailing" id="hjC-OO-Btu"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tex-Jl-gII" secondAttribute="trailing" id="pBm-d4-Rk2"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nyU-CH-h1I" firstAttribute="top" secondItem="IAm-Es-8vQ" secondAttribute="bottom" id="9gf-kd-mxp"/>
+                            <constraint firstItem="RCI-nd-UvO" firstAttribute="top" secondItem="po2-kD-N0e" secondAttribute="bottom" constant="80" id="G5I-v9-lgI"/>
+                            <constraint firstItem="RCI-nd-UvO" firstAttribute="leading" secondItem="uEv-O5-Hgy" secondAttribute="leadingMargin" constant="15" id="Gi9-aq-DFz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RCI-nd-UvO" secondAttribute="trailing" constant="15" id="Hlx-jQ-aDZ"/>
+                            <constraint firstItem="IAm-Es-8vQ" firstAttribute="leading" secondItem="uEv-O5-Hgy" secondAttribute="leading" id="S1y-nR-2eC"/>
+                            <constraint firstAttribute="trailing" secondItem="IAm-Es-8vQ" secondAttribute="trailing" id="rNO-MF-nXg"/>
+                            <constraint firstItem="IAm-Es-8vQ" firstAttribute="top" secondItem="uEv-O5-Hgy" secondAttribute="top" id="wT4-z5-jDE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="nOY-L2-m9r"/>
                     <connections>
@@ -106,78 +120,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Your Account !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10I-Ik-jKz">
-                                <rect key="frame" x="20" y="64" width="375" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Your Account!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10I-Ik-jKz">
+                                <rect key="frame" x="5" y="74" width="404" height="28.333333333333329"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-YW-Etb">
-                                <rect key="frame" x="21" y="211" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZg-2U-8bQ">
-                                <rect key="frame" x="23" y="325" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-1v-04f">
-                                <rect key="frame" x="105" y="449" width="213" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Create Account">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="createAccount:" destination="ijx-IL-w2l" eventType="touchUpInside" id="aze-Kv-As5"/>
-                                    <segue destination="1MS-aE-oiQ" kind="show" id="FpZ-VC-NFp"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-ay-Htc">
-                                <rect key="frame" x="22" y="287" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Must Have Parental Consent Or Be Over The Age Of 18" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruZ-YY-d1J">
-                                <rect key="frame" x="81" y="101" width="249" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Must Have Parental Consent Or Be Over The Age Of 18." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruZ-YY-d1J">
+                                <rect key="frame" x="10" y="112.33333333333334" width="394" height="48.333333333333343"/>
                                 <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write Yes or No" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFZ-u6-pVi">
-                                <rect key="frame" x="123" y="173" width="165" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp3-BT-u4Y">
-                                <rect key="frame" x="22" y="249" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Github Name (Optional)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nX4-Sl-AA1">
-                                <rect key="frame" x="25" y="363" width="373" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ycj-gN-Umz">
+                                <rect key="frame" x="30" y="170.66666666666669" width="354" height="251.00000000000006"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write Yes or No" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFZ-u6-pVi">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-YW-Etb">
+                                        <rect key="frame" x="0.0" y="35" width="354" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp3-BT-u4Y">
+                                        <rect key="frame" x="0.0" y="70" width="354" height="30.000000000000028"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-ay-Htc">
+                                        <rect key="frame" x="0.0" y="105.00000000000003" width="354" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZg-2U-8bQ">
+                                        <rect key="frame" x="0.0" y="140.00000000000003" width="354" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Github Name (optional)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nX4-Sl-AA1">
+                                        <rect key="frame" x="0.0" y="175.00000000000003" width="354" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-1v-04f">
+                                        <rect key="frame" x="0.0" y="210.00000000000003" width="354" height="41"/>
+                                        <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                        <state key="normal" title="Create Account">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createAccount:" destination="ijx-IL-w2l" eventType="touchUpInside" id="aze-Kv-As5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nX4-Sl-AA1" secondAttribute="trailing" id="2V9-S3-kd7"/>
+                                    <constraint firstAttribute="trailing" secondItem="yFZ-u6-pVi" secondAttribute="trailing" id="5NG-eN-kbq"/>
+                                    <constraint firstItem="yFZ-u6-pVi" firstAttribute="leading" secondItem="ycj-gN-Umz" secondAttribute="leading" id="5VX-S7-Tu3"/>
+                                    <constraint firstAttribute="trailing" secondItem="LbC-1v-04f" secondAttribute="trailing" id="HUC-z6-SyJ"/>
+                                    <constraint firstItem="nX4-Sl-AA1" firstAttribute="leading" secondItem="ycj-gN-Umz" secondAttribute="leading" id="I0B-wE-syT"/>
+                                    <constraint firstItem="LbC-1v-04f" firstAttribute="leading" secondItem="ycj-gN-Umz" secondAttribute="leading" id="LHs-1V-AO2"/>
+                                    <constraint firstAttribute="bottom" secondItem="LbC-1v-04f" secondAttribute="bottom" id="VTS-c0-PPI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dbg-YW-Etb" secondAttribute="trailing" id="X9O-cn-KGf"/>
+                                    <constraint firstItem="TZg-2U-8bQ" firstAttribute="leading" secondItem="ycj-gN-Umz" secondAttribute="leading" id="Xej-Nc-CBh"/>
+                                    <constraint firstAttribute="trailing" secondItem="KfV-ay-Htc" secondAttribute="trailing" id="ZBG-RT-qhb"/>
+                                    <constraint firstItem="vp3-BT-u4Y" firstAttribute="leading" secondItem="ycj-gN-Umz" secondAttribute="leading" id="bRR-bn-nD8"/>
+                                    <constraint firstAttribute="trailing" secondItem="vp3-BT-u4Y" secondAttribute="trailing" id="dkj-9Z-o2r"/>
+                                    <constraint firstItem="KfV-ay-Htc" firstAttribute="leading" secondItem="ycj-gN-Umz" secondAttribute="leading" id="sqA-9n-OuX"/>
+                                    <constraint firstAttribute="trailing" secondItem="TZg-2U-8bQ" secondAttribute="trailing" id="xWc-hT-BCK"/>
+                                    <constraint firstItem="Dbg-YW-Etb" firstAttribute="leading" secondItem="ycj-gN-Umz" secondAttribute="leading" id="xv1-ME-n38"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ycj-gN-Umz" firstAttribute="top" secondItem="ruZ-YY-d1J" secondAttribute="bottom" constant="10" id="Dwt-84-t07"/>
+                            <constraint firstItem="10I-Ik-jKz" firstAttribute="leading" secondItem="LDG-mW-e1T" secondAttribute="leading" constant="5" id="GWx-4G-Zge"/>
+                            <constraint firstAttribute="trailing" secondItem="ruZ-YY-d1J" secondAttribute="trailing" constant="10" id="KKg-Ne-CmN"/>
+                            <constraint firstItem="ruZ-YY-d1J" firstAttribute="top" secondItem="10I-Ik-jKz" secondAttribute="bottom" constant="10" id="Tci-GK-fZs"/>
+                            <constraint firstItem="ruZ-YY-d1J" firstAttribute="leading" secondItem="LDG-mW-e1T" secondAttribute="leading" constant="10" id="azt-Kc-Qj8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ycj-gN-Umz" secondAttribute="trailing" constant="10" id="g4U-8J-4OY"/>
+                            <constraint firstAttribute="trailing" secondItem="10I-Ik-jKz" secondAttribute="trailing" constant="5" id="jfh-57-iaR"/>
+                            <constraint firstItem="ycj-gN-Umz" firstAttribute="leading" secondItem="LDG-mW-e1T" secondAttribute="leadingMargin" constant="10" id="pSC-1O-vTy"/>
+                            <constraint firstItem="10I-Ik-jKz" firstAttribute="top" secondItem="mvk-NX-Gdh" secondAttribute="bottom" constant="10" id="qMD-0d-tud"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="agreementTextField" destination="yFZ-u6-pVi" id="ULz-2X-Vio"/>
@@ -186,6 +223,7 @@
                         <outlet property="githubName" destination="nX4-Sl-AA1" id="06S-i9-7DA"/>
                         <outlet property="passwordTextField" destination="TZg-2U-8bQ" id="iL2-za-dAa"/>
                         <outlet property="usernameTextField" destination="KfV-ay-Htc" id="K4m-TE-hay"/>
+                        <segue destination="1MS-aE-oiQ" kind="show" identifier="toViewController" id="zY7-WV-OlW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kn3-Ul-HC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,7 +235,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="59V-aL-SQU" customClass="MainNavigationController" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8vb-PG-oOQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8vb-PG-oOQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -215,6 +253,6 @@
         <image name="firstViewControllerBackgroundImage.jpg" width="500" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FpZ-VC-NFp"/>
+        <segue reference="zY7-WV-OlW"/>
     </inferredMetricsTieBreakers>
 </document>

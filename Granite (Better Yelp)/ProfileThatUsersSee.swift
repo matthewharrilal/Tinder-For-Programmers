@@ -64,12 +64,22 @@ class ProfileThatUsersSee: UIViewController {
     }
     
     
-    
+    func circularImage(photoImageView: UIImageView?)
+    {
+        profilePic!.layer.frame = photoImageView!.layer.frame.insetBy(dx: 0, dy: 0)
+        profilePic!.layer.borderColor = UIColor.gray.cgColor
+        profilePic!.layer.cornerRadius = photoImageView!.frame.height/2
+        profilePic!.layer.masksToBounds = false
+        profilePic!.clipsToBounds = true
+        profilePic!.layer.borderWidth = 0.5
+        profilePic!.contentMode = UIViewContentMode.scaleAspectFill
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showAlert()
-        
+        circularImage(photoImageView: profilePic)
         // We are compressing the images so the upload rate to our image view is much faster for the user
         
         

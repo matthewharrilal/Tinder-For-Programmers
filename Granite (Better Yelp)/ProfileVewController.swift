@@ -65,7 +65,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         view.addGestureRecognizer(tap)
         showAlert()
         setupProfile()
+        
+     circularImage(photoImageView: profileImage)
     }
+    
+    func circularImage(photoImageView: UIImageView?)
+    {
+        profileImage!.layer.frame = photoImageView!.layer.frame.insetBy(dx: 0, dy: 0)
+        profileImage!.layer.borderColor = UIColor.gray.cgColor
+        profileImage!.layer.cornerRadius = photoImageView!.frame.height/2
+        profileImage!.layer.masksToBounds = false
+        profileImage!.clipsToBounds = true
+        profileImage!.layer.borderWidth = 0.5
+        profileImage!.contentMode = UIViewContentMode.scaleAspectFill
+    }
+    
     func isInternetAvailable() -> Bool
     {
         var zeroAddress = sockaddr_in()
@@ -301,9 +315,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     func setupProfile() {
-        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
-        profileImage.clipsToBounds = true
-        let uid = Auth.auth().currentUser?.uid
+        
+            let uid = Auth.auth().currentUser?.uid
         //  let compLabelText1 = compLanguagesLabel.text
         Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {

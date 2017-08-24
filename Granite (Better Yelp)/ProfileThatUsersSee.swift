@@ -20,8 +20,8 @@ class ProfileThatUsersSee: UIViewController {
     var githubLink: String?
     var compLanguage: String?
     var userBio: String?
+    var imageURLs = [String]()
     
-  
     
     var hardCodedUser: HardCodedUsers?
     
@@ -36,7 +36,7 @@ class ProfileThatUsersSee: UIViewController {
     
     // When it says that your class needs initalizers you can just make the property optional therefore you dont have to initalize the property for future references to come
     var databaseRef = Database.database().reference()
-   
+    
     @IBOutlet weak var computerLanguageLabel: UILabel!
     @IBOutlet weak var githubLinkLabel: UILabel!
     @IBOutlet weak var userBioLabel: UILabel!
@@ -45,7 +45,7 @@ class ProfileThatUsersSee: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-    
+        
     }
     
     @IBAction func toWebBrowser(_ sender: UIButton) {
@@ -53,7 +53,7 @@ class ProfileThatUsersSee: UIViewController {
     }
     func openURL(url: String!) {
         if let url = URL(string: url!) {
-        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
         
     }
@@ -62,18 +62,21 @@ class ProfileThatUsersSee: UIViewController {
         super.viewDidAppear(animated)
         
     }
-   
-
     
-   
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showAlert()
         
-let user = self.objectUser
+        // We are compressing the images so the upload rate to our image view is much faster for the user
+        
+        
+        let user = self.objectUser
         UserService.show(forUID: (user?.username)!, completion: {(user) in
             guard let user = user else {
-            return
+                return
             }
             self.usernameLabel.text = user.username
             self.githubLinkLabel.text = user.githubLink
@@ -81,48 +84,27 @@ let user = self.objectUser
             self.userBioLabel.text = user.userBio
             // So essentially what this user service .show function does is that is displays the data for the authenticated user and we have to decide what part of that data we actually want
             // And the reason we want to show for uid the user.username because in the objectUser the username is where we are storing the keys for the uids therefore this show function is grabbing all the user data from that uid and we akre specifing which data we want and where we want it
-                   self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let pictureURL = user.pic {
-                    let url = URL(string: pictureURL)
-                        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                            if error != nil {
-                            print(error?.localizedDescription)
-                                return
-                            }
-                            DispatchQueue.main.async {
-                                self.profilePic.image = UIImage(data: data!)
-                            }
-                        }).resume()
-                    }
-                   })
-            
-            // So essentially what we are doing here is similar to what we are doing to get the rest of the results displayed on the proifle that users see view controller therefore let me talk about it we are first breaking in to all the uids of the users and observing the values of all the childs within those uids then we are essentially assigning that data to the image view the value for the child pic at least 
-        
-        })
-        
-//        usernameLabel.text = user?.username
-//        userBioLabel.text = user?.userBio
-//        githubLinkLabel.text = user?.githubLink
-//        computerLanguageLabel.text = user?.computerLanguage
-//        databaseRef.child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
-//            if let dict = snapshot.value as? [String: Any] {
-//                if let profileImageURL = user?.pic {
-//                let url = URL(string: profileImageURL)
+            self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let pictureURL = user.pic {
+                    self.profilePic.loadImageUsingCacheWithURLString(urlString: pictureURL)
+//                    let url = URL(string: pictureURL)
 //                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
 //                        if error != nil {
-//                        print(error?.localizedDescription)
+//                            print(error?.localizedDescription)
 //                            return
 //                        }
 //                        DispatchQueue.main.async {
 //                            self.profilePic.image = UIImage(data: data!)
 //                        }
 //                    }).resume()
-//                }
-//            }
-//        })
-//        
-     
-    }
+                }
+            })
+            
+            // So essentially what we are doing here is similar to what we are doing to get the rest of the results displayed on the proifle that users see view controller therefore let me talk about it we are first breaking in to all the uids of the users and observing the values of all the childs within those uids then we are essentially assigning that data to the image view the value for the child pic at least
+            
+        })
+        
+          }
     func isInternetAvailable() -> Bool
     {
         var zeroAddress = sockaddr_in()
@@ -152,7 +134,7 @@ let user = self.objectUser
             present(alert, animated: true, completion: nil)
         }
     }
-
+    
     //
     func removeAuthListener (authHandle: AuthStateDidChangeListenerHandle?)
     {

@@ -34,13 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         configureInitialRootViewController(for: window!)
-       
-        let storyboard = UIStoryboard(name: "LogInStoryBoard", bundle: .main)
-        if let initialViewController = storyboard.instantiateInitialViewController() {
-        window?.rootViewController = initialViewController
-        window?.makeKeyAndVisible()
+//       
+//        let storyboard = UIStoryboard(name: "LogInStoryBoard", bundle: .main)
+//        if let initialViewController = storyboard.instantiateInitialViewController() {
+//        window?.rootViewController = initialViewController
+//        window?.makeKeyAndVisible()
      
-        }
+     //   }
        
         
         GMSServices.provideAPIKey("AIzaSyBUG325imlLGazifftWDvmEb3E_AxXJlSo")

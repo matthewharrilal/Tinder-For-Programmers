@@ -167,15 +167,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         
         
     }
-    //    func childChanged() {
-    //    refHandle = databaseRef.child("users").observe(.childChanged, with: { (snapshot) in
-    //        guard let key = snapshot.key as? String,
-    //        guard let value = snapshot.value as? String else{return}
-    //
-    //        if key ==
-    //    })
-    //    }
-    
+      
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRow(at: indexPath)! as! UITableViewCell

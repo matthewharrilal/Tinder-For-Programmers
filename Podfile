@@ -19,4 +19,5 @@ target 'Granite (Better Yelp)' do
  pod 'Alamofire'
  pod 'SwiftyJSON', :git =>'https://github.com/SwiftyJSON/SwiftyJSON.git'
  pod 'VideoBackground', '~> 0.1.0'
+ pod 'SDWebImage'
 end

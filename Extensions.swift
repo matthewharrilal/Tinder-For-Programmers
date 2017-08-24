@@ -11,26 +11,35 @@ import UIKit
 import Firebase
 import FirebaseAuthUI
 
+let imageCache = NSCache<AnyObject, AnyObject>()
+// This imageCache let constant will serve as the memory bank for all our downloaded photos from firebase storage
+
+
 extension UIImageView {
-      func loadImageUsingCacheWithURLString(urlString: String) {
-        Database.database().reference().child("users").observeSingleEvent(of: .childAdded, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                if let profileImageURL = dict["pic"] as? String {
-                    let url = URL(string: urlString)
-                    URLSession.shared
-                        .dataTask(with: url!, completionHandler: { (data, response, error) in
-                            if error != nil {
-                                print("The agent has reached the destination")
-                                print(error?.localizedDescription)
-                                return
-                            }
-                            DispatchQueue.main.async {
-                                self.image = UIImage(data: data!)
-                            }
-                        }).resume()
+    
+    func loadImageUsingCacheWithURLString(urlString: String) {
+        
+        // check cache if the desired image exists within the cache
+        if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+         self.image = cachedImage
+            return
+        }
+        //otherwize iniatiate a new download from firebase database
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+                return
+            }
+            DispatchQueue.main.async {
+                
+                if let downloadedImage = UIImage(data: data!) {
+                    
+                self.image = downloadedImage
                 }
             }
-        })
-
+        }).resume()
     }
+    
+        
 }

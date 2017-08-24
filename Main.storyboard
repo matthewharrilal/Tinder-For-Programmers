@@ -113,13 +113,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.29803921568627451" green="0.37254901960784315" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Granite" id="lcb-20-Wmp">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="UK0-2I-h6N">
-                            <connections>
-                                <segue destination="OKx-7B-xtH" kind="show" identifier="toSettings" id="Bl0-1F-IXi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Granite" id="lcb-20-Wmp"/>
                     <connections>
                         <outlet property="map" destination="DzI-pJ-MDp" id="lmC-ba-Pkp"/>
                     </connections>

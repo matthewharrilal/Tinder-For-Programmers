@@ -15,6 +15,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import Alamofire
 import QuartzCore
+import SystemConfiguration
 
 protocol LogInViewControllerDelegate: class {
 func finishLoggingIn()
@@ -36,7 +37,7 @@ class LogInViewController: UIViewController {
     
     var activityIndicatior: UIActivityIndicatorView = UIActivityIndicatorView()
     @IBAction func logInButton(_ sender: UIButton) {
-        
+        showAlert()
         activityIndicatior.center = self.view.center
         activityIndicatior.hidesWhenStopped = true
         activityIndicatior.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
@@ -47,21 +48,15 @@ class LogInViewController: UIViewController {
         activityIndicatior.stopAnimating()
     UIApplication.shared.endIgnoringInteractionEvents()
         if emailTextField.text != "" {
-            
         }
-            
         else {
             // logInCredentialsIsEmpty()
         }
         
         if passwordTextField.text != "" {
-            
         }
             
         else {
-            
-            
-            // logInCredentialsIsEmpty()
         }
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             // if there is an error meaning that it will be the opposite of nil
@@ -186,8 +181,39 @@ class LogInViewController: UIViewController {
         emailTextField.layer.masksToBounds = true
         passwordTextField.layer.cornerRadius = 5
         passwordTextField.layer.masksToBounds = true
+        showAlert()
     }
     
+    func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
+    }
+    
+    func showAlert() {
+        if !isInternetAvailable() {
+            let alert = UIAlertController(title: "Warning", message: "The Internet is not available", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
     func dismissKeyboard() {
         view.endEditing(true)
     }

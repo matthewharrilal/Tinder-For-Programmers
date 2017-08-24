@@ -13,6 +13,7 @@ import FirebaseAuthUI
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import SystemConfiguration
 
 class CreateUsername: UIViewController {
     
@@ -31,6 +32,7 @@ class CreateUsername: UIViewController {
     
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
+        showAlert()
 
         let passwordCount = passwordTextField.text?.characters.count
         if passwordCount! < 6 {
@@ -57,9 +59,9 @@ class CreateUsername: UIViewController {
         
         // This creates creates the user in the firebase authentication
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if let error = error {
-                self.signUpErrors(error: error, controller: self)
-                print(error.localizedDescription)
+            if error != nil {
+                self.signUpErrors(error: error!)
+                
                 
                 print("The user is not being created their is clearly an error please try again")
                 
@@ -81,7 +83,9 @@ class CreateUsername: UIViewController {
                 
             }
         }
-        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
     }
     override func didReceiveMemoryWarning() {
@@ -93,7 +97,38 @@ class CreateUsername: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        showAlert()
     }
+    func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
+    }
+    
+    func showAlert() {
+        if !isInternetAvailable() {
+            let alert = UIAlertController(title: "Warning", message: "The Internet is not available", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
     func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -106,8 +141,8 @@ class CreateUsername: UIViewController {
         self.present(ifTextFieldIsEmpty, animated: true, completion: nil)
     }
     
-    func signUpErrors(error: Error, controller: UIViewController) {
-        if emailTextField.text == "" || passwordTextField.text == "" || fullName.text == "" || usernameTextField.text == "" || agreementTextField.text != "yes" || agreementTextField.text == "Yes"{
+    func signUpErrors(error: Error) {
+        if emailTextField.text == "" || passwordTextField.text == "" || fullName.text == "" || usernameTextField.text == "" || agreementTextField.text != "yes" || agreementTextField.text != "Yes"{
             let wrongMove = UIAlertController(title: "Missing Input", message: "Please check the required text fields to make sure everything is satisfied", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
             wrongMove.addAction(cancelAction)
@@ -115,11 +150,13 @@ class CreateUsername: UIViewController {
         } else {
             switch(error.localizedDescription) {
             case "The email address is badly formatted.":
-                let invalidEmailAlert = UIAlertController(title: "This email address is badly formatted", message: "Please try again with a different and correctly formatted email address", preferredStyle: .alert)
+                let invalidEmailAlert = UIAlertController(title: "This email address is badly formatted", message:  "Please try again with a different and correctly formatted email address", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
                 invalidEmailAlert.addAction(cancelAction)
                 self.present(invalidEmailAlert, animated: true, completion: nil)
                 break;
+                
+         
             default:
                 let signUpErrorAlert = UIAlertController(title: "Trouble Signing You Up", message: "Please try creating an account at a later and more convient time", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
@@ -128,6 +165,7 @@ class CreateUsername: UIViewController {
                 
                 
             }
+            
         }
         
     }

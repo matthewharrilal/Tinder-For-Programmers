@@ -14,7 +14,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 import CoreData
-
+import SystemConfiguration
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
     var authHandle: AuthStateDidChangeListenerHandle?
@@ -48,12 +48,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       // setupProfile()
+        // setupProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       // setupProfile()
+        // setupProfile()
         // The reason we wouldnt call the setupProfile function here is because we dont want the it to be called everytime the view appears therefore that was the reason why it was reverting back everytime we went back to the original profile view because we were loading the view and the reason there was a lag since the view will appear loads data from memory before the view even because it is a network request to firebase
         
     }
@@ -63,8 +63,39 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-  setupProfile()
+        showAlert()
+        setupProfile()
     }
+    func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
+    }
+    
+    func showAlert() {
+        if !isInternetAvailable() {
+            let alert = UIAlertController(title: "Warning", message: "The Internet is not available", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
     func dismissKeyboard() {
         view.endEditing(true)
@@ -131,9 +162,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var databaseRef = Database.database().reference()
     
     @IBAction func saveChanges(_ sender: UIButton) {
+        showAlert()
         saveChanges()
         saveUserBioChanges()
-         saveGithubLink()
+        saveGithubLink()
         if compLanguageTextField.text != "" {
             saveCompLanguage()
             print("These are our glory days and you cant stop us")
@@ -141,7 +173,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             compLanguageIsEmpty()
             return
         }
-      
+        
         
     }
     
@@ -334,7 +366,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func checkIfGithubLinkIsValid(textField: UITextField) {
         if textField == githubLink {
-        
+            
         }
     }
     

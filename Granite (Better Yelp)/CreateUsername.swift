@@ -28,7 +28,7 @@ class CreateUsername: UIViewController {
     
     @IBOutlet weak var compLanguageLabel: UILabel!
     @IBOutlet weak var githubName: UITextField!
-    
+    var user: HardCodedUsers?
     
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
@@ -69,7 +69,7 @@ class CreateUsername: UIViewController {
             } else {
                 
                 // This creates the user inside the database
-                UserService.create("", "", self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!,self.githubName.text!, "", "",completion: { (user) in
+                UserService.create("", "", self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!,self.githubName.text!, "", "", (user?.uid)!,completion: { (user) in
                     // The reason we are using empty strings to satisfy the following initalizers: githubLink as compLAnguage as well as userBio is because as we know since we are adding them to our initalizer to create user as well as access them from any file we would have to call them in this call of our userService struct but they do not need to add that when they create their account therefore to satisfy the empty strings then the user later updates them as they customize their profile
                     guard let user = user
                         else{

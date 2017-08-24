@@ -235,7 +235,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="59V-aL-SQU" customClass="MainNavigationController" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8vb-PG-oOQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8vb-PG-oOQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

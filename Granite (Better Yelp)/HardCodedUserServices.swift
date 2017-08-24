@@ -15,8 +15,8 @@ import FirebaseAuth
 
 
 struct UserService {
-    static func create(_ githubLink: String, _ computerLanguage: String, _ username: String, _ email: String, _ fullName: String, _ password: String, _ githubName: String,_ userBio: String, _ currentLocation: String,completion: @escaping(HardCodedUsers?) -> Void) {
-        let user = HardCodedUsers(username: username, email: email , fullName: fullName, password: password, githubName: githubName, computerLanguage: computerLanguage, githubLink: githubLink, userBio: userBio, roughLocation: "")
+    static func create(_ githubLink: String, _ computerLanguage: String, _ username: String, _ email: String, _ fullName: String, _ password: String, _ githubName: String,_ userBio: String, _ currentLocation: String,_ uid: String,completion: @escaping(HardCodedUsers?) -> Void) {
+        let user = HardCodedUsers(username: username, email: email , fullName: fullName, password: password, githubName: githubName, computerLanguage: computerLanguage, githubLink: githubLink, userBio: userBio, roughLocation: "", uid: "")
         // We are making an object of our HardCodedUsersClass
         let dict = user.dictValue
         let uid = Auth.auth().currentUser?.uid
@@ -35,22 +35,22 @@ struct UserService {
             }
     // So essentially what is happening in our code here is that we need this to be used to set the data for users in  our firebase database and what that means is when are creating the user in our database by using the code in our model class that is creating it yes, but it is not setting the values and the reason we want to set the values is for a multitude of reasons such as what if the user logs out and wants to log back in they have no credentials to log back in with therefore they will have to create a new account and then the same error will continue to occur 
     }
+//    
+//    static func usersExcludingCurrentUser(completion: @escaping([HardCodedUsers]) -> Void) {
+//    let currentUser = HardCodedUsers.current
+//        let ref = Database.database().reference().child("users")
+//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+//            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+//                return completion([])
+//            }
+//            
+//            let users:[HardCodedUsers] = snapshot.flatMap(HardCodedUsers.init).filter{$0.username = currentUser?.username}
+//            
+//            completion(users)
+//            
+//        })
+//    }
     
-    static func usersExcludingCurrentUser(completion: @escaping([HardCodedUsers]) -> Void) {
-    let currentUser = HardCodedUsers.current
-        let ref = Database.database().reference().child("users")
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
-                return completion([])
-            }
-            
-            let users:[HardCodedUsers] = snapshot.flatMap(HardCodedUsers.init).filter{$0.username != currentUser?.username}
-            
-            completion(users)
-            
-        })
-    }
-       
     static func createUser(controller: UIViewController, email: String, password: String, completion: @escaping (FIRUser)-> Void) {
     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
         if let error = error {
@@ -61,32 +61,32 @@ struct UserService {
         }
     }
     // To get all the users in the table view cells except for the current user logged in the table view cells
-//    static func usersExcludingCurrentUser(completion: @escaping([HardCodedUsers])-> Void) {
-//        let currentUser = HardCodedUsers.current
-//        // What this essentially means is that we are creating this new let constant called currentUser and setting it equal to the current user in the hard coded users array
-//        
-//        // Secondly we are creating a database reference to read and iterate over the users from our database
-//        let databaseReference = Database.database().reference().child("users")
-//        // And the reason we dont add another child is becauase if we add the child of the uid is because we would be reading from the current users credentials where as where we stop at the child "users" we would be reading from all our users in our database
-//        
-//        // Observing and taking a snapshot of the users within our database
-//        databaseReference.observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
-//                else {return completion([])}
-//            let uid = Auth.auth().currentUser
-//            let users = snapshot.flatMap()
-//            
-//            // We are about to create a new dispatch group so that we can be notified when all asynchronous tasks are finished executing
-//            let dispatchGroup = DispatchGroup()
-//            
-//            // Calls the given closure on each element in the sequence in the same order as a for in loop
-//            users.forEach({(user) in
-//            dispatchGroup.enter()
-//                
-//            })
-//        })
-//   
-//    }
+    static func usersExcludingCurrentUser(completion: @escaping([HardCodedUsers])-> Void) {
+        let currentUser = HardCodedUsers.current
+        // What this essentially means is that we are creating this new let constant called currentUser and setting it equal to the current user in the hard coded users array
+        
+        // Secondly we are creating a database reference to read and iterate over the users from our database
+        let databaseReference = Database.database().reference().child("users")
+        // And the reason we dont add another child is becauase if we add the child of the uid is because we would be reading from the current users credentials where as where we stop at the child "users" we would be reading from all our users in our database
+        
+        // Observing and taking a snapshot of the users within our database
+        databaseReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
+                else {return completion([])}
+            let uid = Auth.auth().currentUser
+            let users = snapshot.flatMap(HardCodedUsers.init).filter{ $0.uid != currentUser?.uid}
+            
+            // We are about to create a new dispatch group so that we can be notified when all asynchronous tasks are finished executing
+            let dispatchGroup = DispatchGroup()
+            
+            // Calls the given closure on each element in the sequence in the same order as a for in loop
+            users.forEach({(user) in
+            dispatchGroup.enter()
+                
+            })
+        })
+   
+    }
     
     static func observeProfile(for user: HardCodedUsers, completion: @escaping(DatabaseReference, HardCodedUsers?) -> Void )-> DatabaseHandle {
         let uid = Auth.auth().currentUser?.uid

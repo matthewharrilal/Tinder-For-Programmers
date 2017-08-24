@@ -25,10 +25,10 @@ class HardCodedUsers: NSObject {
     var userBio: String?
     var pic: String?
     var roughLocation: String?
-    
+    var uid: String? 
     // The reason we are making this optional is for the reason is because we know that the users dont need these values to make their account they add it later once they make it their account and the reason we can put this in a separate file is because it will be out of range because since we are passing the data from table view cell to the next view controller we would pass this in
     
-    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String, roughLocation: String) {
+    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String, roughLocation: String, uid: String) {
         self.username = username
         self.email = email
         self.fullName = fullName
@@ -38,6 +38,7 @@ class HardCodedUsers: NSObject {
         self.githubLink = githubLink
         self.userBio = userBio
         self.roughLocation = roughLocation
+        self.uid = uid
        
         
         // THIS IS USED FOR CREATINGGGGGGGGGGGGGGGGG therefore we wouldnt add the github link and the computer language here because since it is used for creating we dont want the users creation of their account whether or not they have a github link they add that later therefore we wouldnt add it in creating so we can add that when we are actually fetching that from the database
@@ -60,8 +61,8 @@ class HardCodedUsers: NSObject {
             let compLanguage = dict["compLanguage"] as? String,
             let userBio = dict["userBio"] as? String,
             let pic = dict["pic"] as? String,
-            let roughLocation = dict["roughLocation"] as? String
-        
+            let roughLocation = dict["roughLocation"] as? String,
+            let uid = dict["uid"] as? String
         
             // THIS IS FOR FETCHINGGGGGGGG
             else {
@@ -78,6 +79,7 @@ class HardCodedUsers: NSObject {
         self.userBio = userBio
         self.pic = pic
         self.roughLocation = roughLocation
+        self.uid = snapshot.key
        
         // The reason we do this is becuase we are essentially setting our properties of the users equal to the initalizers we are placing on the users who are coming into existence
         
@@ -90,7 +92,8 @@ class HardCodedUsers: NSObject {
             let email = aDecoder.decodeObject(forKey: "email") as? String,
             let password = aDecoder.decodeObject(forKey: "password") as? String,
             let fullName = aDecoder.decodeObject(forKey: "fullName") as? String,
-            let githubName = aDecoder.decodeObject(forKey: "githubName") as? String
+            let githubName = aDecoder.decodeObject(forKey: "githubName") as? String,
+        let uid = aDecoder.decodeObject(forKey: "uid") as? String
                else{return nil}
         // So essentially what is happening here is that we are now decoding the data we are getting from firebase and you are probably wondering why we are doing this when we just observed the data snapshot and are returning that data as well as casting it as a string and what is essentially happening here is as we know initializers are blueprints that are setup for future instances and what we are doing here is that we are decoding this data from firebase for each instance that is made and we know that each instance that is made is a new user therefore we have to decode the data that we are going to be saving locally
         self.username  = username
@@ -98,7 +101,7 @@ class HardCodedUsers: NSObject {
         self.fullName = fullName
         self.password = password
         self.githubName = githubName
-               
+        self.uid = uid
         super.init()
         
         
@@ -110,7 +113,7 @@ class HardCodedUsers: NSObject {
     // now lets not forget to implement data in a database we have to make a dictionary where the key would be what we type to retireve the data for that key
     // We are constructing a dictionary right now
     var dictValue: [String: Any] {
-        return["username": username, "email": email, "fullName": fullName, "password": password, "githubName": githubName, "githubLink": githubLink, "compLanguage": computerLanguage, "userBio": userBio, "pic": pic]
+        return["username": username, "email": email, "fullName": fullName, "password": password, "githubName": githubName, "githubLink": githubLink, "compLanguage": computerLanguage, "userBio": userBio, "pic": pic, "uid": uid]
         // So what is essentially happening here is that we are passing in the string username into the class poroperty called username and what this essentially does is that like we said earlier that every instance is initialized with the propery username meaning that every user has a username so basically what we are doing right now is that for every username value or the string they chsoose to be their username we are assigning it to the key "username"
         
         // Juat a side noe the reason we dont need a failable initializer is because we have no use for user anonymous functionality
@@ -154,6 +157,7 @@ extension HardCodedUsers: NSCoding {
         aCoder.encode(githubLink, forKey: "githubLink")
         aCoder.encode(computerLanguage, forKey: "compLanguage")
         aCoder.encode(userBio, forKey: "userBio")
+        aCoder.encode(uid, forKey: "uid")
         
     }
     // So let us talk about what is happening here and lets differentiate the difference between nscoder and nscoding so first off nscoder and what it essentially does  is that it lets us transfer objects made in our code through memory and through differrent subclasses whiles NSCoding what that essentially does is that it implements two methods that your class must use which is to encode and decode meaning we can encode the data we get from firebase  as well as decode it locally basically giving as an entry as well as a secure departure

@@ -36,6 +36,7 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     var userBio: String?
     var x: HardCodedUsers?
     var profileImageURL: String?
+    var roughLocationKey: String?
     
     
     //let database = Database.database().reference().dictionaryWithValues(forKeys: String([users]))
@@ -84,9 +85,14 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     }
     
     func fetchUsersLocation() {
+//        if let userRoughLocation = HardCodedUsers.current?.roughLocation {
+//            self.roughLocationKey = userRoughLocation
+//        }
+
+        guard self.roughLocationKey != nil else { return }
+
         
-        let roughLocation = HardCodedUsers.current?.roughLocation
-        var truncatedLocationHolder = databaseRef.child("usersByLocation").child(roughLocation!).observeSingleEvent(of: .value, with: { (snapshot) in
+        databaseRef.child("usersByLocation").child(self.roughLocationKey!).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
                 // So essentially what is happening here is that we a
                 else { return }

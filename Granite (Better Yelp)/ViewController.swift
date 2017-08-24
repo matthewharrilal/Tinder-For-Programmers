@@ -14,7 +14,7 @@ import Firebase
 import FirebaseAuthUI
 import FirebaseDatabase
 import SystemConfiguration
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var postalCode: String?
     // Map
@@ -48,7 +48,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func submitButton(_ sender: UIButton) {
        print("This is the end of the line for you")
         // We should get in the habit of using print statements to see if our code is executing properly
-       self.performSegue(withIdentifier: "toNearbyPeople", sender: nil)
+       self.performSegue(withIdentifier: "toNearbyPeople", sender: self)
     }
     
     var radius: Double = 50.0
@@ -113,8 +113,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         showAlert()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyKilometer
-        manager.requestWhenInUseAuthorization()
+        manager.requestAlwaysAuthorization()
         manager.startUpdatingLocation()
+        self.map.delegate = self
+        self.map.showsUserLocation = true
+        self.map.setUserTrackingMode(.follow, animated: true)
+        
         // So essentially what is happening in the first4 lines of these manager methods is that we are letting this class receive update eventes by using the proper method and then setting it equal to self
         
         // In the next line of code we are saying that we want the desired accuracy of manager and as we know manager refers to our locationd data so essentially what we are saying is that we want the accuracy for this location data to always be at its best
@@ -199,8 +203,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let viewController = segue.destination as? ListNearbyPeople
+        if let viewController = segue.destination as? ListNearbyPeople {
+            viewController.roughLocationKey = String(format: "%.1f,%.1f", self.map.centerCoordinate.latitude, self.map.centerCoordinate.longitude).replacingOccurrences(of: ".", with: "%2e")
+            print("Map is centered at location key \(viewController.roughLocationKey)")
+        }
+        
          let viewController1  = segue.destination as? DirectionsViewController
+        
         
         // THE SETTINGS DOESNT WORK BUT WE CAN FOCIS ON THAT LATER
         if segue.identifier == "toSettings" {
@@ -221,7 +230,45 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+        // HACK
+        self.map.removeOverlays(self.map.overlays)
+        
+        let mapCenter = mapView.centerCoordinate
+        let roughLatitude = round(mapCenter.latitude * 10.0)/10.0
+        let roughLongitude = round(mapCenter.longitude * 10.0)/10.0
+        var boxCoordinates = [
+            CLLocationCoordinate2D(latitude: roughLatitude, longitude: roughLongitude),
+            CLLocationCoordinate2D(latitude: roughLatitude + 0.1, longitude: roughLongitude),
+            CLLocationCoordinate2D(latitude: roughLatitude + 0.1, longitude: roughLongitude + 0.1),
+            CLLocationCoordinate2D(latitude: roughLatitude, longitude: roughLongitude + 0.1)
+        ]
+        
+        let polygon = MKPolygon(coordinates: &boxCoordinates, count: 4)
+     
+        mapView.addOverlays([polygon], level: .aboveRoads)
+    }
    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let polygon = overlay as? MKPolygon {
+            let box = MKPolygonRenderer(polygon: polygon)
+            box.strokeColor = UIColor.red
+            box.fillColor = UIColor.red
+            box.lineWidth = 10.0
+            
+            return box
+        }
+        
+        return MKOverlayRenderer()
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, didAdd renderers: [MKOverlayRenderer]) {
+        
+    }
+
     
 }
 

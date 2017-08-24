@@ -96,6 +96,7 @@ extension AppDelegate {
         }
         
         window.rootViewController = initialViewController
+        window.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
         window.makeKeyAndVisible()
         
     }

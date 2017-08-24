@@ -60,9 +60,9 @@ class LogInViewController: UIViewController {
         }
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             // if there is an error meaning that it will be the opposite of nil
-            if error != nil {
-                self.logInCredentialsIsEmpty(error: error!)
-                print(error?.localizedDescription)
+            if let error = error {
+                self.logInCredentialsIsEmpty(error: error)
+                print(error.localizedDescription)
                 
                  return
                 // This get hits when you are signing in with a user that doesnt exist and the opposite for the else statement
@@ -71,12 +71,12 @@ class LogInViewController: UIViewController {
                 print("User is just signed in and their user defaults has not been set yet")
                 UserService.show(forUID: (user?.uid)!, completion: { (user) in
                     if let user = user {
-                    HardCodedUsers.setCurrent(user, writeToUserDefaults: true)
-                    self.finishLoggingIn()
-                    print("User defaults has now been set")
-                    
-                    } else {
-                    print("Error: User does not exist")
+                        HardCodedUsers.setCurrent(user, writeToUserDefaults: true)
+                        self.finishLoggingIn()
+                        print("User defaults has now been set")
+                    }
+                    else {
+                        print("Error: User does not exist")
                         return
                     
                     }

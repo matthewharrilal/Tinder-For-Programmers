@@ -59,13 +59,11 @@ class HardCodedUsers: NSObject {
             let email = dict["email"] as? String,
             let fullName = dict["fullName"] as? String,
             let password = dict["password"] as? String,
-            let githubName = dict["githubName"] as? String,
-            let githubLink = dict["githubLink"] as? String,
-            let compLanguage = dict["compLanguage"] as? String,
-            let userBio = dict["userBio"] as? String,
-            let roughLocation = dict["roughLocation"] as? String,
-            let uid = dict["uid"] as? String
-
+            let githubName = dict["githubName"] as? String
+//            let githubLink = dict["githubLink"] as? String,
+//            let compLanguage = dict["compLanguage"] as? String,
+//            let userBio = dict["userBio"] as? String,
+//            let roughLocation = dict["roughLocation"] as? String
             // THIS IS FOR FETCHINGGGGGGGG
             else {
                 return nil
@@ -76,11 +74,11 @@ class HardCodedUsers: NSObject {
         self.fullName = fullName
         self.email = email
         self.githubName = githubName
-        self.githubLink = githubLink
-        self.computerLanguage = compLanguage
-        self.userBio = userBio
+        self.githubLink = dict["githubLink"] as? String
+        self.computerLanguage = dict["compLanguage"] as? String
+        self.userBio = dict["userBio"] as? String
         self.pic = dict["pic"] as? String
-        self.roughLocation = roughLocation
+        self.roughLocation = dict["roughLocation"] as? String
         self.uid = snapshot.key
        
       // The reason we were having the error that we were having the user not exist is because we were converting the empty string to a url thereofore our profile image wass getting converted to a url but it was empty and were probably force unwrapping it

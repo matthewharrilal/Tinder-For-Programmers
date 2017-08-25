@@ -58,6 +58,31 @@ struct AuthenticationUserServices {
         }
     }
     
+    static func determineUsernameAvailability(usernameToBeDetermined : String, completion : @escaping (Bool) -> Void ) {
+        var isAvailable : Bool = true
+        let ref = Database.database().reference().child("users")
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let userSnapshotArray = snapshot.children.allObjects as? [DataSnapshot]
+                else {print("Username not available")
+                    return}
+            
+            for snapshotItem in userSnapshotArray {
+                if let thisUser = HardCodedUsers(snapshot: snapshotItem){
+                    if thisUser.username == usernameToBeDetermined {
+                        isAvailable = false
+                    }
+                    
+                    
+                }
+                
+            }
+            
+            return completion(isAvailable)
+        })
+        
+        
+    }
+
     static func signUpErrors0(error: Error, controller: UIViewController) {
         switch(error.localizedDescription) {
         case "The email address is badly formatted.":

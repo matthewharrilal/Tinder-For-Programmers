@@ -15,23 +15,27 @@ import FirebaseAuth
 
 
 struct UserService {
-    static func create(_ githubLink: String, _ computerLanguage: String, _ username: String, _ email: String, _ fullName: String, _ password: String, _ githubName: String,_ userBio: String, _ currentLocation: String,_ uid: String,completion: @escaping(HardCodedUsers?) -> Void) {
-        let user = HardCodedUsers(username: username, email: email , fullName: fullName, password: password, githubName: githubName, computerLanguage: computerLanguage, githubLink: githubLink, userBio: userBio, roughLocation: "", uid: "")
+    static func create(_ githubLink: String, _ computerLanguage: String, _ username: String, _ email: String, _ fullName: String, _ password: String, _ githubName: String,_ userBio: String, _ roughLocation: String,_ uid: String,completion: @escaping(HardCodedUsers?) -> Void) {
+        
+        let user = HardCodedUsers(username: username, email: email , fullName: fullName, password: password, githubName: githubName, computerLanguage: computerLanguage, githubLink: githubLink, userBio: userBio, roughLocation: roughLocation, uid: uid)
         // We are making an object of our HardCodedUsersClass
+        
         let dict = user.dictValue
-        let uid = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference().child("users").child(uid!)
+      //  let uid = Auth.auth().currentUser?.uid
+        let i = HardCodedUsers.current?.uid
+        let ref = Database.database().reference().child("users").child(uid) 
         // What this oneline of code above this essentially does is that it lets us give the user in the database a unique identification
         
         ref.setValue(dict) { (error,ref) in
             if let error = error {
             assertionFailure(error.localizedDescription)
-                return completion(nil)
+                return completion(nil)}
+            
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    let user = HardCodedUsers(snapshot:snapshot)
+                    let user = HardCodedUsers(snapshot: snapshot)
                     completion(user)
                 })
-            }
+            
             }
     // So essentially what is happening in our code here is that we need this to be used to set the data for users in  our firebase database and what that means is when are creating the user in our database by using the code in our model class that is creating it yes, but it is not setting the values and the reason we want to set the values is for a multitude of reasons such as what if the user logs out and wants to log back in they have no credentials to log back in with therefore they will have to create a new account and then the same error will continue to occur 
     }
@@ -88,18 +92,18 @@ struct UserService {
    
     }
     
-    static func observeProfile(for user: HardCodedUsers, completion: @escaping(DatabaseReference, HardCodedUsers?) -> Void )-> DatabaseHandle {
-        let uid = Auth.auth().currentUser?.uid
-    let userRef = Database.database().reference().child("users").child(uid!)
-        return userRef.observe(.value, with: { snapshot in
-            guard let user = HardCodedUsers(snapshot: snapshot) else {
-                return completion(userRef, nil)
-            }
-            completion(userRef, user)
-        })
-        // So essentially what we are doing here is that we are observing the users profiles for any changes that are being made and by using the completion handler with the @escaping it has happening asynchronously as well as listening constantly for any changes
-    }
-    
+//    static func observeProfile(for user: HardCodedUsers, completion: @escaping(DatabaseReference, HardCodedUsers?) -> Void )-> DatabaseHandle {
+//        let uid = Auth.auth().currentUser?.uid
+//    let userRef = Database.database().reference().child("users").child(uid!)
+//        return userRef.observe(.value, with: { snapshot in
+//            guard let user = HardCodedUsers(snapshot: snapshot) else {
+//                return completion(userRef, nil)
+//            }
+//            completion(userRef, user)
+//        })
+//        // So essentially what we are doing here is that we are observing the users profiles for any changes that are being made and by using the completion handler with the @escaping it has happening asynchronously as well as listening constantly for any changes
+//    }
+//    
     
     // The reason we are not making this private in the first place is becuause we are going to call it later so in a sense we want it public
     static func show(forUID uid: String, completion: @escaping(HardCodedUsers?) -> Void) {

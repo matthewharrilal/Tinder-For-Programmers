@@ -1,24 +1,25 @@
  //
-//  CreateUsername.swift
-//  Granite (Better Yelp)
-//
-//  Created by Matthew on 7/28/17.
-//  Copyright © 2017 Matthew Harrilal. All rights reserved.
-//
-
-import Foundation
-import UIKit
-import Firebase
-import FirebaseAuthUI
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
-import SystemConfiguration
-
-class CreateUsername: UIViewController {
+ //  CreateUsername.swift
+ //  Granite (Better Yelp)
+ //
+ //  Created by Matthew on 7/28/17.
+ //  Copyright © 2017 Matthew Harrilal. All rights reserved.
+ //
+ 
+ import Foundation
+ import UIKit
+ import Firebase
+ import FirebaseAuthUI
+ import FirebaseAuth
+ import FirebaseDatabase
+ import FirebaseStorage
+ import SystemConfiguration
+ 
+ class CreateUsername: UIViewController {
     
     // Declaration of the database reference
     let databaseRef  = Database.database().reference(fromURL: "https://granite3-dbd3a.firebaseio.com")
+    var usernameIsAvailbale: Bool = true
     // Outlets
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -30,10 +31,12 @@ class CreateUsername: UIViewController {
     @IBOutlet weak var githubName: UITextField!
     var user: HardCodedUsers?
     
+    
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
         showAlert()
-
+        var username = usernameTextField.text
+        
         let passwordCount = passwordTextField.text?.characters.count
         if passwordCount! < 6 {
             let passwordShort = UIAlertController(title: "Password too short", message: "Please enter a longer password", preferredStyle: .alert)
@@ -43,43 +46,44 @@ class CreateUsername: UIViewController {
             
         }
         
-        
-//        
-//        if agreementTextField.text?.lowercased() != "yes"   {
-//            print("This statement is being printed because the user did not subjugate to the agreement of consent correctly")
-//            textFieldIsEmpty()
-//        }
-//        
-        // Why is this function being called even if the text matches the exact same syntax as the one we want we have to research how to dismiss these notifications later
-        
-        // The reason their is only one alert kind for both actions is becuase i dont think you can asssign two alerts to one button
-        
-        // If they say no to the consent agreement they can not have access to the application
-        
-        
         // This creates creates the user in the firebase authentication
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
                 self.signUpErrors(error: error)
                 print(error.localizedDescription)
                 
-                                
+                
                 // So essentially what we are doing here is that we are saying if the error is existent then show us the signup error but the problem we were having was that when we were saying that if the error does not exist becuase that was the only time we can actually work but the user returns nil but therefore it hits both the if and else statement
-               return
+                return
             } else {
                 
-                // This creates the user inside the database
-                UserService.create("", "", self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!,self.githubName.text!, "", "", (user?.uid)!,completion: { (user) in
-                    // The reason we are using empty strings to satisfy the following initalizers: githubLink as compLAnguage as well as userBio is because as we know since we are adding them to our initalizer to create user as well as access them from any file we would have to call them in this call of our userService struct but they do not need to add that when they create their account therefore to satisfy the empty strings then the user later updates them as they customize their profile
-                    guard let user = user
-                        else{
-                            
-                            return
-                            // But if the error is non existent we are going to create the user in the database
+                AuthenticationUserServices.determineUsernameAvailability(usernameToBeDetermined: username!){ (truth) in
+                    self.usernameIsAvailbale = truth
+                    if self.usernameIsAvailbale == true {
+                        UserService.create("", "", self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!,self.githubName.text!, "", "", (user?.uid)!,completion: { (user) in
+                            // The reason we are using empty strings to satisfy the following initalizers: githubLink as compLAnguage as well as userBio is because as we know since we are adding them to our initalizer to create user as well as access them from any file we would have to call them in this call of our userService struct but they do not need to add that when they create their account therefore to satisfy the empty strings then the user later updates them as they customize their profile
+                            guard let user = user
+                                else{
+                                    
+                                    return
+                                    // But if the error is non existent we are going to create the user in the database
+                            }
+                            HardCodedUsers.setCurrent(user,writeToUserDefaults:  true)
+                        })
+                        
+                                         }
+                      
+                    else {
+                        let alert = UIAlertController(title: "Sorry", message: "This username is already taken, please choose another", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        print("this username is already taken fam")
+                        
                     }
-                    HardCodedUsers.setCurrent(user)
-                })
-                self.performSegue(withIdentifier: "toViewController", sender: self)
+                      self.performSegue(withIdentifier: "toViewController", sender: self)
+
+                    
+                }
             }
         }
     }
@@ -127,7 +131,7 @@ class CreateUsername: UIViewController {
             present(alert, animated: true, completion: nil)
         }
     }
-
+    
     func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -156,7 +160,7 @@ class CreateUsername: UIViewController {
                 self.present(invalidEmailAlert, animated: true, completion: nil)
                 break;
                 
-         
+                
             default:
                 let signUpErrorAlert = UIAlertController(title: "Trouble Signing You Up", message: "Please try creating an account at a later and more convient time", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
@@ -170,4 +174,4 @@ class CreateUsername: UIViewController {
         
     }
     
-}
+ }

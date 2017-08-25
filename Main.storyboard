@@ -265,7 +265,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES" lookupSuggestion="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkD-kX-NNC">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkD-kX-NNC">
                                 <rect key="frame" x="87" y="109" width="240" height="127"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="127" id="Ji7-mx-MUa"/>
@@ -302,11 +302,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Or Enter Multiple Languages" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moZ-F8-2A1" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="177" y="615" width="232" height="28"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter Multiple Languages" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moZ-F8-2A1" customClass="AkiraTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="177" y="661" width="232" height="35"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.65309289380000002" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="yWH-5U-QFn"/>
+                                    <constraint firstAttribute="height" constant="35" id="yWH-5U-QFn"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -335,9 +335,10 @@
                                     <action selector="saveChanges:" destination="ANz-VA-xNC" eventType="touchUpInside" id="9cR-ov-BrM"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FT3-cE-Mh4">
-                                <rect key="frame" x="20" y="474" width="149" height="216"/>
+                            <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="FT3-cE-Mh4">
+                                <rect key="frame" x="20" y="552" width="149" height="142"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="A50-2l-VU9"/>
                                     <constraint firstAttribute="width" constant="149" id="ELW-QG-Nzt"/>
                                 </constraints>
                                 <connections>
@@ -358,7 +359,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="0.68075770547945202" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="YRZ-EL-bZA" firstAttribute="top" secondItem="moZ-F8-2A1" secondAttribute="bottom" constant="93" id="0UT-fR-3MO"/>
+                            <constraint firstItem="YRZ-EL-bZA" firstAttribute="top" secondItem="moZ-F8-2A1" secondAttribute="bottom" constant="40" id="0UT-fR-3MO"/>
+                            <constraint firstItem="FT3-cE-Mh4" firstAttribute="top" secondItem="oft-mb-tbA" secondAttribute="bottom" constant="44" id="0oD-qP-0Dn"/>
                             <constraint firstItem="nrQ-Jf-dV9" firstAttribute="leading" secondItem="ImF-gw-Vtc" secondAttribute="leadingMargin" constant="67" id="1MU-eY-usK"/>
                             <constraint firstItem="FT3-cE-Mh4" firstAttribute="leading" secondItem="ImF-gw-Vtc" secondAttribute="leadingMargin" id="1cq-1l-hPe"/>
                             <constraint firstItem="kkD-kX-NNC" firstAttribute="centerX" secondItem="jkB-jh-Rrv" secondAttribute="centerX" id="2GP-sf-hqC"/>
@@ -370,14 +372,16 @@
                             <constraint firstItem="ly3-Hh-EA7" firstAttribute="leading" secondItem="MKQ-nE-yjI" secondAttribute="leading" id="ESl-RQ-TVy"/>
                             <constraint firstItem="oft-mb-tbA" firstAttribute="top" secondItem="MKQ-nE-yjI" secondAttribute="bottom" constant="75" id="G3K-pj-3Wd"/>
                             <constraint firstItem="jkB-jh-Rrv" firstAttribute="centerX" secondItem="ly3-Hh-EA7" secondAttribute="centerX" id="HKv-we-5zG"/>
-                            <constraint firstItem="FT3-cE-Mh4" firstAttribute="top" secondItem="4lg-ch-PP8" secondAttribute="bottom" constant="410" id="I95-Dq-K8a"/>
                             <constraint firstItem="o1V-xb-svQ" firstAttribute="leading" secondItem="MKQ-nE-yjI" secondAttribute="trailing" id="LYJ-kL-YUf"/>
                             <constraint firstItem="MKQ-nE-yjI" firstAttribute="top" secondItem="o1V-xb-svQ" secondAttribute="top" id="Ouf-in-Xdg"/>
                             <constraint firstItem="ly3-Hh-EA7" firstAttribute="trailing" secondItem="o1V-xb-svQ" secondAttribute="trailing" id="PBV-G0-32b"/>
                             <constraint firstItem="nrQ-Jf-dV9" firstAttribute="trailing" secondItem="kkD-kX-NNC" secondAttribute="trailing" id="R15-72-Z6z"/>
                             <constraint firstItem="jkB-jh-Rrv" firstAttribute="leading" secondItem="ImF-gw-Vtc" secondAttribute="leadingMargin" constant="96" id="WXp-3p-u3w"/>
+                            <constraint firstItem="YRZ-EL-bZA" firstAttribute="top" secondItem="FT3-cE-Mh4" secondAttribute="bottom" constant="42" id="XrG-Hl-uxs"/>
                             <constraint firstItem="MKQ-nE-yjI" firstAttribute="top" secondItem="ly3-Hh-EA7" secondAttribute="bottom" constant="8" symbolic="YES" id="YeD-CC-wy0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kkD-kX-NNC" secondAttribute="trailing" constant="67" id="cRh-fj-1jN"/>
                             <constraint firstAttribute="trailing" secondItem="oft-mb-tbA" secondAttribute="trailing" id="dhV-8s-Ald"/>
+                            <constraint firstItem="kkD-kX-NNC" firstAttribute="leading" secondItem="ImF-gw-Vtc" secondAttribute="leadingMargin" constant="67" id="diT-yF-Ukt"/>
                             <constraint firstItem="kkD-kX-NNC" firstAttribute="top" secondItem="fJ5-yi-Ioc" secondAttribute="bottom" constant="8" symbolic="YES" id="hwE-tL-SEc"/>
                             <constraint firstItem="ly3-Hh-EA7" firstAttribute="centerX" secondItem="oft-mb-tbA" secondAttribute="centerX" id="kBv-Gk-LFS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="moZ-F8-2A1" secondAttribute="trailing" constant="-15" id="lb8-vl-efu"/>

@@ -63,6 +63,7 @@ class LogInViewController: UIViewController {
                         HardCodedUsers.setCurrent(user, writeToUserDefaults: true)
                         self.finishLoggingIn()
                         print("User defaults has now been set")
+                        return
                     }
                     else {
                         print("Error: User does not exist")

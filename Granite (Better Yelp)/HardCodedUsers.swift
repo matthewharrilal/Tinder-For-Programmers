@@ -51,8 +51,11 @@ class HardCodedUsers: NSObject {
         // You are probably wondering if we are creating pathways to our firebase dictionary keys and values then where are we actually creating the reference to grab this data and to that I say DataSnapshot is a method from firebase that already comes with it so that in itself represents the pathway to firebase
         
         //And the reason we have to make a new initializer is because if we dont then it is going to have us work off the original initalizer we have and the reason we do not want that is because that original initalizer as we know sets the blueprints of all our other instances in addition to that the stuff we are initalizing in the has nothing to do with the data from firebase where as this we are actually retrieving the data from firebase through taking a snapshot
-        guard let dict = snapshot.value as? [String:Any],
-            let username = dict["username"] as? String,
+        guard let dict = snapshot.value as? [String:Any] else {
+            return nil
+        }
+        
+        guard let username = dict["username"] as? String,
             let email = dict["email"] as? String,
             let fullName = dict["fullName"] as? String,
             let password = dict["password"] as? String,
@@ -60,10 +63,9 @@ class HardCodedUsers: NSObject {
             let githubLink = dict["githubLink"] as? String,
             let compLanguage = dict["compLanguage"] as? String,
             let userBio = dict["userBio"] as? String,
-            let pic = dict["pic"] as? String,
             let roughLocation = dict["roughLocation"] as? String,
             let uid = dict["uid"] as? String
-        
+
             // THIS IS FOR FETCHINGGGGGGGG
             else {
                 return nil
@@ -77,12 +79,11 @@ class HardCodedUsers: NSObject {
         self.githubLink = githubLink
         self.computerLanguage = compLanguage
         self.userBio = userBio
-        self.pic = pic
+        self.pic = dict["pic"] as? String
         self.roughLocation = roughLocation
         self.uid = snapshot.key
        
-        // The reason we do this is becuase we are essentially setting our properties of the users equal to the initalizers we are placing on the users who are coming into existence
-        
+      // The reason we were having the error that we were having the user not exist is because we were converting the empty string to a url thereofore our profile image wass getting converted to a url but it was empty and were probably force unwrapping it
     }
     
     //So essentially what we are going to be doing next is what we call boilerplate code and what that essentially means is that that is code that is called multiple times with little or no alteration but ends up being neccessary and this is very good sometimes because it can give a developer more direct control over their code meaning if thney have more control over specific migrations in their code that may occur and so if they want a different thing happening somewhere they can implement that

@@ -23,7 +23,8 @@ struct UserService {
         let dict = user.dictValue
       //  let uid = Auth.auth().currentUser?.uid
         let i = HardCodedUsers.current?.uid
-        let ref = Database.database().reference().child("users").child(uid) 
+        let ref = Database.database().reference().child("users").child(uid)
+        let locationRef = Database.database().reference().child("usersByLocation").child(uid)
         // What this oneline of code above this essentially does is that it lets us give the user in the database a unique identification
         
         ref.setValue(dict) { (error,ref) in
@@ -37,7 +38,20 @@ struct UserService {
                 })
             
             }
-    // So essentially what is happening in our code here is that we need this to be used to set the data for users in  our firebase database and what that means is when are creating the user in our database by using the code in our model class that is creating it yes, but it is not setting the values and the reason we want to set the values is for a multitude of reasons such as what if the user logs out and wants to log back in they have no credentials to log back in with therefore they will have to create a new account and then the same error will continue to occur 
+        
+        locationRef.setValue(dict) { (error,ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                return completion(nil)}
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                let user = HardCodedUsers(snapshot: snapshot)
+                completion(user)
+            })
+            
+        }
+
+    // So essentially what is happening in our code here is that we need this to be used to set the data for users in  our firebase database and what that means is when are creating the user in our database by using the code in our model class that is creating it yes, but it is not setting the values and the reason we want to set the values is for a multitude of reasons such as what if the user logs out and wants to log back in they have no credentials to log back in with therefore they will have to create a new account and then the same error will continue to occur
     }
 //    
 //    static func usersExcludingCurrentUser(completion: @escaping([HardCodedUsers]) -> Void) {

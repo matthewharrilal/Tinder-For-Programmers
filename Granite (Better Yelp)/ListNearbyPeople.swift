@@ -93,22 +93,38 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
 
         
         databaseRef.child("usersByLocation").child(self.roughLocationKey!).observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
+            guard let newSnapshot = snapshot.children.allObjects as? [DataSnapshot]
                 // So essentially what is happening here is that we a
                 else { return }
             
-            self.hardCodedUsers = [HardCodedUsers]()
-            self.filteredSearchArray = [HardCodedUsers]()
+            //self.hardCodedUsers = [HardCodedUsers]()
+            //self.filteredSearchArray = [HardCodedUsers]()
           
             
-            for userByLocation in snapshot {
+            guard let dictionary = snapshot.value as? [String: AnyObject],
+                let username = dictionary["username"] as? String,
+                let email = dictionary["email"] as? String,
+                let fullName = dictionary["fullName"] as? String,
+                let password = dictionary["password"] as? String,
+                let githubName = dictionary["githubName"] as? String,
+                let githubLink = dictionary["githubLink"] as? String,
+                let compLanguage = dictionary["compLanguage"] as? String,
+                let userBio = dictionary["userBio"] as? String
+                
+                else {
+                    // So what is essentially happening here is that we should not get confused between adding a node to our firebase database location as well and initalizing a new user
+                    
+                    // The difference between the two is that when we initalize a user it means we are creating the user with the properties they must have to be created such as a username and password where this fetch users function stores them and and nodes in our firebase database in the form of a dictionary holding values within the keys
+                    print("WHAT")
+                    return
+            }
+
+            for userByLocation in newSnapshot {
                 
                 print(userByLocation.key)
+                var userArray = [userByLocation.key]
                 
-                
-                
-                
-                //retrieve the user data
+                             //retrieve the user data
                 // it comes back as a snapshot
                 // initialize the user with the snapshot (instead of all of the values)
                 // add to the array
@@ -123,7 +139,6 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
                 
                 // THE WAY WE ARE GETTING ONLY THE USERS IN THE SAME LOCATION TO SHOW UP IS BY INITALIZING THE USER WITH A SNAPSHOT OF THE ROUGHLOCATION and anyone who has the same value for the rough location child value will be displayed becuase we are watching the values for these childs
             }
-            
             
             
             DispatchQueue.main.async {
@@ -173,11 +188,11 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyPeopleCell", for: indexPath)
         if isSearching  {
-//            //
+            //
 //                               cell.textLabel?.text = filteredSearchArray[indexPath.row].username
 //                        cell.detailTextLabel?.text = filteredSearchArray[indexPath.row].computerLanguage
 //            
-            UserService.show(forUID: filteredSearchArray[indexPath.row].username, completion: { (user) in
+            UserService.show(forUID: filteredSearchArray[indexPath.row].uid!, completion: { (user) in
                 guard let user = user else {
                     return
                 }
@@ -191,10 +206,10 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             })
 
             
-            
+            return cell
             
         } else {
-                     UserService.show(forUID: hardCodedUsers[indexPath.row].username, completion: { (user) in
+                     UserService.show(forUID: hardCodedUsers[indexPath.row].uid!, completion: { (user) in
                 guard let user = user else {
                     return
                 }
@@ -224,11 +239,12 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             tableView.reloadData()
         } else {
             isSearching = true
+            print(hardCodedUsers)
             filteredSearchArray = hardCodedUsers.filter{
-                //$0.username == searchBar.text!
+                //$0.uhsername == searchBar.text!
                 //                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
                 $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-                //                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+                              //  $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
                 // return true
                 
                 

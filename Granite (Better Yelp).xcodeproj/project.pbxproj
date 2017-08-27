@@ -22,7 +22,7 @@
 		1C4D2D051F32352200C6FC4B /* redd-angelo-113258.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */; };
 		1C650F8F1F38E8EB005B398E /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C650F8E1F38E8EB005B398E /* Storyboard+Utility.swift */; };
 		1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */; };
-		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; };
+		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */; };
 		1CCA45CE1F29858D005C062C /* ProfileVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA45CD1F29858D005C062C /* ProfileVewController.swift */; };
 		1CCA45D01F2A275A005C062C /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */; };
@@ -40,7 +40,7 @@
 		1CF5CE301F34ECAC00ECC085 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CF5CE2F1F34ECAC00ECC085 /* background.jpg */; };
 		1CF5CE321F35FA7A00ECC085 /* AuthenticationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF5CE311F35FA7A00ECC085 /* AuthenticationServices.swift */; };
 		1CF70D321F4B77D2009951A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CF70D311F4B77D2009951A1 /* GoogleService-Info.plist */; };
-		843AD75B2EF3F78DF1055EC7 /* Pods_Granite__Better_Yelp_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */; };
+		BA4C8A2D94A96C7044CC6F3E /* Pods_Granite__Better_Yelp_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD437DC375BEED2D157673 /* Pods_Granite__Better_Yelp_.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,12 +76,13 @@
 		1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LogInStoryBoard.storyboard; path = "Granite (Better Yelp)/LogInStoryBoard.storyboard"; sourceTree = "<group>"; };
 		1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsername.swift; sourceTree = "<group>"; };
 		1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		1CF2B9541F537A2900ED3A56 /* IHKeyboardAvoiding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IHKeyboardAvoiding.framework; path = "../../Library/Developer/Xcode/DerivedData/Granite_(Better_Yelp)-awzinilrrvfqoabtfjodyjdwlvdz/Build/Products/Debug-iphoneos/IHKeyboardAvoiding/IHKeyboardAvoiding.framework"; sourceTree = "<group>"; };
 		1CF5CE2F1F34ECAC00ECC085 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		1CF5CE311F35FA7A00ECC085 /* AuthenticationServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationServices.swift; sourceTree = "<group>"; };
 		1CF70D311F4B77D2009951A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).debug.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).debug.xcconfig"; sourceTree = "<group>"; };
-		36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Granite__Better_Yelp_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).release.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).release.xcconfig"; sourceTree = "<group>"; };
+		2CDD437DC375BEED2D157673 /* Pods_Granite__Better_Yelp_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Granite__Better_Yelp_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCDAE4F512F40FEEF5AB51D /* Pods-Granite (Better Yelp).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).release.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).release.xcconfig"; sourceTree = "<group>"; };
+		F0B66E5CFAB1E14F5B63508E /* Pods-Granite (Better Yelp).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).debug.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,13 +91,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */,
-				843AD75B2EF3F78DF1055EC7 /* Pods_Granite__Better_Yelp_.framework in Frameworks */,
+				BA4C8A2D94A96C7044CC6F3E /* Pods_Granite__Better_Yelp_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DE9B3CF485685F4754F017D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0B66E5CFAB1E14F5B63508E /* Pods-Granite (Better Yelp).debug.xcconfig */,
+				ECCDAE4F512F40FEEF5AB51D /* Pods-Granite (Better Yelp).release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1C0619341F476ADC00113EEA /* Indicatior Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,8 +177,8 @@
 				1C9CED2B1F2778BA002C4BCA /* Picture and Videos */,
 				1CD906EF1F24067D0085E102 /* View Controllers */,
 				1CD906EE1F24067D0085E102 /* Products */,
-				4925F09C19B95B2B87362CBC /* Pods */,
 				4DA83572763E5E5E2ABB5390 /* Frameworks */,
+				0DE9B3CF485685F4754F017D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,20 +230,12 @@
 			name = "Info files";
 			sourceTree = "<group>";
 		};
-		4925F09C19B95B2B87362CBC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */,
-				3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		4DA83572763E5E5E2ABB5390 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CF2B9541F537A2900ED3A56 /* IHKeyboardAvoiding.framework */,
 				1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */,
-				36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */,
+				2CDD437DC375BEED2D157673 /* Pods_Granite__Better_Yelp_.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,12 +247,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CD906FF1F24067D0085E102 /* Build configuration list for PBXNativeTarget "Granite (Better Yelp)" */;
 			buildPhases = (
-				598D73E33C18AF6A3EA89D3B /* [CP] Check Pods Manifest.lock */,
+				4886B6F773D5BF1B2C03B806 /* [CP] Check Pods Manifest.lock */,
 				1CD906E91F24067D0085E102 /* Sources */,
 				1CD906EA1F24067D0085E102 /* Frameworks */,
 				1CD906EB1F24067D0085E102 /* Resources */,
-				523DCFE978C0AE3ACFE68CDB /* [CP] Embed Pods Frameworks */,
-				36DF8DFCA7D92B76D08204AC /* [CP] Copy Pods Resources */,
+				138C718358B6744FC5E9FE03 /* [CP] Embed Pods Frameworks */,
+				02A95F391869C039A5DA841A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -320,14 +322,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		36DF8DFCA7D92B76D08204AC /* [CP] Copy Pods Resources */ = {
+		02A95F391869C039A5DA841A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp)-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
 			);
@@ -340,7 +342,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp)-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		523DCFE978C0AE3ACFE68CDB /* [CP] Embed Pods Frameworks */ = {
+		138C718358B6744FC5E9FE03 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -351,6 +353,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleMapsDirections/GoogleMapsDirections.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -364,6 +367,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleMapsDirections.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -376,7 +380,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		598D73E33C18AF6A3EA89D3B /* [CP] Check Pods Manifest.lock */ = {
+		4886B6F773D5BF1B2C03B806 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -521,7 +525,7 @@
 		};
 		1CD907001F24067D0085E102 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */;
+			baseConfigurationReference = F0B66E5CFAB1E14F5B63508E /* Pods-Granite (Better Yelp).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R4WEEFNVWZ;
@@ -537,7 +541,7 @@
 		};
 		1CD907011F24067D0085E102 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */;
+			baseConfigurationReference = ECCDAE4F512F40FEEF5AB51D /* Pods-Granite (Better Yelp).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R4WEEFNVWZ;

@@ -21,4 +21,5 @@ target 'Granite (Better Yelp)' do
  pod 'VideoBackground', '~> 0.1.0'
  pod 'SDWebImage'
  pod 'TextFieldEffects'
+pod 'IHKeyboardAvoiding'
 end

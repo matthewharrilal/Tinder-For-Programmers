@@ -96,7 +96,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             return
         }
         else {
-         Database.database().reference().child("users").child("currentLocation").child((Auth.auth().currentUser?.uid)!).setValue(["Latitude": location.coordinate.latitude, "Longitude": location.coordinate.longitude, "altitude": location.altitude])
+         Database.database().reference().child("users").child(roughLocationKey).child((Auth.auth().currentUser?.uid)!).setValue(["Latitude": location.coordinate.latitude, "Longitude": location.coordinate.longitude, "altitude": location.altitude])
             
             manager.stopUpdatingLocation()
             return
@@ -230,46 +230,46 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
-    
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        
-        // HACK
-        self.map.removeOverlays(self.map.overlays)
-        
-        let mapCenter = mapView.centerCoordinate
-        let roughLatitude = round(mapCenter.latitude * 10.0)/10.0
-        let roughLongitude = round(mapCenter.longitude * 10.0)/10.0
-        var boxCoordinates = [
-            CLLocationCoordinate2D(latitude: roughLatitude, longitude: roughLongitude),
-            CLLocationCoordinate2D(latitude: roughLatitude + 0.1, longitude: roughLongitude),
-            CLLocationCoordinate2D(latitude: roughLatitude + 0.1, longitude: roughLongitude + 0.1),
-            CLLocationCoordinate2D(latitude: roughLatitude, longitude: roughLongitude + 0.1)
-        ]
-        
-        let polygon = MKPolygon(coordinates: &boxCoordinates, count: 4)
-     
-        mapView.addOverlays([polygon], level: .aboveRoads)
-    }
-   
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        if let polygon = overlay as? MKPolygon {
-            let box = MKPolygonRenderer(polygon: polygon)
-            box.strokeColor = UIColor.red
-            box.fillColor = UIColor.red
-            box.lineWidth = 10.0
-            
-            return box
-        }
-        
-        return MKOverlayRenderer()
-    }
-    
-    
-    func mapView(_ mapView: MKMapView, didAdd renderers: [MKOverlayRenderer]) {
-        
-    }
-
-    
+//    
+//    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+//        
+//        // HACK
+//        self.map.removeOverlays(self.map.overlays)
+//        
+//        let mapCenter = mapView.centerCoordinate
+//        let roughLatitude = round(mapCenter.latitude * 10.0)/10.0
+//        let roughLongitude = round(mapCenter.longitude * 10.0)/10.0
+//        var boxCoordinates = [
+//            CLLocationCoordinate2D(latitude: roughLatitude, longitude: roughLongitude),
+//            CLLocationCoordinate2D(latitude: roughLatitude + 0.1, longitude: roughLongitude),
+//            CLLocationCoordinate2D(latitude: roughLatitude + 0.1, longitude: roughLongitude + 0.1),
+//            CLLocationCoordinate2D(latitude: roughLatitude, longitude: roughLongitude + 0.1)
+//        ]
+//        
+//        let polygon = MKPolygon(coordinates: &boxCoordinates, count: 4)
+//     
+//        mapView.addOverlays([polygon], level: .aboveRoads)
+//    }
+//   
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        if let polygon = overlay as? MKPolygon {
+//            let box = MKPolygonRenderer(polygon: polygon)
+//            box.strokeColor = UIColor.red
+//            box.fillColor = UIColor.red
+//            box.lineWidth = 10.0
+//            
+//            return box
+//        }
+//        
+//        return MKOverlayRenderer()
+//    }
+//    
+//    
+//    func mapView(_ mapView: MKMapView, didAdd renderers: [MKOverlayRenderer]) {
+//        
+//    }
+//
+//    
 }
 
 

@@ -16,6 +16,7 @@ import FirebaseAuth
 import CoreData
 import SystemConfiguration
 
+
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
     var authHandle: AuthStateDidChangeListenerHandle?
     var database: Database!
@@ -49,7 +50,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // setupProfile()
+        
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,6 +69,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         view.addGestureRecognizer(tap)
         showAlert()
         setupProfile()
+      self.githubLink.delegate = self as! UITextFieldDelegate
         
      circularImage(photoImageView: profileImage)
     }

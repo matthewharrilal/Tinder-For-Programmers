@@ -93,33 +93,15 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
 
         
         databaseRef.child("usersByLocation").child(self.roughLocationKey!).observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let newSnapshot = snapshot.children.allObjects as? [DataSnapshot]
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
                 // So essentially what is happening here is that we a
                 else { return }
             
             //self.hardCodedUsers = [HardCodedUsers]()
             //self.filteredSearchArray = [HardCodedUsers]()
           
-            
-            guard let dictionary = snapshot.value as? [String: AnyObject],
-                let username = dictionary["username"] as? String,
-                let email = dictionary["email"] as? String,
-                let fullName = dictionary["fullName"] as? String,
-                let password = dictionary["password"] as? String,
-                let githubName = dictionary["githubName"] as? String,
-                let githubLink = dictionary["githubLink"] as? String,
-                let compLanguage = dictionary["compLanguage"] as? String,
-                let userBio = dictionary["userBio"] as? String
-                
-                else {
-                    // So what is essentially happening here is that we should not get confused between adding a node to our firebase database location as well and initalizing a new user
-                    
-                    // The difference between the two is that when we initalize a user it means we are creating the user with the properties they must have to be created such as a username and password where this fetch users function stores them and and nodes in our firebase database in the form of a dictionary holding values within the keys
-                    print("WHAT")
-                    return
-            }
-
-            for userByLocation in newSnapshot {
+          
+            for userByLocation in snapshot {
                 
                 print(userByLocation.key)
                 var userArray = [userByLocation.key]

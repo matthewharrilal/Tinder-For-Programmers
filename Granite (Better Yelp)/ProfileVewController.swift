@@ -69,21 +69,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         view.addGestureRecognizer(tap)
         showAlert()
         setupProfile()
-      self.githubLink.delegate = self as! UITextFieldDelegate
         
-     circularImage(photoImageView: profileImage)
-    }
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.borderColor = UIColor.black.cgColor
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.clipsToBounds = true
+
+          }
     
-    func circularImage(photoImageView: UIImageView?)
-    {
-        profileImage!.layer.frame = photoImageView!.layer.frame.insetBy(dx: 0, dy: 0)
-        profileImage!.layer.borderColor = UIColor.gray.cgColor
-        profileImage!.layer.cornerRadius = photoImageView!.frame.height/2
-        profileImage!.layer.masksToBounds = false
-        profileImage!.clipsToBounds = true
-        profileImage!.layer.borderWidth = 0.5
-        profileImage!.contentMode = UIViewContentMode.scaleAspectFill
-    }
     
     func isInternetAvailable() -> Bool
     {

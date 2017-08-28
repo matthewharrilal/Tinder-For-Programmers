@@ -50,7 +50,7 @@
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
                 self.signUpErrors(error: error)
-                print(error.localizedDescription)
+                print(Auth.auth().currentUser)
                 
                 
                 // So essentially what we are doing here is that we are saying if the error is existent then show us the signup error but the problem we were having was that when we were saying that if the error does not exist becuase that was the only time we can actually work but the user returns nil but therefore it hits both the if and else statement
@@ -152,26 +152,48 @@
             self.present(wrongMove, animated: true, completion: nil)
             return
         } else {
-            switch(error.localizedDescription) {
-            case "The email address is badly formatted.":
-                let invalidEmailAlert = UIAlertController(title: "This email address is badly formatted", message:  "Please try again with a different and correctly formatted email address", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-                invalidEmailAlert.addAction(cancelAction)
-                self.present(invalidEmailAlert, animated: true, completion: nil)
-                break;
+            
+            if let errCode = AuthErrorCode(rawValue: error._code) {
+                switch errCode {
+                case .emailAlreadyInUse:
+                    let emailInUse = UIAlertController(title: "Email Already In Use", message: "Please try again with an email that is not in use by another account", preferredStyle: .alert)
+                    let cancelAction  = UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
+                    emailInUse.addAction(cancelAction)
+                    self.present(emailInUse, animated: true, completion: nil)
+                    break;
+                    
+                case .invalidEmail:
+                    let invalidEmail = UIAlertController(title: "This email address is invalid ", message: "This email address is invalid please try again with a different email address", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+                    invalidEmail.addAction(cancelAction)
+                    self.present(invalidEmail, animated: true, completion: nil)
+                    break;
                 
-                
-            default:
-                let signUpErrorAlert = UIAlertController(title: "Trouble Signing You Up", message: "Please try creating an account at a later and more convient time", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-                signUpErrorAlert.addAction(cancelAction)
-                self.present(signUpErrorAlert, animated: true, completion:  nil)
-                
-                
+                case .weakPassword:
+                    let weakPassword = UIAlertController(title: "Please try again with a stronger password", message: "The password you have chosen to make your accunt has been deemed as weak, please try again with a different password", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+                    weakPassword.addAction(cancelAction)
+                    self.present(weakPassword, animated: true, completion: nil)
+                    break;
+                    
+                    
+                case .noSuchProvider:
+                    let noProviderAlert = UIAlertController(title: "Credentials have not been verified", message: "Your user credentials have not been verfied, please try signing in again", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+                    noProviderAlert.addAction(cancelAction)
+                    self.present(noProviderAlert, animated: true, completion: nil)
+                    break;
+                default:
+                    let generalError = UIAlertController(title: "We are having trouble signing you up", message: "Please try again at a later time", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+                    generalError.addAction(cancelAction)
+                    self.present(generalError, animated: true, completion: nil)
+                }
             }
             
         }
         
     }
+    
     
  }

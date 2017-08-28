@@ -66,16 +66,13 @@ class ProfileThatUsersSee: UIViewController {
     
     
     func circularImage(photoImageView: UIImageView?)
-    {
-        profilePic!.layer.frame = photoImageView!.layer.frame.insetBy(dx: 0, dy: 0)
-        profilePic!.layer.borderColor = UIColor.gray.cgColor
-        profilePic!.layer.cornerRadius = photoImageView!.frame.height/2
-        profilePic!.layer.masksToBounds = false
-        profilePic!.clipsToBounds = true
-        profilePic!.layer.borderWidth = 0.5
-        profilePic!.contentMode = UIViewContentMode.scaleAspectFill
+    {        profilePic.layer.borderWidth = 1
+        profilePic.layer.masksToBounds = false
+        profilePic.layer.borderColor = UIColor.black.cgColor
+        profilePic.layer.cornerRadius = profilePic.frame.height/2
+        profilePic.clipsToBounds = true
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,16 +96,16 @@ class ProfileThatUsersSee: UIViewController {
             self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let pictureURL = user.pic {
                     self.profilePic.loadImageUsingCacheWithURLString(urlString: pictureURL)
-//                    let url = URL(string: pictureURL)
-//                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-//                        if error != nil {
-//                            print(error?.localizedDescription)
-//                            return
-//                        }
-//                        DispatchQueue.main.async {
-//                            self.profilePic.image = UIImage(data: data!)
-//                        }
-//                    }).resume()
+                    //                    let url = URL(string: pictureURL)
+                    //                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    //                        if error != nil {
+                    //                            print(error?.localizedDescription)
+                    //                            return
+                    //                        }
+                    //                        DispatchQueue.main.async {
+                    //                            self.profilePic.image = UIImage(data: data!)
+                    //                        }
+                    //                    }).resume()
                 }
             })
             
@@ -116,7 +113,7 @@ class ProfileThatUsersSee: UIViewController {
             
         })
         
-          }
+    }
     func isInternetAvailable() -> Bool
     {
         var zeroAddress = sockaddr_in()

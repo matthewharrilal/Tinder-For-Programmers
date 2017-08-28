@@ -88,41 +88,43 @@ class LogInViewController: UIViewController {
             self.present(emptyLogInCredentials, animated: true, completion: nil)
         }
         else {
-            switch(error.localizedDescription) {
-            case "The email address is badly formatted.":
-                let invalidEmailAlert = UIAlertController(title: "This email address is badly formatted", message: "Please try again with a different email address, if not please create an account", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-                invalidEmailAlert.addAction(cancelAction)
-                self.present(invalidEmailAlert, animated: true, completion:  nil)
-                break;
-                
-            case "There is no user record corresponding to this identifier. The user may have been deleted.":
-                let nonExistentUser = UIAlertController(title: "Non-existent Account", message: "This account does not correspond to any records within our database", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-                nonExistentUser.addAction(cancelAction)
-                self.present(nonExistentUser, animated: true, completion: nil)
-                break;
-            case "Try a different password.":
-                let invalidPassword = UIAlertController(title: "Wrong Password", message: "Try logging in with a different password", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-                invalidPassword.addAction(cancelAction)
-                self.present(invalidPassword, animated: true, completion:  nil)
-                break;
-                
-            case "Error: User does not exist":
-                let invalidAccount = UIAlertController(title: "This User Does Not Exist", message: "Please try logging in with a different account", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-                invalidAccount.addAction(cancelAction)
-                self.present(invalidAccount, animated: true, completion:  nil)
-                break;
-                
-            default:
-                let logInFailedAlert = UIAlertController(title: "Trouble Logging In", message: "We are having trouble logging you in", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-                logInFailedAlert.addAction(cancelAction)
-                self.present(logInFailedAlert, animated:  true, completion:  nil)
+            if let errCode = AuthErrorCode(rawValue: error._code) {
+                switch errCode {
+                    
+                case .noSuchProvider:
+                    let noProviderAlert = UIAlertController(title: "Credentials have not been verified", message: "Your user credentials have not been verfied, please try signing in again", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+                    noProviderAlert.addAction(cancelAction)
+                    self.present(noProviderAlert, animated: true, completion: nil)
+                    break;
+                    
+                case .invalidEmail:
+                    let invalidEmail = UIAlertController(title: "This email address is invalid ", message: "This email address is invalid please try again with a different email address", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+                    invalidEmail.addAction(cancelAction)
+                    self.present(invalidEmail, animated: true, completion: nil)
+                    break;
+                case .emailAlreadyInUse:
+                    let emailInUse = UIAlertController(title: "Email Already In Use", message: "Please try again with an email that is not in use by another account", preferredStyle: .alert)
+                    let cancelAction  = UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
+                    emailInUse.addAction(cancelAction)
+                    self.present(emailInUse, animated: true, completion: nil)
+                    break;
+                    
+                case .wrongPassword:
+                    let wrongPassword = UIAlertController(title: "Wrong Password", message: "The password you have used to sign in with, please try again", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
+                    wrongPassword.addAction(cancelAction)
+                    self.present(wrongPassword, animated: true, completion: nil)
+                    break;
+                default:
+                    let generalError = UIAlertController(title: "We are having trouble signing you up", message: "Please try again at a later time", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+                    generalError.addAction(cancelAction)
+                    self.present(generalError, animated: true, completion: nil)
+                    
+                }
             }
-            
         }
         
         

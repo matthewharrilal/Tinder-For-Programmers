@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//         setupProfile()
+         setupProfile()
         
     }
     
@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         showAlert()
-        setupProfile()
+//        setupProfile()
         
         profileImage.layer.borderWidth = 1
         profileImage.layer.masksToBounds = false
@@ -324,9 +324,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.githubNameLabel.text = dict["githubName"] as? String
                 self.compLanguageTextField.text = dict["compLanguage"] as? String
                 self.githubLink.text = dict["githubLink"] as? String
-                let fullName = dict["fullName"] as? String
+                let fullName = String(describing:dict["fullName"])
                 let keychain = KeychainSwift()
-                keychain.set(fullName!, forKey: "fullName")
+                keychain.set(fullName, forKey: "fullName")
                 //                self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["compLanguage" : compLabelText1])
                 // The reason we add this line of code above is because we wanted to when the user opens up the app again we wanted to be able to have the bio they had originally be saved to their profile when they pressed the save changes button
                 self.compLanguageTextField.text = dict["compLanguage"] as? String

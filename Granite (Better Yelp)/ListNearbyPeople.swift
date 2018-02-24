@@ -18,7 +18,7 @@ import Kingfisher
 import SystemConfiguration
 
 
-class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
+class ListNearbyPeople: UITableViewController {
     var hardCodedUsers = [HardCodedUsers]()
     //var userUsernames: [HardCodedUsers] = []
     var profileController = [ProfileThatUsersSee]()
@@ -48,9 +48,9 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         fetchUsersLocation()
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self
+//        searchBar.delegate = self
         //        searchBar.returnKeyType = UIReturnKeyType.done
-        searchBar.returnKeyType = UIReturnKeyType.done
+//        searchBar.returnKeyType = UIReturnKeyType.done
         showAlert()
     }
     
@@ -135,13 +135,13 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRow(at: indexPath)! as! UITableViewCell
         username = currentCell.textLabel?.text
-        if isSearching {
-            self.selectedUser = filteredSearchArray[indexPath.row]
-        } else {
+//        if isSearching {
+//            self.selectedUser = filteredSearchArray[indexPath.row]
+//        } else {
             self.selectedUser = hardCodedUsers[indexPath.row]
             
             // So essentially what we are doing here is that we are creating a pathway to a specific node in our firebase database and we are doing that with the indexPath therefore what we are doing in this overwritten function is that we are taking our optinal variable and creating a pathway to our firebase database for the corresponding node when the user taps on the cell
-        }
+//        }
         
         performSegue(withIdentifier: "toProfile", sender: self)
         
@@ -156,41 +156,38 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return hardCodedUsers.count
-        if isSearching {
-            
-            return filteredSearchArray.count
-        } else {
+        
             return hardCodedUsers.count
             // Somehow we have to figure out a way to display the users that are in the rough location
             
-        }
+        
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyPeopleCell", for: indexPath)
-        if isSearching  {
-            //
-//                               cell.textLabel?.text = filteredSearchArray[indexPath.row].username
-//                        cell.detailTextLabel?.text = filteredSearchArray[indexPath.row].computerLanguage
-//            
-            UserService.show(forUID: filteredSearchArray[indexPath.row].uid!, completion: { (user) in
-                guard let user = user else {
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    cell.textLabel?.text = user.username
-                // What is happening here is really a work of art therefore let me explain what is happening here so what this userService.show function does is that it contains a daatabase reference to the uids of the users
-                    cell.detailTextLabel?.text = user.computerLanguage
-                }
-                
-            })
-
-            
-            return cell
-            
-        } else {
+//        if isSearching  {
+//            //
+////                               cell.textLabel?.text = filteredSearchArray[indexPath.row].username
+////                        cell.detailTextLabel?.text = filteredSearchArray[indexPath.row].computerLanguage
+////
+//            UserService.show(forUID: filteredSearchArray[indexPath.row].uid!, completion: { (user) in
+//                guard let user = user else {
+//                    return
+//                }
+//
+//                DispatchQueue.main.async {
+//                    cell.textLabel?.text = user.username
+//                // What is happening here is really a work of art therefore let me explain what is happening here so what this userService.show function does is that it contains a daatabase reference to the uids of the users
+//                    cell.detailTextLabel?.text = user.computerLanguage
+//                }
+//
+//            })
+//
+//
+//            return cell
+//
+//        } else {
                      UserService.show(forUID: hardCodedUsers[indexPath.row].uid!, completion: { (user) in
                 guard let user = user else {
                     return
@@ -209,35 +206,35 @@ class ListNearbyPeople: UITableViewController, UISearchBarDelegate {
             
             //cell.textLabel?.text = hardCodedUsers[indexPath.row].username
             
-        }
+//        }
         
         return cell
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == nil || searchBar.text == "" {
-            isSearching = false
-            view.endEditing(true)
-            tableView.reloadData()
-        } else {
-            isSearching = true
-            print(hardCodedUsers)
-            filteredSearchArray = hardCodedUsers.filter{
-                //$0.uhsername == searchBar.text!
-                //                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-                              //  $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-                // return true
-                
-                
-            }
-            
-            filteredSearchArray += hardCodedUsers.filter{
-                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-            }
-            tableView.reloadData()
-        }
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchBar.text == nil || searchBar.text == "" {
+//            isSearching = false
+//            view.endEditing(true)
+//            tableView.reloadData()
+//        } else {
+//            isSearching = true
+//            print(hardCodedUsers)
+//            filteredSearchArray = hardCodedUsers.filter{
+//                //$0.uhsername == searchBar.text!
+//                //                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+//                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+//                              //  $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+//                // return true
+//
+//
+//            }
+//
+//            filteredSearchArray += hardCodedUsers.filter{
+//                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+//            }
+//            tableView.reloadData()
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

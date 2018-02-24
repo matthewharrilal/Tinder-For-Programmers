@@ -23,7 +23,7 @@ import Kingfisher
 class HardCodedUsers: NSObject {
     var username: String
     var email: String
-    var fullName: String
+    var fullName: String!
     var password: String
     var githubName: String
     var githubLink: String?
@@ -34,7 +34,7 @@ class HardCodedUsers: NSObject {
     var uid: String? 
     // The reason we are making this optional is for the reason is because we know that the users dont need these values to make their account they add it later once they make it their account and the reason we can put this in a separate file is because it will be out of range because since we are passing the data from table view cell to the next view controller we would pass this in
     
-    init(username: String, email:String, fullName: String, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String, roughLocation: String, uid: String) {
+    init(username: String, email:String, fullName: String!, password:String, githubName: String, computerLanguage: String, githubLink: String, userBio: String, roughLocation: String, uid: String) {
         self.username = username
         self.email = email
         self.fullName = fullName

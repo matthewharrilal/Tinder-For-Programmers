@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g0A-fI-H7I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g0A-fI-H7I">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Bold</string>
+            <string>ChalkboardSE-Regular</string>
+        </array>
+        <array key="Noteworthy.ttc">
+            <string>Noteworthy-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Settings-->
         <scene sceneID="vhf-eb-tfs">
@@ -68,7 +77,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Home" title="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" title="Home" id="BYZ-38-t0r" customClass="LocatioViewController" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -77,8 +86,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DzI-pJ-MDp">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="568"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DzI-pJ-MDp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6SG-ej-U9a">
                                 <rect key="frame" x="30" y="625" width="354" height="101"/>
@@ -94,7 +103,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjv-Kj-7YN">
-                                        <rect key="frame" x="124.66666666666667" y="60" width="105.00000000000001" height="41"/>
+                                        <rect key="frame" x="124.66666666666666" y="60" width="105" height="41"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                         <state key="normal" title="My Account">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -182,14 +191,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wJs-gY-kOr">
-                                            <rect key="frame" x="15" y="15.999999999999998" width="35" height="24.333333333333332"/>
+                                            <rect key="frame" x="20" y="12.999999999999998" width="35" height="24.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cIR-aZ-XVG">
-                                            <rect key="frame" x="15.000000000000004" y="40.333333333333329" width="60.333333333333336" height="24.333333333333332"/>
+                                            <rect key="frame" x="20.000000000000004" y="40.333333333333329" width="60.333333333333336" height="24.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,7 +237,7 @@
                 <navigationController storyboardIdentifier="MainStoryBoard" title="&quot;Interests&quot;" automaticallyAdjustsScrollViewInsets="NO" id="g0A-fI-H7I" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sJX-DX-6Ul">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -406,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EHU-Rb-PcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3652.1739130434785" y="-669.29347826086962"/>
+            <point key="canvasLocation" x="2903" y="-620"/>
         </scene>
         <!--Web Browser-->
         <scene sceneID="gsi-LH-OvU">
@@ -464,7 +473,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Computer Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtg-EC-hDi">
-                                <rect key="frame" x="0.0" y="570.66666666666652" width="173" height="20.333333333333371"/>
+                                <rect key="frame" x="0.0" y="570.66666666666663" width="173" height="20.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="173" id="06W-65-JQJ"/>
                                 </constraints>
@@ -479,13 +488,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIf-JY-RkZ">
-                                <rect key="frame" x="193" y="570.66666666666652" width="189" height="21.333333333333371"/>
+                                <rect key="frame" x="193" y="570.66666666666663" width="189" height="21.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezP-kH-cNZ">
-                                <rect key="frame" x="147.66666666666669" y="488.66666666666663" width="200.00000000000006" height="29.999999999999886"/>
+                                <rect key="frame" x="147.66666666666666" y="488.66666666666669" width="199.99999999999997" height="30.000000000000057"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1EG-0A-icx"/>
@@ -501,6 +510,14 @@
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eB-Zs-DDb">
+                                <rect key="frame" x="128" y="634" width="184" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send Email"/>
+                                <connections>
+                                    <action selector="sendEmailButton:" destination="JXb-0e-zqX" eventType="touchUpInside" id="Iac-BZ-Gbq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="0.61954195205479456" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -562,23 +579,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpA-Uh-dl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4628" y="77.811094452773617"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Ht8-wU-zfd">
-            <objects>
-                <viewController id="c64-x5-mll" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1ZO-L0-dtI"/>
-                        <viewControllerLayoutGuide type="bottom" id="o1d-Jj-Ull"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bBw-eb-oYI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SnN-B2-OLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

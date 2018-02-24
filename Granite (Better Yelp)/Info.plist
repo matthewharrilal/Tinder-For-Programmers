@@ -27,8 +27,10 @@
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This application always wants to know where you are located</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This application wants to know where you are located</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This application wants to pin where you are located </string>
+	<string>This application wants to know where you are located</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Share Photos With People That Are Interested</string>
 	<key>UILaunchStoryboardName</key>

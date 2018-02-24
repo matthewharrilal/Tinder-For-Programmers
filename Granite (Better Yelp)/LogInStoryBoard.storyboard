@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="59V-aL-SQU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="59V-aL-SQU">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Bold</string>
+            <string>ChalkboardSE-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Log In-->
         <scene sceneID="tC2-Zs-CZk">
@@ -26,22 +32,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RCI-nd-UvO">
-                                <rect key="frame" x="35" y="144" width="344" height="300"/>
+                                <rect key="frame" x="35" y="144" width="344" height="306"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tex-Jl-gII" customClass="AkiraTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mitchellhudson@gmail.com" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tex-Jl-gII" customClass="AkiraTextField">
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="33"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lz8-K5-6G1">
-                                        <rect key="frame" x="0.0" y="80" width="344" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mitchellhudson" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lz8-K5-6G1">
+                                        <rect key="frame" x="0.0" y="83" width="344" height="33"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49h-XR-gJ4">
-                                        <rect key="frame" x="0.0" y="160" width="344" height="45"/>
+                                        <rect key="frame" x="0.0" y="166" width="344" height="45"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu0-vM-vvM">
-                                        <rect key="frame" x="0.0" y="255" width="344" height="45"/>
+                                        <rect key="frame" x="0.0" y="261" width="344" height="45"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
                                         <state key="normal" title="New User">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -127,14 +133,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Must Have Parental Consent Or Be Over The Age Of 18." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruZ-YY-d1J">
-                                <rect key="frame" x="10" y="112.33333333333334" width="394" height="48.333333333333343"/>
+                                <rect key="frame" x="10" y="112.33333333333333" width="394" height="48.333333333333329"/>
                                 <color key="backgroundColor" red="0.81568627450980391" green="0.66274509803921566" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ycj-gN-Umz">
-                                <rect key="frame" x="30" y="170.66666666666669" width="354" height="251.00000000000006"/>
+                                <rect key="frame" x="30" y="170.66666666666663" width="354" height="251"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write Yes or No" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFZ-u6-pVi">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
@@ -149,7 +155,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vp3-BT-u4Y">
-                                        <rect key="frame" x="0.0" y="70" width="354" height="30.000000000000028"/>
+                                        <rect key="frame" x="0.0" y="70" width="354" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -236,7 +242,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="59V-aL-SQU" customClass="MainNavigationController" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8vb-PG-oOQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -253,6 +259,6 @@
         <image name="firstViewControllerBackgroundImage.jpg" width="500" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zY7-WV-OlW"/>
+        <segue reference="bWY-My-Rl9"/>
     </inferredMetricsTieBreakers>
 </document>

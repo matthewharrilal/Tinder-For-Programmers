@@ -14,6 +14,8 @@
  import FirebaseDatabase
  import FirebaseStorage
  import SystemConfiguration
+ import KeychainSwift
+ 
  
  class CreateUsername: UIViewController {
     
@@ -36,6 +38,7 @@
     @IBAction func createAccount(_ sender: UIButton) {
         showAlert()
         var username = usernameTextField.text
+        let keychain = KeychainSwift()
         
         let passwordCount = passwordTextField.text?.characters.count
         if passwordCount! < 6 {
@@ -58,6 +61,8 @@
             } else {
                 
                 AuthenticationUserServices.determineUsernameAvailability(usernameToBeDetermined: username!){ (truth) in
+                     let fullName = self.fullName.text! 
+//                    keychain.set(fullName, forKey: "fullName")
                     self.usernameIsAvailbale = truth
                     if self.usernameIsAvailbale == true {
                         UserService.create("", "", self.usernameTextField.text!, self.emailTextField.text!, self.fullName.text!, self.passwordTextField.text!,self.githubName.text!, "", "", (user?.uid)!,completion: { (user) in

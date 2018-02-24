@@ -14,6 +14,12 @@ import FirebaseDatabase
 import FirebaseAuth
 import Kingfisher
 
+
+//struct EmailandPassword {
+//    var email = ""
+//    var password = ""
+//}
+
 class HardCodedUsers: NSObject {
     var username: String
     var email: String

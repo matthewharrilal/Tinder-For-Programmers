@@ -12,7 +12,7 @@ import CoreLocation
 
 class SettingsViewController: UIViewController {
     
-    var parentVC: ViewController!
+    var parentVC: LocatioViewController!
     // so here what we are essentially doing is that we are creating a new variable called parentVC and what that basically means is that its our parent view cntroller which means that all the view controllers that are displayed are a result of this view controller we are currently in 
     var radiusValue: Float = 50.0
     @IBOutlet weak var radiusSlider: UISlider!

@@ -15,7 +15,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import CoreData
 import SystemConfiguration
-
+import KeychainSwift
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
     var authHandle: AuthStateDidChangeListenerHandle?
@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // setupProfile()
+//         setupProfile()
         
     }
     
@@ -324,6 +324,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.githubNameLabel.text = dict["githubName"] as? String
                 self.compLanguageTextField.text = dict["compLanguage"] as? String
                 self.githubLink.text = dict["githubLink"] as? String
+                let fullName = dict["fullName"] as? String
+                let keychain = KeychainSwift()
+                keychain.set(fullName!, forKey: "fullName")
                 //                self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["compLanguage" : compLabelText1])
                 // The reason we add this line of code above is because we wanted to when the user opens up the app again we wanted to be able to have the bio they had originally be saved to their profile when they pressed the save changes button
                 self.compLanguageTextField.text = dict["compLanguage"] as? String
@@ -389,6 +392,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         emptyText.addAction(cancelAction)
         self.present(emptyText, animated: true, completion: nil)
     }
+    
+    
     
 }
 

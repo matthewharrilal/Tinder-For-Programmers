@@ -15,12 +15,17 @@ import FirebaseAuth
 import FirebaseStorage
 import Kingfisher
 import SystemConfiguration
-class ProfileThatUsersSee: UIViewController {
+import MessageUI
+import KeychainSwift
+
+
+class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate  {
     var username: String?
     var githubLink: String?
     var compLanguage: String?
     var userBio: String?
     var imageURLs = [String]()
+    var fullName: String?
     
     
     var hardCodedUser: HardCodedUsers?
@@ -91,6 +96,7 @@ class ProfileThatUsersSee: UIViewController {
             self.computerLanguageLabel.text = user.computerLanguage
             self.userBioTextView.text = user.userBio
             self.userBioTextView.isEditable = false
+            self.fullName = user.fullName
             // So essentially what this user service .show function does is that is displays the data for the authenticated user and we have to decide what part of that data we actually want
             // And the reason we want to show for uid the user.username because in the objectUser the username is where we are storing the keys for the uids therefore this show function is grabbing all the user data from that uid and we akre specifing which data we want and where we want it
             self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -157,4 +163,39 @@ class ProfileThatUsersSee: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func configureEmail() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        let keychain = KeychainSwift()
+        mailComposerVC.setToRecipients([keychain.get("email")!])
+        mailComposerVC.setSubject("Regarding Developer Interests From Granite")
+        
+        mailComposerVC.setMessageBody("Greetings \(String(describing: fullName!))! There has been a mutual connection established between yourself and \(String(describing: keychain.get("fullName"))). Discuss further where you should meet!", isHTML: false)
+        return mailComposerVC
+    }
+    
+    func showMailError() {
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Please try sending the email again", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+        sendMailErrorAlert.addAction(cancelAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+
+    
+    @IBAction func sendEmailButton(_ sender: UIButton) {
+        let mailComposeViewController = configureEmail()
+        
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        }
+        else {
+            showMailError()
+        }
+    }
+    
 }

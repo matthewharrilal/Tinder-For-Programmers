@@ -16,6 +16,7 @@ import FirebaseDatabase
 import Alamofire
 import QuartzCore
 import SystemConfiguration
+import KeychainSwift
 
 protocol LogInViewControllerDelegate: class {
     func finishLoggingIn()
@@ -60,6 +61,9 @@ class LogInViewController: UIViewController {
                 print("User is just signed in and their user defaults has not been set yet")
                 UserService.show(forUID: (user?.uid)!, completion: { (user) in
                     if let user = user {
+                        let keychainSwift = KeychainSwift()
+                        guard let emailText = self.emailTextField.text else {return}
+                        keychainSwift.set(emailText, forKey: "email")
                         HardCodedUsers.setCurrent(user, writeToUserDefaults: true)
                         self.finishLoggingIn()
                         print("User defaults has now been set")

@@ -22,4 +22,5 @@ target 'Granite (Better Yelp)' do
  pod 'SDWebImage'
  pod 'TextFieldEffects'
 pod 'IHKeyboardAvoiding'
+  pod 'KeychainSwift'
 end

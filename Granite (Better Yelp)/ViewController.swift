@@ -14,7 +14,7 @@ import Firebase
 import FirebaseAuthUI
 import FirebaseDatabase
 import SystemConfiguration
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var postalCode: String?
     // Map
@@ -29,7 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func logout() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let logInViewController = storyboard.instantiateViewController(withIdentifier: "Home")
-        let viewController = ViewController()
+        let viewController = LocatioViewController()
         self.present(viewController, animated: true, completion: nil )
         
         // So this function is basically the function we call whenever the user would want to logout from their account

@@ -13,10 +13,9 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
-import Kingfisher
-import SystemConfiguration
 import MessageUI
 import KeychainSwift
+import SystemConfiguration
 
 
 class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate  {
@@ -85,7 +84,7 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
         circularImage(photoImageView: profilePic)
         // We are compressing the images so the upload rate to our image view is much faster for the user
         
-        
+        self.navigationController?.navigationBar.isHidden = true
         let user = self.objectUser
         UserService.show(forUID: (user?.username)!, completion: {(user) in
             guard let user = user else {

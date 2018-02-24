@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 import FirebaseAuthUI
-import Alamofire
 import UIKit
 import FirebaseAuth
 typealias FIRUser = FirebaseAuth.User

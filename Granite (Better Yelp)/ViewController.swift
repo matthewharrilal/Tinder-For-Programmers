@@ -9,11 +9,11 @@
 import UIKit
 import MapKit
 import CoreLocation
-import VideoBackground
 import Firebase
 import FirebaseAuthUI
 import FirebaseDatabase
 import SystemConfiguration
+
 class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var postalCode: String?
@@ -109,7 +109,7 @@ class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     let manager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.isHidden = true
         showAlert()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyKilometer

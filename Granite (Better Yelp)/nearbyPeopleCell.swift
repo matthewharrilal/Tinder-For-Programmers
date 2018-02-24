@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuthUI
-import Kingfisher
 
 class NearbyPeopleCell: UITableViewCell {
 

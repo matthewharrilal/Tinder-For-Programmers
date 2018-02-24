@@ -13,10 +13,8 @@ import FirebaseAuthUI
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
-import Alamofire
-import QuartzCore
-import SystemConfiguration
 import KeychainSwift
+import SystemConfiguration
 
 protocol LogInViewControllerDelegate: class {
     func finishLoggingIn()

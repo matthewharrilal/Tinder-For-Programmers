@@ -12,7 +12,6 @@ import Firebase
 import FirebaseAuthUI
 import FirebaseDatabase
 import FirebaseAuth
-import Kingfisher
 
 
 //struct EmailandPassword {

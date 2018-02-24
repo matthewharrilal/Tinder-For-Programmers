@@ -9,8 +9,6 @@
 import UIKit
 import FirebaseAuthUI
 import Firebase
-import GooglePlaces
-import GoogleMaps
 import FirebaseDatabase
 
 
@@ -43,11 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
      //   }
        
-        
-        GMSServices.provideAPIKey("AIzaSyBUG325imlLGazifftWDvmEb3E_AxXJlSo")
-        GMSPlacesClient.provideAPIKey("AIzaSyBUG325imlLGazifftWDvmEb3E_AxXJlSo")
-                
-        
         return true
         
     }

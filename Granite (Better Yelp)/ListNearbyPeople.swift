@@ -13,8 +13,6 @@ import FirebaseAuthUI
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
-import Alamofire
-import Kingfisher
 import SystemConfiguration
 
 
@@ -46,6 +44,7 @@ class ListNearbyPeople: UITableViewController {
         databaseRef = Database.database().reference()
         //fetchUsers()
         fetchUsersLocation()
+        self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
 //        searchBar.delegate = self

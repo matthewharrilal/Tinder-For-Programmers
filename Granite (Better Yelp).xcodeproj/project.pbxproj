@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C0619331F4756CC00113EEA /* nearbyPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */; };
 		1C0619381F4904B500113EEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0619371F4904B500113EEA /* Extensions.swift */; };
-		1C1F4AA11F4212A400E2C3F0 /* matchmakingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */; };
 		1C1F4AA31F43305F00E2C3F0 /* gifFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */; };
 		1C1F4AA61F43397E00E2C3F0 /* computer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA51F43397E00E2C3F0 /* computer.jpg */; };
 		1C1F4AA71F434C3B00E2C3F0 /* giphy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */; };
@@ -23,9 +22,7 @@
 		1C650F8F1F38E8EB005B398E /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C650F8E1F38E8EB005B398E /* Storyboard+Utility.swift */; };
 		1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */; };
 		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */; };
 		1CCA45CE1F29858D005C062C /* ProfileVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA45CD1F29858D005C062C /* ProfileVewController.swift */; };
-		1CCA45D01F2A275A005C062C /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */; };
 		1CD226EB1F3A3C7000433883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD226EA1F3A3C7000433883 /* Main.storyboard */; };
 		1CD226ED1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD226EC1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg */; };
 		1CD226EF1F3AA7D900433883 /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD226EE1F3AA7D900433883 /* Logo.jpg */; };
@@ -46,7 +43,6 @@
 /* Begin PBXFileReference section */
 		1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyPeopleCell.swift; sourceTree = "<group>"; };
 		1C0619371F4904B500113EEA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchmakingMode.swift; sourceTree = "<group>"; };
 		1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFile.swift; sourceTree = "<group>"; };
 		1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = giphy.mp4; sourceTree = "<group>"; };
 		1C1F4AA51F43397E00E2C3F0 /* computer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = computer.jpg; sourceTree = "<group>"; };
@@ -60,9 +56,7 @@
 		1C650F8E1F38E8EB005B398E /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNearbyPeople.swift; sourceTree = "<group>"; };
 		1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1CCA45CD1F29858D005C062C /* ProfileVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVewController.swift; sourceTree = "<group>"; };
-		1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
 		1CD226EA1F3A3C7000433883 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1CD226EC1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = firstViewControllerBackgroundImage.jpg; sourceTree = "<group>"; };
 		1CD226EE1F3AA7D900433883 /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
@@ -197,14 +191,11 @@
 				1CD906F21F24067D0085E102 /* ViewController.swift */,
 				1CD906F71F24067D0085E102 /* Assets.xcassets */,
 				1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */,
-				1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */,
 				1CCA45CD1F29858D005C062C /* ProfileVewController.swift */,
 				1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */,
-				1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */,
 				1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */,
 				1CEB0EB21F2EC86800386BD3 /* MainNavigationController.swift */,
 				1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */,
-				1C1F4AA01F4212A400E2C3F0 /* matchmakingMode.swift */,
 				1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */,
 				1CE07EF61F4981B800C8BD73 /* WebBroswer.swift */,
 			);
@@ -412,7 +403,6 @@
 				1C4D2CF91F310C3A00C6FC4B /* HardCodedUsers.swift in Sources */,
 				1CD906F31F24067D0085E102 /* ViewController.swift in Sources */,
 				1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */,
-				1C1F4AA11F4212A400E2C3F0 /* matchmakingMode.swift in Sources */,
 				1CCA45CE1F29858D005C062C /* ProfileVewController.swift in Sources */,
 				1C650F8F1F38E8EB005B398E /* Storyboard+Utility.swift in Sources */,
 				1C0619331F4756CC00113EEA /* nearbyPeopleCell.swift in Sources */,
@@ -420,8 +410,6 @@
 				1C4D2D031F31FB7700C6FC4B /* ProfileThatUsersSee.swift in Sources */,
 				1CF5CE321F35FA7A00ECC085 /* AuthenticationServices.swift in Sources */,
 				1CEB0EB31F2EC86800386BD3 /* MainNavigationController.swift in Sources */,
-				1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */,
-				1CCA45D01F2A275A005C062C /* DirectionsViewController.swift in Sources */,
 				1CEB0EA71F2B9F2C00386BD3 /* LogInViewController.swift in Sources */,
 				1C4D2CFB1F310C7200C6FC4B /* HardCodedUserServices.swift in Sources */,
 				1C1F4AA31F43305F00E2C3F0 /* gifFile.swift in Sources */,
@@ -473,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -517,7 +505,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

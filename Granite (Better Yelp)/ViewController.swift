@@ -207,69 +207,10 @@ class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             viewController.roughLocationKey = String(format: "%.1f,%.1f", self.map.centerCoordinate.latitude, self.map.centerCoordinate.longitude).replacingOccurrences(of: ".", with: "%2e")
             print("Map is centered at location key \(viewController.roughLocationKey)")
         }
-        
-         let viewController1  = segue.destination as? DirectionsViewController
-        
-        
-        // THE SETTINGS DOESNT WORK BUT WE CAN FOCIS ON THAT LATER
-        if segue.identifier == "toSettings" {
-            
-            let vc = segue.destination as! SettingsViewController
-            vc.parentVC = self
-            vc.radiusValue = Float(radius)
-            
-            
-        }
-              
-        if let identifier = segue.identifier {
-            if identifier == "toMap" {
-            viewController1?.view.reloadInputViews()
-            }
-        }
-        
+   
         
     }
     
-//    
-//    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-//        
-//        // HACK
-//        self.map.removeOverlays(self.map.overlays)
-//        
-//        let mapCenter = mapView.centerCoordinate
-//        let roughLatitude = round(mapCenter.latitude * 10.0)/10.0
-//        let roughLongitude = round(mapCenter.longitude * 10.0)/10.0
-//        var boxCoordinates = [
-//            CLLocationCoordinate2D(latitude: roughLatitude, longitude: roughLongitude),
-//            CLLocationCoordinate2D(latitude: roughLatitude + 0.1, longitude: roughLongitude),
-//            CLLocationCoordinate2D(latitude: roughLatitude + 0.1, longitude: roughLongitude + 0.1),
-//            CLLocationCoordinate2D(latitude: roughLatitude, longitude: roughLongitude + 0.1)
-//        ]
-//        
-//        let polygon = MKPolygon(coordinates: &boxCoordinates, count: 4)
-//     
-//        mapView.addOverlays([polygon], level: .aboveRoads)
-//    }
-//   
-//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-//        if let polygon = overlay as? MKPolygon {
-//            let box = MKPolygonRenderer(polygon: polygon)
-//            box.strokeColor = UIColor.red
-//            box.fillColor = UIColor.red
-//            box.lineWidth = 10.0
-//            
-//            return box
-//        }
-//        
-//        return MKOverlayRenderer()
-//    }
-//    
-//    
-//    func mapView(_ mapView: MKMapView, didAdd renderers: [MKOverlayRenderer]) {
-//        
-//    }
-//
-//    
 }
 
 

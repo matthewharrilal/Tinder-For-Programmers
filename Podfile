@@ -12,15 +12,8 @@ target 'Granite (Better Yelp)' do
  pod 'FirebaseUI/Auth'
  pod 'Firebase/Database'
  pod 'Firebase/Storage'
- pod 'Kingfisher', '~> 3.0'
- pod 'GoogleMaps'
- pod 'GooglePlaces'
- pod 'GoogleMapsDirections'
- pod 'Alamofire'
- pod 'SwiftyJSON', :git =>'https://github.com/SwiftyJSON/SwiftyJSON.git'
- pod 'VideoBackground', '~> 0.1.0'
  pod 'SDWebImage'
  pod 'TextFieldEffects'
-pod 'IHKeyboardAvoiding'
+
   pod 'KeychainSwift'
 end

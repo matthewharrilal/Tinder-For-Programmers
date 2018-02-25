@@ -168,10 +168,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laura-aziz-133168.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nrQ-Jf-dV9">
-                                <rect key="frame" x="83" y="108" width="209" height="59"/>
+                                <rect key="frame" x="83" y="108" width="209" height="128"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ly3-Hh-EA7">
-                                <rect key="frame" x="6" y="221" width="363" height="68"/>
+                                <rect key="frame" x="6" y="290" width="363" height="68"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.66770119863013699" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="7Mi-8Z-WWK"/>
@@ -181,7 +181,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES" lookupSuggestion="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkD-kX-NNC">
-                                <rect key="frame" x="83" y="109" width="209" height="58"/>
+                                <rect key="frame" x="83" y="109" width="209" height="127"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="127" id="Ji7-mx-MUa"/>
                                 </constraints>
@@ -201,14 +201,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1V-xb-svQ">
-                                <rect key="frame" x="128" y="297" width="241" height="21"/>
+                                <rect key="frame" x="128" y="366" width="241" height="21"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKQ-nE-yjI">
-                                <rect key="frame" x="6" y="297" width="122" height="21"/>
+                                <rect key="frame" x="6" y="366" width="122" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="HYx-gy-yTG"/>
                                     <constraint firstAttribute="height" constant="21" id="bNM-hV-TbW"/>
@@ -228,7 +228,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Github Link" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oft-mb-tbA" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="0.0" y="393" width="375" height="46"/>
+                                <rect key="frame" x="0.0" y="462" width="375" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="r9L-AS-oPQ"/>
                                 </constraints>
@@ -251,7 +251,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="FT3-cE-Mh4">
-                                <rect key="frame" x="16" y="483" width="149" height="142"/>
+                                <rect key="frame" x="16" y="552" width="149" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="142" id="A50-2l-VU9"/>
                                     <constraint firstAttribute="width" constant="149" id="ELW-QG-Nzt"/>
@@ -262,7 +262,7 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="jkB-jh-Rrv">
-                                <rect key="frame" x="112" y="175" width="152" height="21"/>
+                                <rect key="frame" x="112" y="244" width="152" height="21"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="TaX-5U-0Rm"/>
@@ -417,7 +417,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eB-Zs-DDb">
-                                <rect key="frame" x="128" y="634" width="184" height="30"/>
+                                <rect key="frame" x="96" y="552" width="184" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Send Email"/>
                                 <connections>

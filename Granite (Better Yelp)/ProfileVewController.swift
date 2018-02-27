@@ -17,7 +17,7 @@ import CoreData
 import SystemConfiguration
 import KeychainSwift
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var authHandle: AuthStateDidChangeListenerHandle?
     var database: Database!
     var storage: Storage!
@@ -25,28 +25,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var hardCodedUsers = [HardCodedUsers]()
     @IBOutlet weak var profileImage: UIImageView!
     var username: String?
-    //    var users = [HardCodedUsers]()
     @IBOutlet weak var userBio: UITextView!
     @IBOutlet weak var githubNameLabel: UILabel!
     @IBOutlet weak var githubLink: UITextField!
+    @IBOutlet weak var fullNameLabel: UILabel!
     
     @IBOutlet weak var compLanguageTextField: UITextField!
     @IBOutlet weak var usernameLabel: UILabel!
     var hello = 3
     
-    let computerLanguages = ["Java", "JavaScript", "Swift", "C", "C++", "PHP", "Python", "Objective C", "Ruby", "R", "Perl", "NET", "SQL", "C#", "Visual Basic", "Ruby on Rails"," Delphi/Object Pascal", "Assembly language", "Go", " MATLAB", " Scratch","PL/SQL"]
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return computerLanguages[row]
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return computerLanguages.count
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        compLanguageTextField.text = computerLanguages[row]
-    }
+  
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //         setupProfile()
@@ -166,9 +154,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         } catch let error as NSError {
             assertionFailure("Error: error signing in \(error.localizedDescription)")
         }
-        // So this block of code is detrimental to our code and what it  does exactly that it lets us log the user out so let us tackle this code line by line
-        // we essentially want the code to sign our the verified user and we know if the user isnt verified then they cant be signed in
-        // If their is an error with signing the user out then the error will be printed out in the console
     }
     
     let storageRef = Storage.storage().reference()
@@ -179,15 +164,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         saveChanges()
         saveUserBioChanges()
         saveGithubLink()
-        if compLanguageTextField.text != "" {
-            saveCompLanguage()
-            print("These are our glory days and you cant stop us")
-        } else {
-            compLanguageIsEmpty()
-            return
-        }
-        
-        
     }
     
     @IBAction func uploadImageButton(_ sender: UIButton) {
@@ -196,13 +172,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.allowsEditing = true
         picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(picker, animated:  true, completion: nil)
-        
-        // So what we are essentially doing let us take this to the basics first and foremost what is happening is that we are saying that when the user presses upon this uploadImageButton that we want the following code to be executed and what is going to happpen is that we want to give this let constant we are declaring calledpicker to essentially be its own delegate and what that means is that we are giving its own set of protocols or in other words we can think about this in the way that we are giving it its own set of blueprints as opposed to making it subjugated to the default blueprints or protocols it originally came from
-        
-        // in the next line of code what is essentially happening is that well first we are making this picker of type uiimagepickercontroller and what that it essentially does is that it gives us all the properties of the uiimagepickercontroller within this picker controller and then from there we make it its own delegate and like we said that gives us our own set of blueprints and in the next line of code we are basically saying that we can allow editing meaning if they can modify the existing image
-        
-        // In the next line of code what is essentially happening is that we are giving a source for these photos to come from and for that source we are using the uiimagepickercontroller photo library meaning we have access to all the default photos
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -322,14 +291,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.usernameLabel.text = dict["username"] as? String
                 self.userBio.text = dict["userBio"] as? String
                 self.githubNameLabel.text = dict["githubName"] as? String
-                self.compLanguageTextField.text = dict["compLanguage"] as? String
                 self.githubLink.text = dict["githubLink"] as? String
                 let fullName = String(describing:dict["fullName"])
+                self.fullNameLabel.text = fullName
                 let keychain = KeychainSwift()
                 keychain.set(fullName, forKey: "fullName")
                 //                self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["compLanguage" : compLabelText1])
                 // The reason we add this line of code above is because we wanted to when the user opens up the app again we wanted to be able to have the bio they had originally be saved to their profile when they pressed the save changes button
-                self.compLanguageTextField.text = dict["compLanguage"] as? String
                 print("Then it is automatically grabbing the previous saved picture from firebase almost instantly")
                 if let profileImageURL = dict["pic"] as? String {
                     // It makes sense it is hitting this first because it has to populate the profile pic with the saved image from firebase
@@ -356,22 +324,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         })
         
     }
-    // So the  error we are facing as of now is that it is not grabbing the username value from firebase and implementing it into our username label text
-    // We figured out the solution to the problem and the problem was that we were assigning auto uids to the new users and they were getting authenticated with a different uid meaning that there was a discrepancy within the user identifcation not being able to connect between the authenticated user and the database user
-    
-    func saveCompLanguage() {
-        if compLanguageTextField.text != "",
-            let compText = compLanguageTextField.text {
-            if let userID = Auth.auth().currentUser?.uid {
-                databaseRef.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-                    self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["compLanguage" : compText])
-                    // Now the users daily computer science language they have chosen will be stored in firebase and will be like that when they return to their account by grabbing that data from firebase and putting it back into that text field
-                    print("The computer science language the user has been chosen and will now be saved")
-                })
-            }
-        }
-    }
-    
+
     func saveGithubLink() {
         if githubLink.text != "",
             let githubText = githubLink.text {
@@ -383,21 +336,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
     }
-    
-    func checkIfGithubLinkIsValid(textField: UITextField) {
-        if textField == githubLink {
-            
-        }
-    }
-    
-    func compLanguageIsEmpty() {
-        let emptyText = UIAlertController(title: "Please specify a language ", message: "Select one of the computer languages from the choices provided, in doing so you are easier to match up with other users", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-        emptyText.addAction(cancelAction)
-        self.present(emptyText, animated: true, completion: nil)
-    }
-    
-    
     
 }
 

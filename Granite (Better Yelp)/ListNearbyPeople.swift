@@ -194,9 +194,9 @@ class ListNearbyPeople: UITableViewController {
                 
                 DispatchQueue.main.async {
 
-                    cell.textLabel?.text = user.username
+                    cell.textLabel?.text = user.fullName
                 // What is happening here is really a work of art therefore let me explain what is happening here so what this userService.show function does is that it contains a daatabase reference to the uids of the users
-                    cell.detailTextLabel?.text = user.computerLanguage
+                    cell.detailTextLabel?.text = user.username
                 }
                 
             })

@@ -25,6 +25,7 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
     var userBio: String?
     var imageURLs = [String]()
     var fullName: String?
+    @IBOutlet weak var fullNameLabel: UILabel!
     
     
     var hardCodedUser: HardCodedUsers?
@@ -76,6 +77,10 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
         // We are compressing the images so the upload rate to our image view is much faster for the user
         
         self.navigationController?.navigationBar.isHidden = true
+        self.userBioTextView.clipsToBounds = true
+        self.userBioTextView.layer.cornerRadius = 10.0
+        self.userBioTextView.layer.borderColor = UIColor.black.cgColor
+        self.userBioTextView.layer.borderWidth = 3.0
         let user = self.objectUser
         UserService.show(forUID: (user?.username)!, completion: {(user) in
             guard let user = user else {
@@ -86,6 +91,7 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
             self.userBioTextView.text = user.userBio
             self.userBioTextView.isEditable = false
             self.fullName = user.fullName
+            self.fullNameLabel.text = self.fullName
             // So essentially what this user service .show function does is that is displays the data for the authenticated user and we have to decide what part of that data we actually want
             // And the reason we want to show for uid the user.username because in the objectUser the username is where we are storing the keys for the uids therefore this show function is grabbing all the user data from that uid and we akre specifing which data we want and where we want it
             self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in

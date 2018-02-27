@@ -24,8 +24,12 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
     var compLanguage: String?
     var userBio: String?
     var imageURLs = [String]()
-    var fullName: String?
+    var fullName: String!
     @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var livesInLabel: UILabel!
+    var city: String!
+    var senderFullName: String!
     
     
     var hardCodedUser: HardCodedUsers?
@@ -92,6 +96,12 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
             self.userBioTextView.isEditable = false
             self.fullName = user.fullName
             self.fullNameLabel.text = self.fullName
+            self.emailLabel.text = user.email
+            let keychain = KeychainSwift()
+            self.city = keychain.get("city")
+            self.livesInLabel.text = self.city
+            self.senderFullName = keychain.get("fullName")
+            
             // So essentially what this user service .show function does is that is displays the data for the authenticated user and we have to decide what part of that data we actually want
             // And the reason we want to show for uid the user.username because in the objectUser the username is where we are storing the keys for the uids therefore this show function is grabbing all the user data from that uid and we akre specifing which data we want and where we want it
             self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -160,7 +170,8 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
         mailComposerVC.setToRecipients([keychain.get("email")!])
         mailComposerVC.setSubject("Regarding Developer Interests From Granite")
         
-        mailComposerVC.setMessageBody("Greetings \(String(describing: fullName!))! There has been a mutual connection established between yourself and \(String(describing: keychain.get("fullName"))). Discuss further where you should meet!", isHTML: false)
+        
+        mailComposerVC.setMessageBody("Greetings \(fullName!)! There has been a mutual connection established between yourself and \(self.senderFullName!). Discuss further where you should meet!", isHTML: false)
         return mailComposerVC
     }
     

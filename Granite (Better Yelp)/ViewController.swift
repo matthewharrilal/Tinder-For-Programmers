@@ -13,6 +13,7 @@ import Firebase
 import FirebaseAuthUI
 import FirebaseDatabase
 import SystemConfiguration
+import KeychainSwift
 
 class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -38,19 +39,7 @@ class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         // In the next line of code we are declaring a new let constant called logInViewController and what this let constant essentially does is that we take the storyboard constant that we declared in the previous line of code and what we do with that is that we are using this new let constant we are declaring to reprsent the transition that occurs when the the user wants to go from wherever they are in the main storyboard and go to the view controller they want to end up in by giving the view controller an identifier for where they want to end up in and depending on where you call this function that how the transition is going to occur for example we call this function in the log out button action because when we press the logout button we want to be transition to the view controller that we gave the identifier for
         
     }
-    
-    @IBAction func applyUnwind(_ segue: UIStoryboardSegue) {
-        
-        
-    }
-      
-    //The submit button
-    @IBAction func submitButton(_ sender: UIButton) {
-       print("This is the end of the line for you")
-        // We should get in the habit of using print statements to see if our code is executing properly
-       self.performSegue(withIdentifier: "toNearbyPeople", sender: self)
-    }
-    
+
     var radius: Double = 50.0
     // Here we are essenitally declaring a new variable and what this variable is of type double and we set its value equalt 50 and the reason we are doing this is because we are basically setting it to match the default value of the slider to 50
     // Refer to the settings view controller after this step to see what comes next
@@ -59,6 +48,13 @@ class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
+        
+        let keychain = KeychainSwift()
+        
+        let usersCity = fetchCountryAndCity(location: location) { (country, city) in
+            keychain.set(country, forKey: "country")
+            keychain.set(city, forKey: "city")
+        }
         
         let roughLocationKey = String(format: "%.1f,%.1f", location.coordinate.latitude, location.coordinate.longitude).replacingOccurrences(of: ".", with: "%2e")
         
@@ -90,7 +86,6 @@ class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         
         self.map.showsUserLocation = true
         //   print(location.altitude) // This is optional if you want to know the users current altitude
-       
         if Auth.auth().currentUser?.uid == nil {
         print("The user can not be tracked yet")
             return
@@ -137,6 +132,18 @@ class LocatioViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         let currentLocation = manager.location
         
     }
+    
+    func fetchCountryAndCity(location: CLLocation, completion: @escaping(String, String) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print(error)
+            }
+            guard let country = placemarks?.first?.country else {return}
+            guard let city = placemarks?.first?.locality else {return}
+                completion(country, city)
+        }
+    }
+    
     func isInternetAvailable() -> Bool
     {
         var zeroAddress = sockaddr_in()

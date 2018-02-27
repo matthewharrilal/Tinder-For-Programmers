@@ -32,12 +32,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var compLanguageTextField: UITextField!
     @IBOutlet weak var usernameLabel: UILabel!
-    var hello = 3
+    var fullNameUser: String!
     
-  
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//         setupProfile()
+        //         setupProfile()
         self.navigationController?.navigationBar.isHidden = true
         self.userBio.layer.borderColor = UIColor.black.cgColor
         self.userBio.layer.borderWidth = 3.0
@@ -67,8 +67,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImage.layer.borderColor = UIColor.black.cgColor
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
-
-          }
+        
+    }
     
     
     func isInternetAvailable() -> Bool
@@ -213,8 +213,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let storedImage = storageRef.child("profileImage").child(imageName)
         
-            if let uploadData = UIImageJPEGRepresentation(profileImage.image!, 0.1)
-      //  if let uploadData = UIImagePNGRepresentation(self.profileImage.image!)
+        if let uploadData = UIImageJPEGRepresentation(profileImage.image!, 0.1)
+            //  if let uploadData = UIImagePNGRepresentation(self.profileImage.image!)
         {
             storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                 if error != nil {
@@ -288,7 +288,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func setupProfile() {
         
-            let uid = Auth.auth().currentUser?.uid
+        let uid = Auth.auth().currentUser?.uid
         //  let compLabelText1 = compLanguagesLabel.text
         Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
@@ -296,10 +296,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.userBio.text = dict["userBio"] as? String
                 self.githubNameLabel.text = dict["githubName"] as? String
                 self.githubLink.text = dict["githubLink"] as? String
-                let fullName = String(describing:dict["fullName"])
-                self.fullNameLabel.text = fullName
+                self.fullNameUser = dict["fullName"] as? String
+                self.fullNameLabel.text = self.fullNameUser
                 let keychain = KeychainSwift()
-                keychain.set(fullName, forKey: "fullName")
+                keychain.set(self.fullNameLabel.text!, forKey: "fullName")
                 //                self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["compLanguage" : compLabelText1])
                 // The reason we add this line of code above is because we wanted to when the user opens up the app again we wanted to be able to have the bio they had originally be saved to their profile when they pressed the save changes button
                 print("Then it is automatically grabbing the previous saved picture from firebase almost instantly")
@@ -328,7 +328,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         })
         
     }
-
+    
     func saveGithubLink() {
         if githubLink.text != "",
             let githubText = githubLink.text {

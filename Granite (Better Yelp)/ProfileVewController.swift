@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //         setupProfile()
-        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     
@@ -342,6 +342,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         }
                         DispatchQueue.main.async {
                             self.profileImage.image = UIImage(data:data!)
+                            self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+                            self.profileImage.clipsToBounds = true
+                            self.profileImage.layer.borderColor = UIColor.cyan.cgColor
+                            self.profileImage.layer.borderWidth = 4
                         }
                     }).resume()
                     
@@ -396,4 +400,27 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
 }
+
+
+extension UIColor {
+    convenience init(hex: String) {
+        let scanner = Scanner(string: hex)
+        scanner.scanLocation = 0
+        
+        var rgbValue: UInt64 = 0
+        
+        scanner.scanHexInt64(&rgbValue)
+        
+        let r = (rgbValue & 0xff0000) >> 16
+        let g = (rgbValue & 0xff00) >> 8
+        let b = rgbValue & 0xff
+        
+        self.init(
+            red: CGFloat(r) / 0xff,
+            green: CGFloat(g) / 0xff,
+            blue: CGFloat(b) / 0xff, alpha: 1
+        )
+    }
+}
+
 

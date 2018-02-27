@@ -36,6 +36,7 @@ extension UIImageView {
                 if let downloadedImage = UIImage(data: data!) {
                     
                 self.image = downloadedImage
+                
                 }
             }
         }).resume()

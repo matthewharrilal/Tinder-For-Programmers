@@ -69,19 +69,10 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     
-    func circularImage(photoImageView: UIImageView?)
-    {        profilePic.layer.borderWidth = 1
-        profilePic.layer.masksToBounds = false
-        profilePic.layer.borderColor = UIColor.black.cgColor
-        profilePic.layer.cornerRadius = profilePic.frame.height/2
-        profilePic.clipsToBounds = true
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showAlert()
-        circularImage(photoImageView: profilePic)
         // We are compressing the images so the upload rate to our image view is much faster for the user
         
         self.navigationController?.navigationBar.isHidden = true
@@ -92,7 +83,6 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
             }
             self.usernameLabel.text = user.username
             self.githubLinkLabel.text = user.githubLink
-            self.computerLanguageLabel.text = user.computerLanguage
             self.userBioTextView.text = user.userBio
             self.userBioTextView.isEditable = false
             self.fullName = user.fullName
@@ -101,16 +91,10 @@ class ProfileThatUsersSee: UIViewController, MFMailComposeViewControllerDelegate
             self.databaseRef.child("users").child(user.username).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let pictureURL = user.pic {
                     self.profilePic.loadImageUsingCacheWithURLString(urlString: pictureURL)
-                    //                    let url = URL(string: pictureURL)
-                    //                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                    //                        if error != nil {
-                    //                            print(error?.localizedDescription)
-                    //                            return
-                    //                        }
-                    //                        DispatchQueue.main.async {
-                    //                            self.profilePic.image = UIImage(data: data!)
-                    //                        }
-                    //                    }).resume()
+                    self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width / 2
+                    self.profilePic.clipsToBounds = true
+                    self.profilePic.layer.borderColor = UIColor.cyan.cgColor
+                    self.profilePic.layer.borderWidth = 4
                 }
             })
             

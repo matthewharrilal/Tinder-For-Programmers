@@ -39,6 +39,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidAppear(animated)
 //         setupProfile()
         self.navigationController?.navigationBar.isHidden = true
+        self.userBio.layer.borderColor = UIColor.black.cgColor
+        self.userBio.layer.borderWidth = 3.0
+        self.userBio.clipsToBounds = true
+        self.userBio.layer.cornerRadius = 10.0
     }
     
     

@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-         setupProfile()
+//         setupProfile()
         
     }
     
@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         showAlert()
-//        setupProfile()
+        setupProfile()
         
         profileImage.layer.borderWidth = 1
         profileImage.layer.masksToBounds = false

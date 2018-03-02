@@ -14,7 +14,7 @@ target 'Granite (Better Yelp)' do
  pod 'Firebase/Storage'
  pod 'SDWebImage'
  pod 'TextFieldEffects'
-
   pod 'KeychainSwift'
+  pod 'EmailValidator'
   
 end

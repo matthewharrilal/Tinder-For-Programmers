@@ -15,6 +15,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import KeychainSwift
 import SystemConfiguration
+import EmailValidator
 
 protocol LogInViewControllerDelegate: class {
     func finishLoggingIn()
@@ -53,7 +54,7 @@ class LogInViewController: UIViewController {
                 print(error.localizedDescription)
                 
                 return
-                // This get hits when you are signing in with a user that doesnt exist and the opposite for the else statement
+                // This get hits when you are signing in with a userlogin that doesnt exist and the opposite for the else statement
                 // The reason we werent having the user saving to user defualts is becuase we had the return command line commented out therefore when it was checking if the if condition was true it never left therefore getting confused thonking it was an error
             } else {
                 print("User is just signed in and their user defaults has not been set yet")

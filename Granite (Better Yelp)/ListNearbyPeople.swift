@@ -155,7 +155,13 @@ class ListNearbyPeople: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return hardCodedUsers.count
-        
+//        if hardCodedUsers.count == 0 {
+//            let alert = UIAlertController(title: "No Nearby Users", message: "Try Changing Your Location", preferredStyle: .alert)
+//            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+//            alert.addAction(cancelAction)
+//            self.present(alert, animated: true, completion: nil)
+//            
+//        }
             return hardCodedUsers.count
             // Somehow we have to figure out a way to display the users that are in the rough location
             
@@ -210,30 +216,7 @@ class ListNearbyPeople: UITableViewController {
         return cell
     }
     
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchBar.text == nil || searchBar.text == "" {
-//            isSearching = false
-//            view.endEditing(true)
-//            tableView.reloadData()
-//        } else {
-//            isSearching = true
-//            print(hardCodedUsers)
-//            filteredSearchArray = hardCodedUsers.filter{
-//                //$0.uhsername == searchBar.text!
-//                //                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-//                $0.username.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-//                              //  $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-//                // return true
-//
-//
-//            }
-//
-//            filteredSearchArray += hardCodedUsers.filter{
-//                $0.computerLanguage?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
-//            }
-//            tableView.reloadData()
-//        }
-//    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

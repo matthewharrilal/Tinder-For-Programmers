@@ -1,4 +1,5 @@
 PODS:
+  - EmailValidator (1.0.1)
   - Firebase/Auth (4.0.3):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -49,6 +50,7 @@ PODS:
   - TextFieldEffects (1.3.3)
 
 DEPENDENCIES:
+  - EmailValidator
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -59,6 +61,7 @@ DEPENDENCIES:
   - TextFieldEffects
 
 SPEC CHECKSUMS:
+  EmailValidator: d7bd7b9b1f39c5af38d9140983f5492605a5ff87
   Firebase: 9e33fdfbca37cab635c693883caa90a4475b842b
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -73,6 +76,6 @@ SPEC CHECKSUMS:
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   TextFieldEffects: 8706f53525f1ce51c8921b7af32237caab50c467
 
-PODFILE CHECKSUM: eb796be9f5428c5d16dc34f117c63ab95c3746e9
+PODFILE CHECKSUM: 87009765cc47ca5ac13b7d6da5ba065c5f3f432d
 
 COCOAPODS: 1.3.1

@@ -15,6 +15,7 @@
  import FirebaseStorage
  import SystemConfiguration
  import KeychainSwift
+ import EmailValidator
  
  
  class CreateUsername: UIViewController {

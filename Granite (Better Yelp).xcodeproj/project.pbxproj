@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C0619331F4756CC00113EEA /* nearbyPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */; };
 		1C0619381F4904B500113EEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0619371F4904B500113EEA /* Extensions.swift */; };
+		1C150D452056F64800ACD396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C150D442056F64800ACD396 /* LaunchScreen.storyboard */; };
 		1C1F4AA31F43305F00E2C3F0 /* gifFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */; };
 		1C1F4AA61F43397E00E2C3F0 /* computer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA51F43397E00E2C3F0 /* computer.jpg */; };
 		1C1F4AA71F434C3B00E2C3F0 /* giphy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */; };
@@ -22,6 +23,7 @@
 		1C650F8F1F38E8EB005B398E /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C650F8E1F38E8EB005B398E /* Storyboard+Utility.swift */; };
 		1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */; };
 		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		1CB616A72059E4160017FF05 /* LogoMakr-600.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB616A62059E4160017FF05 /* LogoMakr-600.png */; };
 		1CCA45CE1F29858D005C062C /* ProfileVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA45CD1F29858D005C062C /* ProfileVewController.swift */; };
 		1CD226EB1F3A3C7000433883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD226EA1F3A3C7000433883 /* Main.storyboard */; };
 		1CD226ED1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD226EC1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg */; };
@@ -43,6 +45,7 @@
 /* Begin PBXFileReference section */
 		1C0619321F4756CC00113EEA /* nearbyPeopleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyPeopleCell.swift; sourceTree = "<group>"; };
 		1C0619371F4904B500113EEA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1C150D442056F64800ACD396 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C1F4AA21F43305F00E2C3F0 /* gifFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFile.swift; sourceTree = "<group>"; };
 		1C1F4AA41F4335F200E2C3F0 /* giphy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = giphy.mp4; sourceTree = "<group>"; };
 		1C1F4AA51F43397E00E2C3F0 /* computer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = computer.jpg; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		1C650F8E1F38E8EB005B398E /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNearbyPeople.swift; sourceTree = "<group>"; };
 		1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1CB616A62059E4160017FF05 /* LogoMakr-600.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LogoMakr-600.png"; sourceTree = "<group>"; };
 		1CCA45CD1F29858D005C062C /* ProfileVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVewController.swift; sourceTree = "<group>"; };
 		1CD226EA1F3A3C7000433883 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1CD226EC1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = firstViewControllerBackgroundImage.jpg; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				1CD226EE1F3AA7D900433883 /* Logo.jpg */,
 				1CD226EC1F3AA0FC00433883 /* firstViewControllerBackgroundImage.jpg */,
 				1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */,
+				1CB616A62059E4160017FF05 /* LogoMakr-600.png */,
 				1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */,
 				1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */,
 				1CF5CE2F1F34ECAC00ECC085 /* background.jpg */,
@@ -208,6 +213,7 @@
 			children = (
 				1CD226EA1F3A3C7000433883 /* Main.storyboard */,
 				1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */,
+				1C150D442056F64800ACD396 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -296,7 +302,9 @@
 			files = (
 				1CF70D321F4B77D2009951A1 /* GoogleService-Info.plist in Resources */,
 				1C1F4AA91F434E4B00E2C3F0 /* used.mp4 in Resources */,
+				1CB616A72059E4160017FF05 /* LogoMakr-600.png in Resources */,
 				1C1F4AA71F434C3B00E2C3F0 /* giphy.mp4 in Resources */,
+				1C150D452056F64800ACD396 /* LaunchScreen.storyboard in Resources */,
 				1C1F4AA61F43397E00E2C3F0 /* computer.jpg in Resources */,
 				1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */,
 				1CD226EF1F3AA7D900433883 /* Logo.jpg in Resources */,
@@ -320,7 +328,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp)-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
